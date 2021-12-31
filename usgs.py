@@ -2,7 +2,7 @@
 ################################################################################
 ## Github-brewlytics Integration for Python Scripts
 ##
-## Author: K. Chadwick
+## Author: OutsideKen
 ## Created: 2021-12-30
 ## Updated: 2021-12-30
 ## 
