@@ -1,0 +1,303 @@
+################################################################################
+################################################################################
+## Scikit-learn DecisionTreeClassifier
+## Synthetic Ellipse dataset Classification model
+## Author: OutsideKen
+## Created: 02 November 2020
+## Updated: 06 February 2022
+##
+################################################################################
+################################################################################
+## CHANGE LOG
+##------------------------------------------------------------------------------
+## 2020-11-02 - Port of original exemplar script from TutorialsPoint
+##              https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_classification_algorithms_decision_tree.htm
+## 2020-11-05 - Add Summary Report of Model Result to output_string
+## 2022-01-17 - Swapped out the dataset for a synthetic Ellipse dataset
+## 2022-02-05 - Modified script for use in brewlytics Python Script (Beta)
+##              functional to test the Python flavors; added library versions
+##              to Summary report
+## 2022-02-06 - Implemented GitHub Version control for Python Script
+##
+################################################################################
+################################################################################
+
+import json
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import sklearn
+import sys
+
+from brewlytics import *
+
+from datetime import datetime
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report,confusion_matrix,accuracy_score,roc_curve,roc_auc_score
+
+################################################################################
+## FUNCTIONS
+################################################################################
+
+def unpack(packed_dictionary):
+    
+    unpacked_dictionary = dict()
+    for key,val in packed_dictionary.items():
+        for v in val:
+            unpacked_dictionary[v] = '%s{%s}' % (v,key)
+            
+    return unpacked_dictionary
+
+################################################################################
+## MODEL DATA
+################################################################################
+
+## Model Execution Time
+now = datetime.utcnow()
+model_execution_time = now.strftime('%Y-%m-%dT%H:%M:%SZ')
+
+##------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+## LIVE BREWLYTICS ENVIRONMENT
+##------------------------------------------------------------------------------
+
+## Model Data
+md = json.loads(inputs.string)
+
+## Dataset Name
+dataset_name = md['Dataset Name']
+
+## If Set Random Seed is not set to 0, accept value; if set to 0, set to None
+## to allow random set seeds between successive iterations to demonstrate the
+## variability of the model
+if md['Set Random Seed'] != 0:
+    random_seed = md['Set Random Seed']
+else:
+    random_seed = None
+
+## Validates User-defined 'Train/Test Split'; if invalid, 'Train/Test Split'
+## will be set to 0.33 (33.3-percent) of the total training dataset size
+if (md['Train/Test Split'] > 0.0) & (md['Train/Test Split'] < 1.0):
+    test_size = md['Train/Test Split']
+else:
+    test_size = 0.33
+
+## Decision Tree features
+features = md['Features Columns']
+
+## Decision Tree Target
+target = md['Target']
+
+## Decision Tree Target Class Names
+class_names = md['Class Names']
+
+## Visualization - Transparent Background
+transparent = md['Transparent Background']
+
+##------------------------------------------------------------------------------
+## MODEL DATA: CV Types
+##------------------------------------------------------------------------------
+
+packed_cv_types = {'decimal': ['Semi-Major','Semi-Minor','Eccentricity','Area'],
+                   'integer': ['Index','Tag Int'],
+                   'string': ['Tag']}
+
+cv_types = unpack(packed_cv_types)
+    
+################################################################################
+## BODY
+################################################################################
+
+df = inputs.tables[0]
+df.columns = [column_name.split('{')[0] 
+              for column_name in df.columns]
+
+## Target variable - Map Boolean Target values to integer
+mapper = {True: 1, False: 0, 't': 1, 'f': 0,}
+df['Tag'] = df['Tag'].apply(lambda t: mapper[t])
+
+##------------------------------------------------------------------------------
+## Decision Tree features
+##------------------------------------------------------------------------------
+
+X = df[features]
+
+##------------------------------------------------------------------------------
+## Decision Tree Target variable
+##------------------------------------------------------------------------------
+y = df[target]
+
+##------------------------------------------------------------------------------
+## Build Traing & Test datasets
+##------------------------------------------------------------------------------
+
+X_train,X_test,y_train,y_test = train_test_split(X,y,
+                                                 test_size = test_size,
+                                                 random_state = random_seed)
+
+##------------------------------------------------------------------------------
+## Create a DecisionTreeClassifier object
+##------------------------------------------------------------------------------
+
+clf = DecisionTreeClassifier(criterion = 'entropy', 
+                             splitter = 'best', 
+                             max_depth = None, 
+                             min_samples_split = 2, 
+                             min_samples_leaf = 1, 
+                             min_weight_fraction_leaf = 0.0,
+                             max_features = None, 
+                             random_state = random_seed,
+                             max_leaf_nodes = None, 
+                             min_impurity_decrease = 0.0,
+                             class_weight = None, 
+                             ccp_alpha = 0.0)
+
+##------------------------------------------------------------------------------
+## Train the classifier
+##------------------------------------------------------------------------------
+
+clf = clf.fit(X_train,y_train)
+
+##------------------------------------------------------------------------------
+## Test the classifier
+##------------------------------------------------------------------------------
+y_pred = clf.predict(X_test)
+
+##------------------------------------------------------------------------------
+## Model Results metrics
+##------------------------------------------------------------------------------
+
+result = confusion_matrix(y_test, y_pred)
+result1 = classification_report(y_test, y_pred)
+result2 = accuracy_score(y_test,y_pred)
+
+##------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+## Visualize DecisionTreeClassifier Performance
+##------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+
+fig = plt.figure(figsize=(10,3), dpi = 600)
+ax = fig.add_subplot(121)
+
+## Create a Confusion Matrix
+# sns.heatmap(confusion_matrix(y_test,y_pred),annot=True)
+sns.heatmap(result,annot=True)
+
+plt.text(1.5,-0.25,'Ellipse Shape DecisionTreeClassifier',
+         fontweight = 'bold', fontsize = 12)
+
+plt.title('Confusion Matrix', fontweight = 'bold', fontsize = 10)
+plt.xlabel('Predicted Label',
+          fontweight = 'normal', fontsize = 8)
+plt.ylabel('Actual Label',
+          fontweight = 'normal', fontsize = 8)
+
+## Create an ROC/AUC Plot
+ax1 = fig.add_subplot(122)
+fpr, tpr, thresholds = roc_curve(y_test, y_pred, pos_label = 1)
+plt.plot(fpr,tpr,
+         color = '#41ab5d',
+         linewidth = 6.0,
+         linestyle = '-',
+         label = "%.2f" % roc_auc_score(y_test,y_pred))
+
+plt.plot([0,1],[0,1],
+         color = 'firebrick',
+         linewidth = 1.0,
+         linestyle = ':',
+         label = "%.2f" % (0.5))
+plt.legend(loc = 'lower right')
+
+plt.title('ROC Curve', fontweight = 'bold', fontsize = 10)
+plt.xlabel('False positive rate (1-Specificity)',
+          fontweight = 'normal', fontsize = 8)
+plt.ylabel('True positive rate (Sensitivity)',
+          fontweight = 'normal', fontsize = 8)
+
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.0])
+
+plt.grid(True)
+
+filename = 'DecisionTreeClassifier.png'
+plt.savefig(filename, 
+            dpi = 600, 
+            transparent = True,
+            bbox_inches = 'tight')
+plt.show()
+
+##------------------------------------------------------------------------------
+## Add CV Types to column names
+##------------------------------------------------------------------------------
+
+df.columns = [cv_types[column_name] for column_name in df.columns]
+
+################################################################################
+## OUTPUTS
+################################################################################
+## Output Training Dataset with brewlytics CV Types
+# output_table = df
+# outputs.tables.append(df)
+
+## Output Confusion Matrix & AUC Plots
+# output_resource = filename
+# outputs.resource = filename
+
+################################################################################
+## SUMMARY
+################################################################################
+
+stub = 'Scikit-learn DecisionTreeClassifier Model Details\n'
+stub += 'Model Name: %s\n' % dataset_name
+stub += 'Date: %s\n' % model_execution_time
+stub += '\n'
+stub += '================================================================================\n\n'
+stub += 'Python Version: %s\n' % sys.version 
+stub += '\n'
+stub += 'json %s\n' % json.__version__
+stub += 'matplotlib %s\n' % matplotlib.__version__
+stub += 'numpy %s\n' % np.__version__
+stub += 'pandas %s\n' % pd.__version__
+stub += 'seaborn %s\n' % sns.__version__
+stub += 'scikit learn %s\n' % sklearn.__version__
+stub += '\n'
+stub += '================================================================================\n\n'
+stub += 'Dataset Name: %s\n' % (dataset_name)
+stub += 'Dataset size: %d rows %d columns\n\n' % (df.shape)
+stub += 'Features Columns:\n- ' + '\n- '.join(features)
+stub += '\n\n'
+stub += 'Target/Class Columns: \n- ' + '\n- '.join(target)
+stub += '\n\n'
+stub += '================================================================================\n\n'
+stub += 'Train/Test Information:\n\n'
+stub += '- Train/Test Split: %0.2f/%0.2f\n' % (1 - test_size, test_size)
+stub += '- Train Dataset size: %d rows %d columns\n' % X_train.shape
+stub += '- Test Dataset size: %d rows %d columns\n' % X_test.shape
+stub += '- Random State: %s\n' % str(random_seed)
+stub += '\n'
+stub += 'Classes in Training Set:\n- ' + '\n- '.join(class_names)
+stub += '\n\n'
+stub += 'Classes in Test Set:\n- ' + '\n- '.join(class_names)
+stub += '\n\n'
+stub += '================================================================================\n\n'
+stub += 'Confusion Matrix:\n\n'
+stub += np.array2string(result, formatter={'float_kind':lambda x: "%.2f" % x})
+stub += '\n\n'
+stub += 'Classification Report:\n\n'
+stub += result1
+stub += '\n\n'
+stub += 'Accuracy: %f\n\n' % result2
+stub += '================================================================================\n\n'
+stub += 'Features and Importance Scores:\n\n'
+stub += '- ' + '\n- '.join(['%s: %f' % tuple(z) 
+                            for z in zip(X_train[features], clf.feature_importances_)])
+stub += '\n\n================================================================================\n\n'
+
+outputs.string = stub
+
+print(stub)
