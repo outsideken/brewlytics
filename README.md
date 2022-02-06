@@ -1,6 +1,12 @@
 # brewlytics
-This Github is for testing brewlytics Python script repositories
 
+This Github repository is for the brewlytics Python Script functional. These scripts demonstrate different analytic tasks using Python.
+
+* brewlytics API
+  * Machine Learning
+    * sklearn DecisionTree
+
+<hr>
 
 * [Model - Scikit-learn DecisonTreeClassifier - Ellipse Classifier](https://demo.brewlytics.com/app/#/build/4e6c1944-328a-47dc-b1cd-119b5101f61d)
 
