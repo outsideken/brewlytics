@@ -224,10 +224,10 @@ plt.ylim([0.0, 1.0])
 
 plt.grid(True)
 
-filename = 'DecisionTreeClassifier.png'
-plt.savefig(filename, 
+filename1 = 'DecisionTreeClassifier.png'
+plt.savefig(filename1, 
             dpi = 600, 
-            transparent = True,
+            transparent = transparent,
             bbox_inches = 'tight')
 plt.show()
 
@@ -242,11 +242,11 @@ df.columns = [cv_types[column_name] for column_name in df.columns]
 ################################################################################
 ## Output Training Dataset with brewlytics CV Types
 # output_table = df
-# outputs.tables.append(df)
+outputs.tables.append(df)
 
 ## Output Confusion Matrix & AUC Plots
-# output_resource = filename
-# outputs.resource = filename
+# output_resource = filename1
+outputs.resource = filename1
 
 ################################################################################
 ## SUMMARY
