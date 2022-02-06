@@ -3,8 +3,8 @@
 This Github repository is for the brewlytics Python Script functional. These scripts demonstrate different analytic tasks using Python.
 
 * brewlytics API
-  * Machine Learning
-    * sklearn DecisionTree
+* Machine Learning
+  * sklearn DecisionTree
 
 <hr>
 
