@@ -1,0 +1,96 @@
+################################################################################
+################################################################################
+## brewlytics Sub-Model
+## Persist Resource with Auto-MIME Type
+## Author:  outsideKen
+## Created: 27 June 2020
+## Updated: 20 February 2022
+##
+################################################################################
+## CHANGE LOG
+## 2020-06-27 - Original Code
+## 2020-06-29 - Added KML/KMZ MIME types to the CSV and documentation
+## 2020-10-01 - Corrected Notification Email details ordering
+## 2020-10-05 - Added brew instance to Notification Email
+## 2022-02-20 - Converted model to use a Github hosted Python Script
+##
+################################################################################
+
+import pandas as pd
+
+from datetime import datetime
+
+################################################################################
+## FUNCTIONS
+
+## Remove brewlytics CV Type substrings from column names
+def remove_cv_type_substrings(df):
+    return [column_names.split('{')[0] for column_names in df.columns]
+
+################################################################################
+## MODEL DATA
+
+utcnow = datetime.utcnow()
+utcnow_str = utcnow.strftime('%d %B %Y at %H%MZ')
+
+################################################################################
+## BODY
+
+## Auto-Generate MIME type based on filename
+if not input_list:
+    
+    df = input_table.copy()
+
+    ## Remove brewlytics CV Type substrings from column names
+    df.columns = remove_cv_type_substrings(df)
+
+    print('Number of File Extensions: %d' % len((df['File Extension'].unique())))
+    print('Number of Unique MIME Types: %d' % len((df['MIME Type'].unique())))
+    print()
+    
+    ## Convert input_table dataframe to a dictionary with the file extension as 
+    ## the keys
+    mime = df.set_index('File Extension').to_dict(orient = 'index')
+
+    for key,val in mime.items():
+        mime[key] = val['MIME Type']
+
+    # Extract file extension from filename input
+    file_extension = input_string.split('.')[-1].lower()
+    
+    if file_extension in mime.keys():
+        result = mime[file_extension]
+    else:
+        
+        ## Default MIME type if file extension not recognized
+        result = 'text/plain'
+    
+## Generate notification email on Persistence of a resource
+else:
+    
+    filename,uuid,status,instance = input_list
+    
+    result = '''
+    <h1>Notification of %s Resource Persistence</h1>
+    <hr>
+    <p>The following action occurred on %s</p>
+    <ul>
+      <li>brew Instance: %s</li>
+      <li>Filename: %s</li>
+      <li>UUID: %s</li>
+      <li>Status: %s</li>
+    </ul>
+    <hr>
+    <p><center>This brewlytics email was generated on %s.</center></p>
+    ''' % (status,utcnow_str,instance, filename,uuid,status,utcnow.strftime('%d %B %Y'))
+    
+################################################################################
+## OUTPUT
+
+output_string = result
+
+################################################################################
+## SUMMARY
+    
+################################################################################
+################################################################################
