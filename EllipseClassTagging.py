@@ -60,7 +60,7 @@ def format_plot(ax, font_size, color):
 now = datetime.utcnow()
 now_str = now.strftime('%Y-%m-%d %H:%MZ')
 
-md = json.loads(inputs_string[0])
+md = json.loads(inputs.string)
 
 ##------------------------------------------------------------------------------
 ## Set User-defined Random Seed
@@ -119,43 +119,12 @@ for column_name in order:
 ## Multi-Class Classification - Add 'Class' columm to dataframe
 ## 81.7128249198705 nm of current methology
 
-df = inputs_table[0].copy()
+df = inputs.table.copy()
 df.columns = [column_name.split('{')[0] for column_name in df.columns]
 
 df['Area'] = [tuple(z) for z in zip(df['Area (min)'],df['Area (max)'])]
 
 ellipse_classes = df.set_index('Class').to_dict(orient = 'index')
-
-# classes = {'Excellent': {'Area': (0.0,4.0),
-#                          'Line Width': 3.0,
-#                          'Line Style': '-',
-#                          'Color': '#238b45',
-#                          'Alpha': 0.9},
-#            'Very Good': {'Area': (4.0,16.0),
-#                          'Line Width': 3.0,
-#                          'Line Style': '-',
-#                          'Color': '#74c476',
-#                          'Alpha': 0.9},
-#            'Good': {'Area': (16.0,32.0),
-#                     'Line Width': 3.0,
-#                     'Line Style': '-',
-#                     'Color': '#c7e9c0',
-#                     'Alpha': 0.9},
-#            'Poor': {'Area': (32.0,64.0),
-#                     'Line Width': 3.0,
-#                     'Line Style': '-',
-#                     'Color': '#feb24c',
-#                     'Alpha': 0.9},
-#            'Very Poor': {'Area': (64.0,82.0),
-#                          'Line Width': 3.0,
-#                          'Line Style': '-',
-#                          'Color': '#a50f15',
-#                          'Alpha': 0.9},
-#            'Bad': {'Area': (82.0,10000.0),
-#                    'Line Width': 3.0,
-#                    'Line Style': '-',
-#                    'Color': '#d9d9d9',
-#                    'Alpha': 0.9}}
 
 ################################################################################
 ## BODY
@@ -241,7 +210,7 @@ new_df = pd.concat(df2concat)
 ## OUTPUTS.TABLE[0]: Randomly Generated Ellipse Dataset
 ##------------------------------------------------------------------------------
 
-outputs_table = new_df[column_order].rename(columns = cv_types).copy()
+outputs.table = new_df[column_order].rename(columns = cv_types).copy()
 
 ################################################################################
 ## SUMMARY
