@@ -1,0 +1,152 @@
+################################################################################
+################################################################################
+## Scikit-learn DecisionTreeClassifier
+## Create Ellipse Class Curve Plot
+## Author: OutsideKen
+## Created: 02 November 2020
+## Updated: 01 April 2022
+##
+################################################################################
+## CHANGE LOG
+## 2020-11-02 - Port of original exemplar script from TutorialsPoint
+##              https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_classification_algorithms_decision_tree.htm
+## 2020-11-05 - Add Summary Report of Model Result to output_string
+## 2022-01-17 - Swapped out the dataset for a Synthetic Ellipse dataset
+## 2022-03-05 - Updated for 6-Class Synthetic Ellipse dataset
+## 2022-03-08 - Added Output_Resource[1] - Trained Multi-Class Ellipse Decison
+##              Tree model as a pickle
+## 2022-03-26 - Added code to convert the ScikitLearn Confusion Matrix to a 
+##              formatted pandas DataFrame for the Confusion Matrix plot
+## 2022-04-01 - Updated Python Script for use in brewlytics
+##
+################################################################################
+################################################################################
+
+import math
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+from brewlytics import *
+from datetime import datetime
+
+################################################################################
+## FUNCTIONS
+################################################################################
+
+def remove_cv_types(tdf):
+    return [column_name.split('{')[0] for column_name in tdf.columns]
+
+def format_plot(ax, font_size, color):
+    
+    ax.tick_params(direction='out', length = 4, width = 1, colors = color,
+                   labelsize = font_size, labelcolor = color)
+
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    
+    return
+
+################################################################################
+## MODEL DATA
+################################################################################
+
+now = datetime.utcnow()
+now_str = now.strftime('%Y-%m-%d %H:%MZ')
+
+##------------------------------------------------------------------------------
+## INPUTS.TABLE: Convert User-define Ellipse Classes CSV to an to dictionary
+## with the ellipse class as the key and parameters dictionary as the value
+##------------------------------------------------------------------------------
+
+## Multi-Class Classification - Add 'Class' columm to dataframe
+## 81.7128249198705 nm of current methology
+
+df = inputs.table.copy()
+df.columns = [column_name.split('{')[0] for column_name in df.columns]
+
+df['Area'] = [tuple(z) for z in zip(df['Area (min)'],df['Area (max)'])]
+
+ellipse_classes = df.set_index('Class').to_dict(orient = 'index')
+
+font_size = 10
+background = 'dimgray'
+
+marker = '.'
+size = 1
+alpha = 0.1
+
+fig = plt.figure(figsize=(10,10))
+ax = fig.add_subplot(111)
+
+increment = 0.001
+
+max_sma = 40.0
+sma = np.arange(increment,max_sma,increment)
+
+## Plot Upper Limits of Ellipse Classes as a line to show performance 
+## against current Semi-Major & Semi-Minor threshold methodology
+for key,val in ellipse_classes.items():
+    
+    ellipse_area = val['Area'][1]
+    smi = ellipse_area / (math.pi * sma)
+    
+    ## Legend specifics
+    legend = key + ' (Area %d to %d nm^2)' % (int(val['Area'][0]),int(val['Area'][1]))
+    
+    ## Validate Semi-Major/Semi-Minor pairs 
+    ## (Semi-Major >= Semi-Minor)
+    points = [pt for pt in zip(sma,smi) if pt[1] <= pt[0]]
+    
+    plt.plot([x for x,y in points], ## X-Axis Values
+             [y for x,y in points], ## Y-Axis Values
+             lw = val['Line Width'], ## Linewidth
+             ls = val['Line Style'], ## Line Style
+             color = val['Color'], ## Line Color
+             alpha = val['Alpha'], ## Line Alpha
+             label = legend, ## Legend Label
+             zorder = 1) ## Plot Layer
+
+## Plot line to show current Semi-Major & Semi-Minor ranges
+plt.plot([5.1,0.0],
+         [0.0,5.1],
+         lw = 3.0,
+         ls = ':',
+         color = '#08519c', 
+         alpha = 0.9,
+         label = 'Current Range (Area 0 to ~81.7 nm^2)',
+         zorder = 0)
+
+plt.title('Ellipse Class Curve Plots', fontweight = 'bold', fontsize = 18, 
+          color = background)
+
+plt.xlabel('Semi-Major', fontweight = 'normal', fontsize = 14, 
+           color = background)
+
+plt.ylabel('Semi-Minor', fontweight = 'normal', fontsize = 14, 
+           color = background)
+
+format_plot(ax, font_size, background)
+
+plt.legend(frameon = False)
+
+filename = 'EllipseClasses_(%s).png' % now.strftime('%Y-%m-%d_%H%MZ')
+plt.savefig(filename,
+            dpi = 600,
+            bbox_inches = 'tight')
+
+################################################################################
+## OUTPUTS
+################################################################################
+
+##------------------------------------------------------------------------------
+## OUTPUTS.RESOURCE: Ellipse Class Curve Plot
+##------------------------------------------------------------------------------
+
+outputs.resource = filename
+
+################################################################################
+## SUMMARY
+################################################################################
