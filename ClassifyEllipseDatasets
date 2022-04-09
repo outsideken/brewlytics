@@ -35,7 +35,7 @@ def remove_CV_types(tdf):
 ##------------------------------------------------------------------------------
 def process_input_table(idx):
     
-    global inputs.tables,inputs.tables_headers
+#    global inputs.tables,inputs.tables_headers
     
     ## Extract dataframe and remove brewlytics CV Types from Column names
     tdf = inputs.tables[idx].copy()
