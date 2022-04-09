@@ -1,0 +1,167 @@
+################################################################################
+################################################################################
+## Scikit-learn DecisionTreeClassifier
+## 6-Class Synthetic Ellipse Classifier
+## Author: K. Chadwick
+## Created: 08 April 2022
+## Updated: 08 April 2022
+##
+################################################################################
+## CHANGE LOG
+## 2022-04-08 - Initial Python Script for Tagging an Ellipse Dataset
+##
+################################################################################
+################################################################################
+
+import numpy as np
+import pandas as pd
+import pickle
+
+from brewlytics import *
+from datetime import datetime
+
+################################################################################
+## FUNCTIONS
+################################################################################
+
+##------------------------------------------------------------------------------
+## Remove brewlytics CV Types from Table column names
+##------------------------------------------------------------------------------
+def remove_CV_types(tdf):
+    return [column_name.split('{')[0] for column_name in tdf.columns]
+
+##------------------------------------------------------------------------------
+## Extract indexed Inputs.Table and create the CV Types dictionary
+##------------------------------------------------------------------------------
+def process_input_table(idx):
+    
+    global inputs.tables,inputs.tables_headers
+    
+    ## Extract dataframe and remove brewlytics CV Types from Column names
+    tdf = inputs.tables[idx].copy()
+    tdf.columns = remove_CV_types(tdf)
+    
+    ## Create CV Type dictionary for inputs.tables[idx]
+    cv_types = dict()
+    for key,cv_type in inputs.tables_headers[idx].items():
+        cv_types[key] = '%s{%s}' % (key,cv_type)
+        
+    return tdf,cv_types
+
+################################################################################
+## MODEL DATA
+################################################################################
+
+## Model Execution Time
+now = datetime.utcnow()
+model_execution_time = now.strftime('%Y-%m-%dT%H%MZ')
+
+##------------------------------------------------------------------------------
+## Define DecisionTreeClassifier Features 
+##------------------------------------------------------------------------------
+
+## Decision Tree features
+features = ['Semi-Major','Semi-Minor']
+
+##------------------------------------------------------------------------------
+## Map values to Class Names and back
+##------------------------------------------------------------------------------
+
+class_mapper = {5 : 'Excellent',
+                4 : 'Very Good',
+                3 : 'Good',
+                2 : 'Poor',
+                1 : 'Very Poor',
+                0 : 'Bad',
+                
+                'Excellent': 5,
+                'Very Good': 4,
+                'Good': 3,
+                'Poor': 2,
+                'Very Poor': 1,
+                'Bad': 0}
+
+################################################################################
+## BODY
+################################################################################
+##------------------------------------------------------------------------------
+## INPUTS.RESOURCE[0]: Trained 6-Class Ellipse DecisionTreeClassifier
+##------------------------------------------------------------------------------
+
+with open(inputs.resource, 'rb')as f:
+    clf = pickle.loads(f.read())
+f.close()
+
+##------------------------------------------------------------------------------
+## INPUTS.TABLE[0]: Ellipse Dataset to be Tagged
+##------------------------------------------------------------------------------
+
+idx = 0
+df,cv_types = process_input_table(idx)
+
+update_cv_types = [('Semi-Major','decimal'),('Semi-Minor','decimal'),
+                   ('Class','string'),('Class Int','integer'),
+                   ('Mean Class Int','decimal'),
+                   ('Mean Ellipse Area','decimal')]
+
+for key,cv_type in update_cv_types:
+    cv_types[key] = '%s{%s}' % (key,cv_type)
+
+##------------------------------------------------------------------------------
+## INPUTS.STRING[0]: Ellipse Dataset Semi-Major and Semi-Minor Axis Column Names
+##------------------------------------------------------------------------------
+
+smanm,sminm = inputs.string.split('|')
+
+##------------------------------------------------------------------------------
+## Map Semi-Major and Semi-Minor Axis names to 'Semi-Major' and 'Semi-Minor'
+##------------------------------------------------------------------------------
+
+corrected_column_names = {smanm: 'Semi-Major', sminm: 'Semi-Minor'}
+
+## Rename Semi-Major and Semi-Minor Axis Column names in dataset to be tagged
+## to match the column names the DecisionTreeClassifier was trained with
+
+df.rename(columns = corrected_column_names, inplace = True)
+
+##------------------------------------------------------------------------------
+## Create the Prediction Dataset
+##------------------------------------------------------------------------------
+
+X = df[features]
+
+##------------------------------------------------------------------------------
+## Trained CLF: Use Trained 6-Class DecisionTreeClassifier to Tag Ellipse 
+## Dataset
+##------------------------------------------------------------------------------
+
+df['Class'] = clf.predict(X)
+
+df['Class Int'] = df['Class'].apply(lambda t: class_mapper[t])
+
+##------------------------------------------------------------------------------
+## Create the Prediction Dataset
+##------------------------------------------------------------------------------
+
+cid_tag = 'Cluster ID'
+stats = dict()
+for cid in sorted(df[cid_tag].unique()):
+    
+    stats[cid] = {'Mean Class Int': df[df[cid_tag] == cid]['Class Int'].mean(),
+                  'Mean Ellipse Area': df[df[cid_tag] == cid]['area_in_NM'].mean()}
+
+tag = 'Mean Class Int'
+df[tag] = df[cid_tag].apply(lambda t: stats[t][tag])
+
+tag = 'Mean Ellipse Area'
+df[tag] = df[cid_tag].apply(lambda t: stats[t][tag])
+
+################################################################################
+## OUTPUTS
+################################################################################
+
+##------------------------------------------------------------------------------
+## OUTPUT_TABLE[0]: Training Ellipse Dataset
+##------------------------------------------------------------------------------
+
+outputs.table = df.rename(columns = cv_types).copy()
