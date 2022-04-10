@@ -39,20 +39,14 @@ brew_instance = {'https://demo.brewlytics.com': 'Demo',
 ## BODY
 ################################################################################
 ##------------------------------------------------------------------------------
-## INPUTS.STRING[0]: EmIL,Persistence Results,Filename,UUID
+## INPUTS.STRING: Stat (Persistence Results),Filename,UUID,Host
 ##------------------------------------------------------------------------------
 
-email,status,filename,uuid,host = inputs.string.split('|')
+status,filename,uuid,host = inputs.string.split('|')
 
 ##------------------------------------------------------------------------------
-## Create Hormel Email Table
+## Create Subject and Formatted Email Body
 ##------------------------------------------------------------------------------
-
-## Required Columns
-## 'To'     : Comma-separated list of emails
-## 'CC'     : Comma-separated list of emails
-## 'Subject' : Subject of Email
-## 'Body'    : Formatted body of email
 
 subject = 'Notification of %s Resource Persistence' % status
 
@@ -70,18 +64,12 @@ body += '<hr>'
 body += '<p><center>This brewlytics email was generated on '
 body += '%s.</center></p>' % now.strftime('%d %B %Y')
 
-
-email = {'To': ','.join([email]),
-         'CC': ','.join([email]),
-         'Subject': subject,
-         'Body': body}
-
 ################################################################################
 ## OUTPUTS
 ################################################################################
 
 ##------------------------------------------------------------------------------
-## OUTPUT_TABLE[0]: Training Ellipse Dataset
+## OUTPUTS.LIST: [Subject, Email Body]
 ##------------------------------------------------------------------------------
 
-outputs.table = pd.DataFrame([email])
+outputs.list = [subject,body]
