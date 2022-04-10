@@ -1,0 +1,87 @@
+################################################################################
+################################################################################
+## Sub-Model - Save brewlytics Resource with Email Notification
+## 
+## Author: OutsideKen
+## Created: 09 April 2022
+## Updated: 09 April 2022
+##
+################################################################################
+## CHANGE LOG
+## 2022-04-09 - Initial Python Script
+##
+################################################################################
+################################################################################
+
+import pandas as pd
+import re
+
+from brewlytics import *
+from datetime import datetime
+
+################################################################################
+## FUNCTIONS
+################################################################################
+
+################################################################################
+## MODEL DATA
+################################################################################
+
+## Model Execution Time
+iso8601 = '%Y-%m-%dT%H%MZ'
+now = datetime.utcnow()
+model_execution_time = now.strftime(iso8601)
+
+brew_instance = {'https://demo.brewlytics.com': 'Demo',
+                 'https://zeus.brewlytics.com': 'Zeus'}
+
+################################################################################
+## BODY
+################################################################################
+##------------------------------------------------------------------------------
+## INPUTS.STRING[0]: EmIL,Persistence Results,Filename,UUID
+##------------------------------------------------------------------------------
+
+email,status,filename,uuid,host = inputs.string.split('|')
+
+##------------------------------------------------------------------------------
+## Create Hormel Email Table
+##------------------------------------------------------------------------------
+
+## Required Columns
+## 'To'     : Comma-separated list of emails
+## 'CC'     : Comma-separated list of emails
+## 'Subject' : Subject of Email
+## 'Body'    : Formatted body of email
+
+subject = 'Notification of %s Resource Persistence' % status
+
+body = '<h2><b>%s</b></h2>' % subject
+body += '<hr>'
+body += '<p>The following brewlytics activity occurred on %s.</p>' % now.strftime('%d %B %Y at %H%MZ')
+body += '<ul>'
+body += '<li><b>brew Instance</b>: %s</li>' % brew_instance[host]
+body += '<li><b>Filename</b>: %s</li>' % filename
+body += '<li><b>UUID</b>: %s</li>' % uuid
+body += '<li><b>Status</b>: %s</li>' % status
+body += '</ul>'
+body += '<p></p>'
+body += '<hr>'
+body += '<p><center>This brewlytics email was generated on '
+body += '%s.</center></p>' % now.strftime('%d %B %Y')
+
+
+email = {'To': ','.join([email]),
+         'CC': ','.join([email]),
+         'Subject': subject,
+         'Body': body}
+
+################################################################################
+## OUTPUTS
+################################################################################
+
+##------------------------------------------------------------------------------
+## OUTPUT_TABLE[0]: Training Ellipse Dataset
+##------------------------------------------------------------------------------
+
+outputs.table = pd.DataFrame([email])
