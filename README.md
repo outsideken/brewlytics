@@ -27,10 +27,8 @@ This repository is a work in progress.
     * Save Resource with Email Notification
         * [brewlytics Model](https://demo.brewlytics.com/app/#/build/858214aa-0574-48e1-be8a-666efe8445b5)
         * [Github Python Script](https://github.com/outsideken/brewlytics/blob/main/submodels/SaveResource_w_EmailNotification)
-    * Generic Error Notifications
-        * [brewlytics Model](https://demo.brewlytics.com/app/#/build/7b766f30-9c6a-422f-857a-3232532d82e9)
-        * [Github Python Script](https://github.com/outsideken/brewlytics/blob/main/submodels/Generic%20Error%20Notification)
-
+    * [brewlytics Notifications](https://github.com/outsideken/brewlytics/blob/main/submodels/brewlytics%20Notifications.md)
+        
 <hr>
 
 <p><center>For information about this Github repository, contact <a href="mailto:outsideken@gmail.com?subject=brewlyticsGithubRepostory">outsideKen</a></center></p>
