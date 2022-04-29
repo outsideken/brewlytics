@@ -41,7 +41,7 @@ email_body = inputs.list[1]
 message = md['Message']
 instance = md['brew Instance']
 
-model_name = md['Model Name']
+model_name = md['Parent Model Name']
 model_uuid = md['Model Id']
 
 root_urls = {'Demo': 'https://demo.brewlytics.com/app/#/build/'}
