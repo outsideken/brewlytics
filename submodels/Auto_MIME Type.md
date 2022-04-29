@@ -8,7 +8,7 @@ Additional file extension-MIME type pairs can be added by editing the embedded t
 
 **Resources:**
 * [brewlytics Model - SM - Persist Resource with Auto-MIME Type v2.0](https://demo.brewlytics.com/app/#/build/21ee0049-1529-4c29-a2f3-61c3973f3b22)
-* [Github Python Script]()
+* [Github Python Script](https://github.com/outsideken/brewlytics/blob/main/submodels/Auto-MIME%20Type.py)
 * [Auto-MIME Type CSV (Updated 2022-04-28)](https://github.com/outsideken/brewlytics/blob/main/submodels/Auto-MIME%20Types%20(2022-04-28).csv)
 
 **Embedded Sub-Models:**
