@@ -28,7 +28,9 @@
 ## 2022-04-09 - Simplified model by moving the persistence and email 
 ##              notification to a separate sub-model that will be embedded in
 ##              the Auto-MIME sub-model
-## 2022-04-28 - Cleaned up Python Script and removed code no longer required
+## 2022-04-28 - Cleaned up Python Script and removed code no longer required;
+##              - Improved functionality of Error Notification
+##              - Updated model to use Github-hosted Python Script
 ################################################################################
 
 import json
