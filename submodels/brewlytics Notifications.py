@@ -33,10 +33,6 @@ utcnow_str = utcnow.strftime('%d %B %Y at %H%MZ')
 ## brewlytics Python Script
 md = json.loads(inputs.string)
 email_body = inputs.list[1]
-
-## Jupyter Notebook
-# md = json.loads(inputs_string[0])
-# email_body = inputs_string[1]
     
 message = md['Message']
 instance = md['brew Instance']
