@@ -1,4 +1,4 @@
-## SM - Persist Resource with Auto-MIME Type
+## SM - Auto-MIME Type with Error Notification
 
 **Resources:**
 * [brewlytics Model - Auto-MIME Type with Error Notification](https://demo.brewlytics.com/app/#/build/21ee0049-1529-4c29-a2f3-61c3973f3b22)
