@@ -2,7 +2,7 @@
 
 brewlytics is a browser-based data analytics platform that allows analysts to solve and automate their organization’s most challenging data problems. Without writing a line of code, brewlytics functional blocks empower analysts to intuitively capture their data processing workflows and expose their results through custom Web-based dashboards to decision makers. 
 
-Python in brewlytics allows users to leverage the power of Python and its libraries to bring new functionality to their workflows.
+Using Python in brewlytics allows users to leverage the power of Python and its libraries to bring new functionality to their workflows.
 
 This brewlytics Github repository contains Python script examples intended for use with brewlytics `Define Python Script` functional and demonstrate different analytic tasks and capabilities using Python in brewlytics. 
 
