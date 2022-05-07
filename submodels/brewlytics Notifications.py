@@ -4,19 +4,19 @@
 ## Generic Error Notification
 ## Author:  outsideKen
 ## Created: 19 February 2022
-## Updated: 19 February 2022
+## Updated: 07 May 2022
 ##
 ################################################################################
 ## CHANGE LOG
 ## 2022-02-19 - Original Code and Github hosting of Python script
+## 2022-05-07 - Update script to better implement md JSON functionality
 ##
 ################################################################################
 ################################################################################
 
-from brewlytics import *
-
 import json
 
+from brewlytics import *
 from datetime import datetime
 
 ################################################################################
@@ -32,8 +32,8 @@ utcnow_str = utcnow.strftime('%d %B %Y at %H%MZ')
 
 ## brewlytics Python Script
 md = json.loads(inputs.string)
-email_body = inputs.list[1]
-    
+
+email_body = md['Email Template']
 message = md['Message']
 instance = md['brew Instance']
 
