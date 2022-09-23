@@ -244,7 +244,7 @@ if (r.status_code >= 200) and (r.status_code < 300):
             
             md['Send Email'] = email
 
-            email_df = pdDataFrame([email])
+            email_df = pd.DataFrame([email])
 
 ## If new alerts returned, add to repository
 if add_to_repository:
