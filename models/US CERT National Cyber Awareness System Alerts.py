@@ -252,7 +252,7 @@ if add_to_repository:
     print('Adding new alerts to history ...')
     
     new_alerts = pd.DataFrame(add_to_repository)[column_order]
-    tdf = pd.concat([input_table,new_alerts])[column_order]
+    tdf = pd.concat([df,new_alerts])[column_order]
     
     tdf.sort_values(by = 'Alert Id', ascending = False, inplace = True)
     
