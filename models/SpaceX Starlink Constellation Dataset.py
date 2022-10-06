@@ -4,7 +4,7 @@
 ## Manage SpaceX Starlink Catalog; Update from N2YO.com API
 ## Author: K. Chadwick/N-ask
 ## Created: 04 April 2020
-## Updated: 09 March 2022
+## Updated: 26 September 2022
 ## 
 ################################################################################
 ################################################################################
@@ -24,7 +24,7 @@
 ## 2021-03-04 - Added COSPAR Id to output table
 ## 2022-03-09 - Updated the Python Script to use the new brewlytics Define 
 ##              Python Script functional
-## 
+## 2022-09-26 - Fixed bugs in alternate workflow
 ################################################################################
 ################################################################################
 
@@ -72,7 +72,7 @@ def remove_group_launches(tdf):
 
 def get_dataset(launch):
     
-    global inputs.tables[0], api_url, now_str, operator
+    global df, api_url, now_str, operator
     
     ## Read in data from source
     try:
@@ -98,7 +98,7 @@ def get_dataset(launch):
     except:
         
         ## Create an empty dataframe
-        filtered = pd.DataFrame([], columns = inputs.tables[0].columns)
+        filtered = pd.DataFrame([], columns = df.columns)
         
     return filtered
     
@@ -159,37 +159,39 @@ cv_types = {'COSPAR Id': 'COSPAR Id{string}'}
 ################################################################################
 ## BODY
 
-##------------------------------------------------------------------------------
+##==============================================================================
+## INPUTS.TABLES[0]: 
+##==============================================================================
 ## Clean input_table column names of CV Types
-##------------------------------------------------------------------------------
 
 df = inputs.tables[0].copy()
 df.columns,cv_types = extract_cv_types(df)
 
-##------------------------------------------------------------------------------
+##==============================================================================
 ## Filter out Grouped launch data
-##------------------------------------------------------------------------------
+##==============================================================================
 
 df = df[~df['Name'].str.contains('GROUP')].copy()
 
-##------------------------------------------------------------------------------
+##==============================================================================
 ## Determine if there are new launch dates not currently in the persisted 
 ## dataset
-##------------------------------------------------------------------------------
+##==============================================================================
 
 mdy,ymd = ['%m-%d-%Y','%Y-%m-%d']
 md_launch_dates = {datetime.strptime(launch,mdy).strftime(ymd) 
-                           for launch in md['Launch Dates']}
+                   for launch in md['Launch Dates']}
 
-## Set subtraction to find unique launch dates 
-new_launch_dates = md_launch_dates - set(df['Launch Date'].unique())
+## List comprehension to create a list of launch dates not in the aggregated 
+## dataset
+new_launch_dates = [ld for ld in md_launch_dates if ld not in df['Launch Date']]
 
-##------------------------------------------------------------------------------
+##==============================================================================
 ## UPDATE DATASET: A BOOLEAN True or False to force a complete refresh 
 ## of the Starlink dataset from the source
-##------------------------------------------------------------------------------
+##==============================================================================
 
-if md['Update Dataset']:
+if (md['Update Dataset']):
 
     print('Updating dataset ...')
     
@@ -197,26 +199,26 @@ if md['Update Dataset']:
     starlink = list()
     for launch in launch_dates:
     
-        print(launch)
+        print('Retrieving %s launch data for %s' % (md['Operator'],launch))
 
         ## Read in data from API and append to list for contcatenation
         starlink.append(get_dataset(launch))
 
     constellation = pd.concat(starlink)
 
-##------------------------------------------------------------------------------
+##==============================================================================
 ## Automatically update dataset when a launch date not in the persisted dataset
 ## is added by the user
-##------------------------------------------------------------------------------
+##==============================================================================
 
-elif (new_launch_dates) and (model_data['Auto Update Dataset When New Launch Dates Added']):
+elif (md['Auto Update Dataset When New Launch Dates Added']) and (new_launch_dates):
         
     print('New Launch Date(s) being added to dataset...')
     
     starlink = [df]
     for launch in new_launch_dates:
         
-        print('Retrieving launch data for %s' %launch)
+        print('Retrieving %s launch data for %s' % (md['Operator'],launch))
         
         ## Read in data from API and append to list for contcatenation
         yyyy,mm,dd = launch.split('-')
@@ -224,9 +226,9 @@ elif (new_launch_dates) and (model_data['Auto Update Dataset When New Launch Dat
         
     constellation = pd.concat(starlink)
 
-##------------------------------------------------------------------------------
+##==============================================================================
 ## Use the persisted dataset
-##------------------------------------------------------------------------------
+##==============================================================================
 
 else:
     
@@ -256,7 +258,7 @@ if 'COSPAR Id' not in constellation.columns:
 ##------------------------------------------------------------------------------
 ## OUTPUTS.TABLE[0]: Concatenate dataframes into a single dataframe
 ##------------------------------------------------------------------------------
-outputs.tables = constellation[column_order].rename(columns = cv_types)
+outputs.table = constellation[column_order].rename(columns = cv_types)
 
 ##------------------------------------------------------------------------------
 ## OUTPUTS.LIST[0]: List of NORAD Catalog Ids
@@ -266,7 +268,7 @@ outputs.list = sorted([str(norad_id) for norad_id in constellation['NORAD ID']])
 ##------------------------------------------------------------------------------
 ## OUTPUTS.STRING[0]: JSON-formatted string of SpaceX Starlink Catalog
 ##------------------------------------------------------------------------------
-catalog = {'SpaceX Starlink Catalog': output_table.to_dict(orient = 'records')}
+catalog = {'SpaceX Starlink Catalog': constellation[column_order].to_dict(orient = 'records')}
 outputs.string = json.dumps(catalog)
 
 ################################################################################
@@ -274,8 +276,8 @@ outputs.string = json.dumps(catalog)
 ## SUMMARY
 
 print('')
-print('Dataset Shape: %d rows %d columns' % output_table.shape)
-print('Column Names:\n\n- ' + '\n- '.join(output_table.columns))
+print('Dataset Shape: %d rows %d columns' % constellation[column_order].shape)
+print('Column Names:\n\n- ' + '\n- '.join(constellation[column_order].columns))
 
 ## Save dataframe as a CSV
 # filename = md['Filename Stub'] % now_str
