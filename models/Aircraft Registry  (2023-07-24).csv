@@ -1,0 +1,289 @@
+Country{string},Manufacturer{string},Model{string},Variant{string},Registry{string},ICAO24{string},Serial Number{string},Operator{string},Source{string},Source URL{string},Date Retrieved{string},Comments{string},Classification{string}
+China,Ilyushin,Il-76,IL-76 TD,20545,7a4205,93492763,PLAAF,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+China,Ilyushin,Il-76,IL-76 MD,21045,7bbc74,1033416524,PLAAF,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+China,Ilyushin,Il-76,IL-76 MD,21048,7b005f,1033417557,PLAAF,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+China,Ilyushin,Il-76,IL-76 MD,21140,7bba29,1043418576,PLAAF,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 976,76455,152aa7,73471125,Zhukovsky Flight Research Institute,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 LL4,76529,152af1,73410308,Zhukovsky Flight Research Institute,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,76658,50807f,53463902,Ukraine Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 MD-M,76746,152bca,73479374,Russian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 MD,78820,50ff39,93496907,Ukraine Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Sweden,Saab,340,Saab 340 Open Skies “OS-100”,100001,4a8114,170,Swedish Air Force,OpenSky Network,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+Iran,Ilyushin,Il-76,IL-76 TD,15-2285,7342af,1013409297,Islamic Revolutionary Guard Corps (IRGC),OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Azerbaijan,Ilyushin,Il-76,IL-76 TD,4K-78129,600881,2093421717,Azerbaijan Ministry of Defense,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Azerbaijan,Ilyushin,Il-76,IL-76 TD-90SW,4K-AZ100,600864,2073421708,Silk Way Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Azerbaijan,Ilyushin,Il-76,IL-76 TD-90SW,4K-AZ101,600865,----,Silk Way Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Azerbaijan,Ilyushin,Il-76,IL-76 TD,4K-AZ31,60081f,----,Silk Way Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Azerbaijan,Ilyushin,Il-76,IL-76 TD,4K-AZ40,600828,----,Silk Way Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Azerbaijan,Ilyushin,Il-76,IL-76 TD,4K-AZ41,600829,----,Silk Way Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Azerbaijan,Ilyushin,Il-76,IL-76 TD,4K-AZ60,60083c,----,Silk Way Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Libya,Ilyushin,Il-76,IL-76 TD,5A-DNO,18064,43451509,Libyan Air Cargo,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+United States of America,Boeing,B-135,OC-135B Open Skies ,61-2670,ae08d5,18346,United States Air Force,OpenSky Network,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+United States of America,Boeing,B-135,OC-135B Open Skies ,61-2672,ae08d6,18348,United States Air Force,OpenSky Network,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 MD,7T-WIA,0a401f,83489674,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 MD,7T-WIC,0a4021,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 TD,7T-WID,0a4022,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 TD,7T-WIE,0a4023,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 TD,7T-WIG,0a4024,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 TD,7T-WIM,0a4028,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 TD,7T-WIP,0a4025,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 TD,7T-WIU,0a4026,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Algeria,Ilyushin,Il-76,IL-76 TD,7T-WIV,0a4027,----,Algerian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Iran,Ilyushin,Il-76,IL-76 TD,EP-PUL,7342ac,33448393,Pouya Air,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Iran,Ilyushin,Il-76,IL-76 TD,EP-PUS,7342b3,1023409321,Pouya Air,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Republic of Moldova,Ilyushin,Il-76,IL-76 TD,ER-IAE,5.04E+21,73479367,Grixona,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Republic of Moldova,Ilyushin,Il-76,IL-76 TD,ER-IAX,504e1a,63470088,Oscar Jet,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Republic of Moldova,Ilyushin,Il-76,IL-76 TD,ER-IAY,5.04E+31,1033418596,Oscar Jet,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Republic of Moldova,Ilyushin,Il-76,IL-76 TD,ER-IAZ,504e0e,1023412399,Oscar Jet,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Republic of Moldova,Ilyushin,Il-76,IL-76 TD,ER-IBI,5.04E+25,1013409303,Air Stork,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Republic of Moldova,Ilyushin,Il-76,IL-76 TD,ER-IBU,504e1f,1023414450,Air Stork,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 MD,EW-355TH,510076,93495883,United Nations,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 MD,EW-356TH,510078,1013405159,United Nations,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 TD,EW-383TH,510081,1013405177,Ruby Star Airways,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Armenia,Ilyushin,Il-76,IL-76 TD,EW-412TH,60005f,23437090,Ruby Star Airways,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 TD,EW-430TH,510087,43451528,Ruby Star Airways,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 TD,EW-449TH,510097,1003405167,Ruby Star Airways,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 MD,EW-78779,51001e,83489662,United Nations,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 TD,EW-78799,51000d,93491754,Trans Avia Export,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Belarus,Ilyushin,Il-76,IL-76 MD,EW-78843,51001c,1003403082,Trans Avia Export,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Kyrgyzstan,Ilyushin,Il-76,IL-76 TD,EX-035,601067,93498962,Click Airways,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Turkmenistan,Ilyushin,Il-76,IL-76 TD,EZ-F426,60184f,1033418609,Turkmenistan Airlines,OpenSky Network,opensky-network.org,5/12/20,----,Unclassified
+Turkmenistan,Ilyushin,Il-76,IL-76 TD,EZ-F427,601850,1033418620,Turkmenistan Airlines,OpenSky Network,opensky-network.org,5/12/20,----,Unclassified
+Turkmenistan,Ilyushin,Il-76,IL-76 TD,EZ-F428,601848,1043418624,Turkmenistan Airlines,OpenSky Network,opensky-network.org,5/12/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K2665,8002d9,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K2666,8002da,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K2878,8002db,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K2879,8002dc,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K2901,8002dd,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K2902,8002de,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K2999,8002df,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K3000,8002,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,K3077,8000000,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+India,Ilyushin,Il-76,IL-76 MD,KI2664,8002d8,----,Indian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+People’s Democratic Republic of Korea,Ilyushin,Il-76,IL-76 MD,P-914,7278c2,1003404146,Air Koryo,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Tupolev,Tu-214,Tu-214ON,RA-64519,14FC07,42709019,Russian Air Force,OpenSky Network/PlaneSpotter.net,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+Russian Federation,Tupolev,Tu-214,Tu-214ON,RA-64525,14FC0D,41003025,Russian Air Force,OpenSky Network/PlaneSpotter.net,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76352,152a40,1023411378,Abakan Avia,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76360,152a48,1033414492,Alrosa,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76362,152a4a,1033416533,MChs Rossii,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76363,152a4b,1033417540,MChs Rossii,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD-90,RA-76384,152a60,1033401015,Ceiba Cargo,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76402,152a72,1023413430,Fmba Rossii,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76420,152a84,1023413446,Alrosa,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76429,152a8d,1043419639,MChs Rossii,FlightRadar24,https://www.flightradar24.com/data/aircraft/ra-76429,5/12/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76446,152a9e,1023412418,Ceiba Cargo,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 M,RA-76457,152aa9,93421621,United Nations,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76484,152ac4,63469081,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76489,152ac9,83485554,United Nations,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 MD,RA-76502,152ad6,1003401004,Aviacon Zitotrans,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD-90VD,RA-76503,152ad7,----,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD-90VD,RA-76511,152adf,2123422752,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76538,152afa,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76542,152afe,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76547,152b03,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76551,152b07,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76577,152b21,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76592,152b30,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76599,152b37,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76634,152b5a,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76638,152b5e,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76641,152b61,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76648,152b68,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76649,152b69,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76669,152b7d,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76686,152b8e,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76713,152ba9,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76718,152bae,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76719,152baf,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76724,152bb4,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76725,152bb5,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76738,152bc2,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76741,152bc5,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76743,152bc7,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,RA-76750,152bce,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76762,152bda,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76763,152bdb,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76767,152bdf,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76771,152be3,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76776,152be8,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-76780,152bec,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76841,152c29,1033418601,MChs Rossii,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76842,152c2a,1033418616,Aviacon Zitotrans,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76845,152c2d,1043420696,MChs Rossii,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-76846,152c2e,93497936,Aviacon Zitotrans,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD-90VD,RA-76950,152c96,2053420697,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD-90VD,RA-76951,152c97,2073421704,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD-90VD,RA-76952,152c98,2093422743,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 MD-90A,RA-78650,15333a,2-Jan,Oak,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 MD,RA-78762,1533aa,83486574,Russian Air Force,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Ilyushin,Il-76,IL-76 TD,RA-78765,1533ad,83486590,Aviacon Zitotrans,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78776,1533b8,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78794,1533ca,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78796,1533cc,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78805,1533d5,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78807,1533d7,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78809,1533d9,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78816,1533,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78817,15330,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78818,153300,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78830,1533ee,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78831,1533ef,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78834,1533f2,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78835,1533f3,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78838,1533f6,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78840,1533f8,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78842,1533fa,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78844,1533fc,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78845,1533fd,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78847,1533ff,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-78850,153402,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD-90,RA-78854,153406,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124-100,RA-82010,15405A,9.77305E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124-100,RA-82013,15405D,9.77305E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82014,15405E,9.77305E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82025,154069,----,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82028,15406C,19530502599,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82030,15406E,9.77304E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82032,154070,9.77305E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82035,154073,9.77305E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82037,154075,9.77305E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82038,154076,9.77305E+12,Russian Air Force,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82042,15407A,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82043,15407B,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82044,15407C,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82045,15407D,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82046,15407E,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82047,15407F,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124-100,RA-82068,154094,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124-100,RA-82074,15409A,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124-100,RA-82077,15409D,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124-100,RA-82078,15409E,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124-100,RA-82079,15409F,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Azerbaijan,Antonov,An-124,An-124,RA-82080,1540A0,9.77305E+12,Silk Way Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Russian Federation,Antonov,An-124,An-124,RA-82081,1540A1,9.77305E+12,Volga-Dnepr Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-86871,155357,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-86897,155371,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-86901,155375,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-86906,15537a,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-86908,15537c,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RA-86910,15537e,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MDK,RF-75351,152bde,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MDK,RF-75352,1533b2,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MDK,RF-75353,1.533E+12,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,RF-76325,152c00,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76327,1533ed,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76533,152af5,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76544,152b00,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76546,152b02,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76548,152b04,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76549,152b05,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76550,152b06,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76552,152b08,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76553,152b09,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76554,152b0a,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76558,152b0e,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76572,152b1c,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76604,152b3c,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76613,152b45,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76615,152b47,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76639,152b5f,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76643,152b63,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76650,152b6a,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76668,152b7c,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76693,152b95,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76702,152b9e,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76714,152baa,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76720,152bb0,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76722,152bb2,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76726,152bb6,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76731,152bbb,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76733,152bbd,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76739,152bc3,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76740,152bc4,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76745,152bc9,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76747,152bcb,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76764,152bdc,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76765,152bdd,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76768,152be0,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76769,152be1,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76770,152be2,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76773,152be5,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76779,152beb,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76802,152c02,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76803,152c03,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76804,152c04,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76826,152c1a,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76827,152c1b,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-76828,152c1c,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,RF-76829,152c1d,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78750,15339e,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78757,1533a5,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78764,1533ac,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78766,1533ae,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78768,1533b0,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78777,1533b9,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78778,1533ba,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78784,1533c0,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78788,1533c4,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78790,1533c6,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78791,1533c7,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78795,1533cb,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78797,1533cd,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78803,1533d3,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78810,1533da,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78811,1533db,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78813,1533dd,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78815,1533df,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-78833,1533f1,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Russian Federation,Tupolev,Tu-154,Tu-154 M-LK1 Open Skies,RF-85655,1.94E+99,89A798,Russian Air Force,OpenSky Network,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-86898,155372,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-86902,155376,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-86907,15537b,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-86925,15538d,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,RF-95669,152ba4,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,ST-APS,07c002,----,Kush Air,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,ST-ATH,07c029,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,ST-AWR,07c006,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Sudan,Ilyushin,Il-76,IL-76 TD,ST-BDE,152c09,1013408252,Badr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Sudan,Ilyushin,Il-76,IL-76 TD,ST-BDN,07c03c,1023413443,Badr Airlines,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,ST-EWX,07c024,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,T-902,0900ed,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 MD,T-908,09002f,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,TN-AFS,0360b2,----,Lina Congo,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,UK-76353,507c12,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,UK-76375,507c2b,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+----,Ilyushin,Il-76,IL-76 TD,UK-76821,507c2d,----,----,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Kazakhstan,Ilyushin,Il-76,IL-76 TD,UP-I7601,6830aa,1013409295,Air Almaty,OpenSky Network,opensky-network.org,6/29/20,----,Unclassified
+Kazakhstan,Ilyushin,Il-76,IL-76 TD,UP-I7604,683039,1033414485,Kazaviaspas,OpenSky Network,opensky-network.org,6/29/20,----,Unclassified
+Kazakhstan,Ilyushin,Il-76,IL-76 TD,UP-I7605,68303a,1033416520,Government Of Kazakhstan,OpenSky Network,opensky-network.org,6/29/20,----,Unclassified
+Kazakhstan,Ilyushin,Il-76,IL-76 TD,UP-I7621,683089,13434018,East Wing,OpenSky Network,opensky-network.org,6/29/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 MD,UR-78785,508058,83489691,Yuzhmashavia,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-78786,508059,83490693,Yuzhmashavia,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124-100,UR-82007,50801B,19530501005,Antonov Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124-100M-150,UR-82008,50801C,19530501006,Antonov Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124-100,UR-82009,50801D,19530501008,Antonov Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124-100,UR-82027,508015,19530502288,Antonov Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124-100,UR-82029,508003,19530502630,Antonov Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Ukraine,Antonov,An-225,An-225,UR-82060,508035,19530503763,Antonov Airlines,OpenSky Network,opensky-network.org,4/14/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124-100,UR-82072,50801F,9.77305E+12,Antonov Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124-100,UR-82073,508020,9.77305E+12,Antonov Airlines,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-BXQ,5080db,1023410360,Maximus Air Cargo,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-BXS,5080dc,1023411368,Yevropa Air,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+United Arab Emirates,Ilyushin,Il-76,IL-76 TD,UR-CIF,50826f,----,ZetAvia,FlightRadar24,https://www.flightradar24.com/data/aircraft/ur-cif,5/12/20,----,Unclassified
+United Arab Emirates,Ilyushin,Il-76,IL-76 TD,UR-CIG,508270,----,ZetAvia,FlightRadar24,https://www.flightradar24.com/data/aircraft/ur-cig,5/12/20,----,Unclassified
+United Arab Emirates,Ilyushin,Il-76,IL-76 TD,UR-CIU,5080a3,53458741,ZetAvia,FlightRadar24,https://www.flightradar24.com/data/aircraft/ur-ciu,5/12/20,----,Unclassified
+United Arab Emirates,Ilyushin,Il-76,IL-76 TD,UR-CIV,508280,----,ZetAvia,FlightRadar24,https://www.flightradar24.com/data/aircraft/ur-civ,5/12/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 MD,UR-CMB,5082fd,33446325,Alfa Air,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-CMC,508300,1013407230,Yevropa Air,FlightRadar24,https://www.flightradar24.com/data/aircraft/ur-cmc,5/12/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-CMD,508321,----,Aeroklub Eleron,FlightRadar24,https://www.flightradar24.com/data/aircraft/ur-cmd,5/12/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-COE,508359,93498974,Yevropa Air,FlightRadar24,https://www.flightradar24.com/data/aircraft/ur-coe,5/12/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-EAA,50831f,33446350,Yevropa Air,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Ilyushin,Il-76,IL-76 TD,UR-EAB,5083f1,1003403075,Yevropa Air,OpenSky Network,opensky-network.org,4/7/20,----,Unclassified
+Ukraine,Antonov,An-124,An-124,UR-ZYD,5080B3,19530502843,Maximus Air Cargo,OpenSky Network,opensky-network.org,4/2/20,----,Unclassified
+Germany,Airbus,A-319,A-319,,15+03,----,German Air Force,OpenSky Network,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+United States of America,Boeing,B-135,OC-135B Open Skies ,,,----,United States Air Force,OpenSky Network,opensky-network.org,4/15/20,Open Skies Treaty aircraft,Unclassified
+Syria,Ilyushin,Il-76,IL-76 T,YK-ATA,778681,93421613,Syrian Arab Airlines,OpenSky Network,opensky-network.org,6/14/20,----,Unclassified
+Syria,Ilyushin,Il-76,IL-76 M,YK-ATB,778682,93421619,Syrian Arab Airlines,OpenSky Network,opensky-network.org,6/14/20,----,Unclassified
+Syria,Ilyushin,Il-76,IL-76 T,YK-ATD,778684,13431915,Syrian Arab Airlines,OpenSky Network,opensky-network.org,6/14/20,----,Unclassified
+Jordan,Ilyushin,Il-76,IL-76 MF,360,743595,1063421724,Royal Jordanian Air Force,OpenSky Network,opensky-network.org,7/21/20,----,Unclassified
+Jordan,Ilyushin,Il-76,IL-76 MF,361,743596, 20*3423808,Royal Jordanian Air Force,OpenSky Network,opensky-network.org,7/21/20,----,Unclassified
