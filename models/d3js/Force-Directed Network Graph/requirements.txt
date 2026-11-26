@@ -1,0 +1,4 @@
+# What the brew script needs (brew provides these; listed for local runs and CI).
+networkx>=2.8   # louvain_communities arrived in 2.8
+pandas
+scipy           # networkx.pagerank uses it

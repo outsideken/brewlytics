@@ -1,0 +1,115 @@
+# brewlytics examples
+
+Shared instructions for every AI assistant working in this repo. There are
+two: **Claude** (Claude Code, which reads this file via `CLAUDE.md`) and
+**Cursor** (which runs on the Grok model and reads `AGENTS.md` directly).
+"Grok" and "Cursor" are the same assistant. Keep facts here, not in any one
+assistant's private memory.
+
+**This repo is public.** Don't commit personal information (names, emails,
+local paths), credentials or copyrighted material. Images need a clear licence
+(e.g. public domain on Wikimedia Commons) recorded next to them.
+
+## What lives here
+
+Python scripts for the brewlytics **Python Script** functional (older ones
+are for *Define Python Script*), plus their data and docs.
+
+| Folder | What |
+|---|---|
+| `models/` | Analytic workflows. `models/d3js/` holds workflows whose output is a d3.js page; [index](models/d3js/README.md). |
+| `ml/` | Machine-learning examples. |
+| `submodels/` | Reusable sub-models and utilities. |
+
+The root files (`DecisionTreeClassifier`, `Ellipse…`, `usgs.py`) predate this
+layout. Leave them in place unless K asks to move them.
+
+## The brew runtime contract
+
+brewlytics ("brew") is a clean-sheet redesign of JEMA. It is **not
+sandboxed**, so scripts may import networkx, pandas, scipy and similar
+libraries, and pages may load libraries from a CDN. A script runs as pasted,
+with no imports from this repo:
+
+- `from brewlytics import *` supplies `inputs` and `outputs`.
+- **In:**
+  - `inputs.table` / `inputs.tables[i]`: pandas DataFrames;
+  - `inputs.resources[i]`: resources;
+  - `inputs.list`: one JSON string per model parameter.
+- **Out:** `outputs.string`, `outputs.table`, `outputs.resource`.
+- Each workflow's `run_local.py` supplies a stand-in `brewlytics` module, so
+  the script runs unchanged locally and in CI.
+
+Which versions brew provides isn't known yet. When K finds out (e.g.
+`print(sys.version, networkx.__version__)` in a Python Script), record them
+here and align the CI pins.
+
+## Workflow folders
+
+New workflows follow the shape of
+`models/d3js/Force-Directed Network Graph/`:
+
+- `<method>.py`: the paste-into-brew script, with a numpy-style module
+  docstring (Inputs / Outputs / Raises / Notes).
+- `run_local.py`: runs the script locally.
+- `template/`: minimal starter data.
+- `example/`: one worked dataset.
+- `tests/`.
+- `README.md`: the lesson.
+
+**The method is the teaching point; the dataset is only an example (K,
+2026-11-26).**
+
+- The script, `run_local.py` and `template/` stay dataset-agnostic: no
+  example names in code, comments, defaults or docstrings.
+- Anything dataset-specific lives in `example/`: data, `params.json`, images,
+  converters, notes.
+- `tests/test_example.py` checks this by listing the example's names that
+  must not appear in the reusable files.
+- **No gender column in the network schema (K, 2026-11-26).** `label` text is
+  gender-neutral; adding gender would make the schema less abstract.
+- **Links built from data must be absolute http(s).** Generated pages put
+  data-supplied URLs through `safeUrl` / `safeLink`, and a test runs that
+  JavaScript in node.
+
+## Working together (Claude + Cursor)
+
+K (the owner) decides; assistants propose.
+
+- **Branches:** work on `claude/<topic>` or `cursor/<topic>`, never on
+  `main`. Open a pull request to merge. Push only when K asks.
+- **Issues are the task list:** one issue per piece of work. Claim it with
+  the `agent:claude` or `agent:cursor` label, and link the PR (`Closes #N`).
+  Discussion goes in issue/PR comments.
+- **Author ≠ reviewer.** Both assistants act on GitHub as K's account, so
+  GitHub's Approve button can't be used. The reviewer posts a PR comment
+  headed `## Review → <author>: approve` (or `request changes`) with
+  evidence: a test run, numbers, a browser check. "Looks right" is not a
+  review; say when something was checked only by reading. Every PR waits for
+  that comment.
+- **Never edit a file that has an open PR from the other assistant.** Comment
+  on that PR instead.
+- **Session start:** `git fetch`, `git status`, read this file, check open
+  issues and PRs.
+- **Session end:** comment on the issue or PR: what's done, what isn't,
+  what's next.
+- **Ask K first** before you pull, force-push, rebase shared branches, or
+  delete branches or files.
+
+## CI is the referee
+
+Nothing is done until CI passes on the PR. `.github/workflows/ci.yml` is the
+source; keep these bullets in step with it.
+
+- **d3js Force-Directed Network Graph (reference):** Python 3.14 with
+  `requirements-reference.txt` (networkx 3.7, pandas 3.1.1, scipy 1.18.1).
+  Runs every test, including the ones marked `reference`:
+  - the exact Louvain numbers;
+  - the committed sample page matching a fresh run.
+- **d3js Force-Directed Network Graph (floor):** Python 3.11 with
+  `requirements-floor.txt` (networkx 2.8.8, the first release with
+  `louvain_communities`). Skips the `reference` tests, because Louvain output
+  changes between networkx releases.
+- **Changing the example data, the script or the reference pins:** rerun
+  `run_local.py`, `example/source/convert_schema.py` if the data changed, and
+  the tests. Commit the regenerated `example/` files in the same PR.

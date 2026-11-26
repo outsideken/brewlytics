@@ -1,0 +1,4 @@
+# Oldest supported versions (CI "floor" job; tests marked `reference` are skipped).
+networkx==2.8.8   # first release line with louvain_communities
+pandas==2.1.4
+scipy==1.11.4

@@ -1,0 +1,337 @@
+id,name,type,aliases,deceased,notes,type_rule
+920-oak-grove-springfield,"920 Oak Grove, Springfield",Place,,,,target of lives_in
+abbie,Abbie,Character,,,,default
+abraham-jebediah-abe-simpson-ii,"Abraham Jebediah ""Abe"" Simpson II",Character,,,,default
+academy-awards,Academy Awards,Event,,,,override
+adult-education-annex,Adult Education Annex,Organisation,,,,target of works_at
+agnes-skinner,Agnes Skinner,Character,,,,default
+amber,Amber,Character,,Y,,default
+angus-macdougal,Angus MacDougal,Character,,,,default
+annika,Annika,Character,,,,default
+anoop,Anoop,Character,Lincoln,,,default
+apu-nahasapeemapetilon,Apu Nahasapeemapetilon,Character,Apu de Beaumarchais,,,default
+arnie-gumble,Arnie Gumble,Character,,Y,,default
+arnie-pye,Arnie Pye,Character,,,,default
+artie-ziff,Artie Ziff,Character,,,,default
+asa-phelps,Asa Phelps,Character,,,,default
+aunt-gladys,Aunt Gladys,Character,,Y,,default
+austin-celtics-basketball-team,Austin Celtics Basketball Team,Organisation,,,,override
+barbara-van-horne,Barbara Van Horne,Character,,,,default
+barnard-arnold-barney-gumble,"Barnard Arnold ""Barney"" Gumble",Character,,,,default
+barney-s-bowlarama,Barney's Bowlarama,Organisation,,,,target of works_at
+bart,Bart,Character,,,,default
+be-sharps-barbershop-quartet,Be Sharps Barbershop Quartet,Organisation,,,,target of member_of
+bernice-hibbert,Bernice Hibbert,Character,,,,default
+billy-macdougal,Billy MacDougal,Character,Gravedigger Billy,,Has a Glass Eye,default
+bleeding-gums-murphy-hibbert,"""Bleeding Gums"" Murphy Hibbert",Character,,,,default
+blind-willie,Blind Willie,Character,,,,override
+blue-haired-lawyer,Blue-Haired Lawyer,Character,,,,default
+bob-dole,Bob Dole,Character,,,,default
+book-returns,Book Returns,Organisation,,,,target of works_at
+brunella-pommelhorst,Brunella Pommelhorst,Character,,,,default
+calcutta-technical-institute,Calcutta Technical Institute,Organisation,,,,target of student_at
+camp-land-a-man,Camp Land-A-Man,Organisation,,,,target of student_at
+carl-carlson-sr,"Carl Carlson, Sr.",Character,,,,default
+carlotta-carlson,Carlotta Carlson,Character,,,,default
+carlton-carl-carlson,"Carlton ""Carl"" Carlson",Character,,,,default
+carol-jones,Carol Jones,Character,,,,default
+channel-6-news,Channel 6 News,Organisation,,,,target of works_at
+charles-montgomery-monty-burns,"Charles Montgomery ""Monty"" Burns",Character,,,,default
+cheryl,Cheryl,Character,,,,default
+cheryl-leonard,Cheryl Leonard,Character,,,,default
+chester-dupree,Chester Dupree,Character,,,,default
+chet,Chet,Character,,,,default
+chewbacca,Chewbacca,Animal,,Y,,target of has_pet
+chief-clancy-wiggum,Chief Clancy Wiggum,Character,,,,default
+chuck-muntz,Chuck Muntz,Character,,,,default
+church-council,Church Council,Organisation,,,,target of member_of
+clancy-bouvier,Clancy Bouvier,Character,,,,default
+clovis-quimby,Clovis Quimby,Character,,,,default
+coach-krupt,Coach Krupt,Character,,,,default
+consequences-eradicator-conrad-app,Consequences Eradicator (Conrad) App,Thing,,,,override
+cookie-kwan,Cookie Kwan,Character,,,,default
+corky-james-jones,Corky James Jones,Character,Hector Gutierres; James; Jamesbo; Jimbo Jones,,,default
+count-dracula,Count Dracula,Character,,,,default
+cyrus,Cyrus,Character,,,,default
+darcy,Darcy,Character,,,,default
+dewey,Dewey,Character,,,,default
+dewey-largo,Dewey Largo,Character,,,,default
+disco-stu,Disco Stu,Character,,,,default
+dolphin-dolph-starbeam,"Dolphin ""Dolph"" Starbeam",Character,Dolph Starbeam,,,default
+doris-freedman,Doris Freedman,Character,Lunchlady Doris,,,default
+dr-julius-hibbert-m-d-family-practice,"Dr. Julius Hibbert, M.D. Family Practice",Organisation,,,,target of works_at
+dr-stacey-swanson,Dr. Stacey Swanson,Character,,,,default
+drop-da-bomb,Drop Da Bomb,Media,,,,target of created
+duffman,Duffman,Character,,,,default
+eartha-kitt,Eartha Kitt,Character,,,,default
+eddie-muntz,Eddie Muntz,Character,,,,default
+edna-krabappel,Edna Krabappel,Character,,Y,,default
+elizabeth-hoover,Elizabeth Hoover,Character,,,,default
+etch-wesgrin,Etch Wesgrin,Character,,Y,,default
+evelyn-trunch,Evelyn Trunch,Character,,,,default
+eye-on-springfield,Eye on Springfield,Media,,,,target of appears_in
+fat-tony,Fat Tony,Character,,,,default
+ferrari-f40,Ferrari F40,Thing,,,,override
+first-church-of-springfield,First Church of Springfield,Organisation,,,,target of works_at
+flying-hellfish,Flying Hellfish,Organisation,,,,target of member_of
+frank,Frank,Character,,,,default
+frankenberry-the-movie-2-the-frankenberry-wears-prada,Frankenberry the Movie 2: The Frankenberry Wears Prada,Media,,,,target of appears_in
+freddy,Freddy,Character,,,,default
+gabbin-about-god-radio-talk-show,Gabbin' about God Radio Talk Show,Media,,,,override
+gary-chalmers,Gary Chalmers,Character,,,,default
+gary-jones,Gary Jones,Character,,,,default
+geoffrey,Geoffrey,Character,,,,default
+gheet,Gheet,Character,Superman,,,default
+gina,Gina,Character,,,,default
+ginger,Ginger,Character,,,,default
+greta-wolfcastle,Greta Wolfcastle,Character,,,,default
+griff-mcdonald,Griff McDonald,Character,,Y,,default
+groundskeeper-seamus,Groundskeeper Seamus,Character,,,,default
+gunnar,Gunnar,Character,,,,default
+hans-moleman,Hans Moleman,Character,Ralph Melish,,,default
+helen-lovejoy,Helen Lovejoy,Character,,,,default
+herb-powell,Herb Powell,Character,,,,default
+herschel-shmoikel-pinchas-yerucham-krustofsky,Herschel Shmoikel Pinchas Yerucham Krustofsky,Character,Krusty the Clown; Rory B. Bellows,,,default
+holly-hippie,Holly Hippie,Character,,,,default
+homer,Homer,Character,,,,default
+hooters,Hooters,Organisation,,,,target of works_at
+how-to-strip-for-your-wife-course,"""How to Strip for your Wife"" Course",Event,,,,override
+hummer-h1,Hummer H1,Thing,,,,override
+i-shoot-you-face-again,I Shoot You Face Again,Media,,,,target of appears_in
+i-shoot-your-face,I Shoot Your Face,Media,,,,target of appears_in
+iggy-wiggum,Iggy Wiggum,Character,,Y,,default
+inga,Inga,Character,,,Swedish Bikini Model,default
+isabel-gutierrez,Isabel Gutiérrez,Character,,,,default
+j-loren-pryor,J. Loren Pryor,Character,,,,default
+jacqueline-bouvier,Jacqueline Bouvier,Character,,,,default
+jamshed-nahasapeemapetilon,Jamshed Nahasapeemapetilon,Character,,,,default
+janine-janey-powell,"Janine ""Janey"" Powell",Character,Jacqueline Jones; Janey Henderson; Janey Jackson,,,default
+jeffrey-jeff-albertson,"Jeffrey ""Jeff"" Albertson",Character,Comic Book Guy,,,default
+jeremy-freedman,Jeremy Freedman,Character,Geeky Teenager; Mr. Peterson; Old Man Peterson; Pimple-faced Teen; Pop; Puberty Boy; Squeaky-Voiced Teen; Steve; Teenage Clerk,,,default
+jessica,Jessica,Animal,,,,target of has_pet
+jessica-lovejoy,Jessica Lovejoy,Character,,,,default
+jj-hibbert,JJ Hibbert,Character,,,,default
+joe-quimby,Joe Quimby,Character,,,,default
+joey-quimby,Joey Quimby,Character,,,,default
+jonathan-john-i-q-neidelbaum-frink,"Jonathan ""John"" I.Q. Neidelbaum Frink",Character,Professor Frink,,,default
+joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,"Joseph Fitzgerald O'Malley Fitzpatrick O'Donnell The Edge ""Diamond Joe"" Quimby, Jr",Character,Diamond Joe; Mayor Quimby,,,default
+jub-jub,Jub-Jub,Animal,,,,override
+judge-muntz,Judge Muntz,Character,,,,default
+juilliard-school-of-music,Juilliard School of Music,Organisation,,,,override
+julius-m-hibbert-m-d,"Julius M. Hibbert, M.D.",Character,Dr. Hibbert,,,default
+karen-jones,Karen Jones,Character,,,,default
+kavi,Kavi,Character,,,,default
+kearney-zzyzwicz-jr,"Kearney Zzyzwicz, Jr.",Character,,,,default
+kearney-zzyzwicz-sr,"Kearney Zzyzwicz, Sr.",Character,,,,default
+kent-brockman,Kent Brockman,Character,Brock Kentman; Kenny Brockelstein,,,default
+kidz-news,Kidz News,Media,,,,override
+kirk-van-houten,Kirk Van Houten,Character,,,,default
+kovenant-christian-rock-band,Kovenant (Christian Rock Band),Organisation,,,,target of member_of
+krusty-burger,Krusty Burger,Organisation,,,,override
+kumiko,Kumiko,Character,,,,default
+kwik-e-mart,Kwik-E-Mart,Organisation,,,,override
+kwik-e-mart-gougers,Kwik-E-Mart Gougers,Organisation,,,,override
+l-t-smash,L.T. Smash,Character,,,,default
+larry,Larry,Character,,,,default
+laura-powers,Laura Powers,Character,,,,default
+lenford-lenny-leonard,"Lenford ""Lenny"" Leonard",Character,,,,default
+lewis-clark,Lewis Clark,Character,,,,default
+lindsey-naegle,Lindsey Naegle,Character,,,registered sexual predator; Cannot cry due to a botched face lift,default
+ling,Ling,Character,,,,default
+lionel-hutz,Lionel Hutz,Character,,,,default
+lisa,Lisa,Character,,,,default
+luann-van-houten,Luann Van Houten,Character,,,,default
+luke-perry,Luke Perry,Character,,,,default
+maggie,Maggie,Character,,,,default
+malcom-sex,Malcom Sex,Character,,,,override
+manjula-nahasapeemapetilon,Manjula Nahasapeemapetilon,Character,,,,default
+marge,Marge,Character,,,,default
+martha-peterson,Martha Peterson,Character,,,,default
+martha-prince,Martha Prince,Character,,,,default
+martha-quimby,Martha Quimby,Character,,,,default
+martin-prince-jr,Martin Prince Jr.,Character,,,,default
+martin-prince-sr,Martin Prince Sr.,Character,,,,default
+marv-szyslak,Marv Szyslak,Character,,,,default
+maude-flanders,Maude Flanders,Character,,Y,,default
+maureen-muntz,Maureen Muntz,Character,,,,default
+mcbain-tv-series,McBain TV Series,Media,,,,target of appears_in
+melvin-van-horne,Melvin Van Horne,Character,Sideshow Mel,,,default
+mercedes-benz-g500,Mercedes-Benz G500,Thing,,,,override
+meredith-milgram,Meredith Milgram,Character,,,,default
+mia-farrow,Mia Farrow,Character,,,,default
+mighty-pigs,Mighty Pigs,Organisation,,,,override
+milhouse-mussolini-van-houten,Milhouse Mussolini Van Houten,Character,,,,default
+milton-oxford-haas,"Milton ""Oxford"" Haas",Character,,,,default
+minnie-szyslak,Minnie Szyslak,Character,,,,default
+miss-springfield,Miss Springfield,Character,,,,default
+moammar-moe-szyslak,"Moammar ""Moe"" Szyslak",Character,"""Kid Gorgeous""; ""Kid Gruesome""; ""Kid Moe""; ""Kid Presentable""",,,default
+model-united-nations,Model United Nations,Organisation,,,,override
+moe-s-express,Moe's Express,Organisation,,,,target of works_at
+moe-s-tavern,Moe's Tavern,Place,,,,override
+mom,"""Mom""",Character,,,,default
+mom-pop-hardware-store,Mom & Pop Hardware Store,Organisation,,,,target of works_at
+mona,Mona,Character,,Y,,default
+mona-flanders,Mona Flanders,Character,,,,default
+morty-szyslak,Morty Szyslak,Character,,,,default
+mr-johnson,Mr. Johnson,Character,,,,default
+mr-jones,Mr. Jones,Character,,,,default
+mr-macdougal,Mr. MacDougal,Character,,,,default
+mr-powell,Mr. Powell,Character,,,,default
+mr-starbeam,Mr. Starbeam,Character,,,,default
+mr-zzyzwicz,Mr. Zzyzwicz,Character,,,,default
+mrs-krupt,Mrs. Krupt,Character,,,,default
+mrs-macdougal,Mrs. MacDougal,Character,,,,default
+mrs-marilyn-muntz,Mrs. Marilyn Muntz,Character,,,,default
+mrs-mom,Mrs. Mom,Media,,,,target of appears_in
+mrs-mussolini,Mrs. Mussolini,Character,,,,default
+mrs-powell,Mrs. Powell,Character,,,,default
+mrs-starbeam,Mrs. Starbeam,Character,,,,default
+ms-barr,Ms. Barr,Character,,,,default
+ms-dubinsky,Ms. Dubinsky,Character,,,,default
+ms-phipps,Ms. Phipps,Character,,,,default
+muriel-chalmers,Muriel Chalmers,Character,,,,default
+my-son-is-a-nerd,My Son is a Nerd,Media,,,,target of appears_in
+myra,Myra,Character,,,,default
+nabendu,Nabendu,Character,Condoleezza,,,default
+ned-flanders,Ned Flanders,Character,,,,default
+nedward-flanders-sr,"Nedward Flanders, Sr.",Character,,,,default
+nelson-muntz,Nelson Muntz,Character,,,,default
+nookie-kwan,Nookie Kwan,Character,,,,default
+nra,NRA,Organisation,,,,target of member_of
+old-english-sheepdog,Old English Sheepdog,Animal,,,,target of has_pet
+oral-roberts-university,Oral Roberts University,Organisation,,,,target of student_at
+orville-j-simpson,Orville J. Simpson,Character,,,,default
+otto,Otto,Character,,,,default
+otto-mann,Otto Mann,Character,,,,default
+pahasatira-nahasapeemapetilon,Pahasatira Nahasapeemapetilon,Character,,,,default
+parade-float-accident-in-1979,Parade float accident in 1979,Event,,,,target of died_in
+paris-texan,Paris Texan,Character,,,,default
+party-posse,Party Posse,Organisation,,,,override
+patty-bouvier,Patty Bouvier,Character,,,,default
+penelope-owsley,Penelope Owsley,Character,Princess Penelope,,,default
+police-superintendent-chalmers,Police Superintendent Chalmers,Character,,,,default
+poonam,Poonam,Character,Coke,,,default
+pork-rinds,Pork Rinds,Thing,,,,override
+powersauce-energy-bar,PowerSauce Energy Bar,Thing,,,,override
+priu-albertson,Priu Albertson,Character,,,,default
+priya,Priya,Character,Pepsi,,,default
+professor-huntington,Professor Huntington,Character,,,,default
+quinn-hopper,Quinn Hopper,Character,,,"""C:\>"" tattoo on right arm; ""sudo"" tattoo on left arm",default
+rabbi-hyman-krustofsky,Rabbi Hyman Krustofsky,Character,,,,default
+rachel-jordan,Rachel Jordan,Character,,,,default
+rachel-krustofsky,Rachel Krustofsky,Character,,Y,,default
+radioactive-man,Radioactive Man,Media,,,,target of appears_in
+rainier-luftwaffe-wolfcastle,Rainier Luftwaffe Wolfcastle,Character,,,Is a Musclebound Action Movie Star,default
+ralph-wiggum,Ralph Wiggum,Character,,,,default
+reilly-muntz,Reilly Muntz,Character,,,,default
+remote-onsite-correctional-center,Remote Onsite Correctional Center,Organisation,,,,override
+richard,Richard,Character,,,,default
+richard-freedman,Richard Freedman,Character,,Y,,default
+richard-rich-texan,"Richard ""Rich"" Texan",Character,Senator Shady Bird Johnson; The Rich Texan,,Has Pogonophobia (the fear of beards and mustaches),default
+rita-lafleur,Rita LaFleur,Character,,,,default
+robert-terwilliger,Robert Terwilliger,Character,Sideshow Bob,,,default
+rod-flanders,Rod Flanders,Character,,,,default
+rosa-barks,Rosa Barks,Animal,,,,override
+rose-quimby,Rose Quimby,Character,,,,default
+rosemary-chalmers,Rosemary Chalmers,Character,,Y,,default
+ruth-powers,Ruth Powers,Character,,,,default
+saint-sebastian-s-school-for-wicked-girls,Saint Sebastian's School for Wicked Girls,Organisation,,,,override
+sam,Sam,Character,,,,default
+samantha-stanky,Samantha Stanky,Character,,,,default
+sandeep,Sandeep,Character,Manifest Destiny,,,default
+sanjay-nahasapeemapetilon,Sanjay Nahasapeemapetilon,Character,,,,default
+santa-s-little-helper,Santa's Little Helper,Animal,,,,override
+sara-sloane,Sara Sloane,Character,,,,default
+sarah-wiggum,Sarah Wiggum,Character,,,,default
+sashi,Sashi,Character,Apple Pie,,,default
+saturn-sc-coupe,Saturn SC Coupe,Thing,,,,override
+sax-on-the-beach,Sax on the Beach,Media,,,,target of created
+sea-captian,Sea Captian,Character,,,,default
+selma-bouvier,Selma Bouvier,Character,,,,default
+seymour-skinner,Seymour Skinner,Character,,,,default
+shary-bobbins,Shary Bobbins,Character,,Y,Magical Nanny; Killed by being sucked into an airplane engine while flying away from the Simpson Family,default
+shauna-chalmers,Shauna Chalmers,Character,,,,default
+sheldon-skinner,Sheldon Skinner,Character,,Y,,default
+sherri-mackleberry,Sherri Mackleberry,Character,,,,default
+shirley-quimby,Shirley Quimby,Character,,,,default
+sign-me-up,Sign Me Up,Media,,,,target of created
+sigrin-siguardottir,Sigrin Siguðardóttir,Character,,,,default
+silent-g,Silent G,Media,,,,target of created
+simon-cowell,Simon Cowell,Character,,,,default
+smart-tykes,Smart Tykes,Organisation,,,,target of works_at
+smartline,Smartline,Media,,,,target of appears_in
+smelly,Smelly,Character,,,,override
+snowball-v,Snowball V,Animal,,,,override
+sophie-krustofsky,Sophie Krustofsky,Character,,,,default
+special-girl,Special Girl,Media,,,,target of created
+springfield-a-m-university,Springfield A&M University,Organisation,,,,target of student_at
+springfield-alcoholics-anonymous,Springfield Alcoholics Anonymous,Organisation,,,,override
+springfield-department-of-motor-vehicles,Springfield Department of Motor Vehicles,Organisation,,,,target of works_at
+springfield-elementary-school,Springfield Elementary School,Organisation,,,,target of works_at
+springfield-general-hospital,Springfield General Hospital,Organisation,,,,target of works_at
+springfield-heights,Springfield Heights,Place,,,,target of lives_in
+springfield-heights-institute-of-technology-s-h-i-t,Springfield Heights Institute of Technology (S.H.I.T.),Organisation,,,,target of student_at
+springfield-mensa,Springfield MENSA,Organisation,,,,target of member_of
+springfield-nuclear-power-plant,Springfield Nuclear Power Plant,Organisation,,,,override
+springfield-peewee-hockey-league,Springfield Peewee Hockey League,Organisation,,,,override
+springfield-s-democratic-party,Springfield's Democratic Party,Organisation,,,,target of member_of
+springfield-s-republicans,Springfield's Republicans,Organisation,,,,target of member_of
+springfield-school-district,Springfield School District,Organisation,,,,override
+springfield-speedway,Springfield Speedway,Place,,,,override
+springfield-university,Springfield University,Organisation,,,,target of student_at
+ssccatagapp-singles-seniors-childless-couples-and-teens-and-gays-against-parasitic-parents,"SSCCATAGAPP (Singles, Seniors, Childless Couples And Teens And Gays Against Parasitic Parents)",Organisation,,,,target of member_of
+stampy,Stampy,Animal,,,,override
+stanley-degroot,Stanley Degroot,Character,Dark Stanley,,,default
+stanley-peterson,Stanley Peterson,Character,,,,default
+starving-teachers-moving-co,Starving Teachers Moving Co.,Organisation,,,,target of works_at
+stephanie-brockman,Stephanie Brockman,Character,,,,default
+stephen-hawking,Stephen Hawking,Character,,,,default
+stop-the-planet-of-the-apes-i-want-to-get-off,"Stop the Planet of the Apes, I Want to Get Off",Media,,,,target of appears_in
+swigmore-university,Swigmore University,Organisation,,,,target of student_at
+taffy,Taffy,Character,,,,default
+terri-mackleberry,Terri Mackleberry,Character,,,,default
+the-android-s-dungeon,The Android's Dungeon,Organisation,,,,override
+the-brown-burrito,The Brown Burrito,Organisation,,,,target of works_at
+the-cosby-show,The Cosby Show,Media,,,,target of appears_in
+the-jazz-hole,The Jazz Hole,Place,,,,override
+the-krusty-the-clown-show,The Krusty the Clown Show,Media,,,,target of appears_in
+the-leftorium,The Leftorium,Organisation,,,,override
+the-little-rascal,The Little Rascal,Character,,,,default
+the-molepeople,The MolePeople,Organisation,,,,target of member_of
+the-murderer-did-it,"""The Murderer Did It""",Media,,,,target of created
+timothy-lovejoy-jr,"Timothy Lovejoy, Jr.",Character,Reverend Lovejoy,,,default
+timothy-lovejoy-sr,"Timothy Lovejoy, Sr.",Character,,,,default
+todd-flanders,Todd Flanders,Character,,,,default
+tonight-show,Tonight Show,Media,,,,target of appears_in
+tow-truck-driver-01,Tow Truck Driver #01,Character,,,,default
+tow-truck-driver-02,Tow Truck Driver #02,Character,,,,default
+tow-truck-driver-03,Tow Truck Driver #03,Character,,,,default
+troy-mcclure,Troy McClure,Character,,,,default
+two-guys-from-kabul,Two Guys from Kabul,Place,,,,target of frequents
+uma,Uma,Character,Freedom,,,default
+united-strut-and-bracing-works,United Strut and Bracing Works,Organisation,,,,target of works_at
+unnamed-child-01,Unnamed Child #01,Character,,,,default
+unnamed-child-02,Unnamed Child #02,Character,,,,default
+unnamed-child-03,Unnamed Child #03,Character,,,,default
+unnamed-child-04,Unnamed Child #04,Character,,,,default
+unnamed-child-05,Unnamed Child #05,Character,,,,default
+unnamed-child-06,Unnamed Child #06,Character,,,,default
+unnamed-child-07,Unnamed Child #07,Character,,,,default
+unnamed-child-08,Unnamed Child #08,Character,,,,default
+unnamed-child-09,Unnamed Child #09,Character,,,,default
+unnamed-child-10,Unnamed Child #10,Character,,,,default
+unnamed-child-11,Unnamed Child #11,Character,,,,default
+unnamed-child-12,Unnamed Child #12,Character,,,,default
+unnamed-daughter,Unnamed Daughter,Character,,,,default
+unnamed-son,Unnamed Son,Character,,,,default
+uter-zorker,Üter Zörker,Character,,,,default
+veronica,Veronica,Character,,,,default
+volvo-850-sedan,Volvo 850 Sedan,Thing,,,,override
+waylon-joseph-smithers-jr,Waylon Joseph Smithers Jr.,Character,,,,default
+waylon-smithers-sr,Waylon Smithers Sr.,Character,,Y,,default
+wayne-slater,Wayne Slater,Character,,,,default
+wendell-borton,Wendell Borton,Character,,,,default
+wharton-business-school,Wharton Business School,Organisation,,,,target of student_at
+william-sean-mclavel,William Sean McLavel,Character,G.K. Willington Esquire; Groundskeeper Willie; William MacMoran,,,default
+yuma-hickman,Yuma Hickman,Character,,,,default
+zack-bastardo,Zack Bastardo,Character,,,,default

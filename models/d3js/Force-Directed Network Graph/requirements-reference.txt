@@ -1,0 +1,7 @@
+# The versions that produced the committed example (CI "reference" job).
+# Louvain communities change between networkx releases, so the exact numbers
+# in tests marked `reference` hold only here. Update these pins, rerun
+# run_local.py and commit the new page together.
+networkx==3.7
+pandas==3.1.1
+scipy==1.18.1
