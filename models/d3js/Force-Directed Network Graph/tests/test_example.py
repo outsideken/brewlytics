@@ -43,14 +43,45 @@ def test_example_table(example):
                                        'Degree', 'In Degree', 'Out Degree']
 
 
+DATA_TAG = re.compile(r'(<script id="graph-data" type="application/json">)(.*?)(</script>)', re.DOTALL)
+
+
+def split_page(page):
+    """Return (page with the data replaced by a marker, the embedded data as Python objects)."""
+    m = DATA_TAG.search(page)
+    return page[:m.start(2)] + '__DATA__' + page[m.end(2):], json.loads(m.group(2))
+
+
+def same_data(a, b, path='data'):
+    """Compare embedded data; floats may differ in the last digits between platforms' BLAS."""
+    if isinstance(a, float) or isinstance(b, float):
+        assert a == pytest.approx(b, rel=1e-9, abs=1e-12), path
+    elif isinstance(a, dict):
+        assert a.keys() == b.keys(), path
+        for k in a:
+            same_data(a[k], b[k], '%s.%s' % (path, k))
+    elif isinstance(a, list):
+        assert len(a) == len(b), path
+        for i, (x, y) in enumerate(zip(a, b)):
+            same_data(x, y, '%s[%d]' % (path, i))
+    else:
+        assert a == b, path
+
+
 @pytest.mark.reference
 def test_committed_sample_page_is_current(example):
-    """example/The_Simpsons_Network.html must be what the committed script + data produce."""
+    """example/The_Simpsons_Network.html must be what the committed script + data produce.
+
+    Markup, CSS and JS must match exactly. The embedded data must match too, but
+    floats only to 1e-9 relative: PageRank's last digits differ between macOS and
+    Linux builds of numpy/scipy.
+    """
     out, _, out_dir = example
     assert out.resource == 'The_Simpsons_Network.html'
-    fresh = (out_dir / out.resource).read_text(encoding='utf-8')
-    committed = (EXAMPLE / out.resource).read_text(encoding='utf-8')
-    assert fresh == committed, 'rerun `python run_local.py` and commit the page'
+    fresh_page, fresh_data = split_page((out_dir / out.resource).read_text(encoding='utf-8'))
+    old_page, old_data = split_page((EXAMPLE / out.resource).read_text(encoding='utf-8'))
+    assert fresh_page == old_page, 'rerun `python run_local.py` and commit the page'
+    same_data(fresh_data, old_data)
 
 
 def test_converter_rebuilds_committed_csvs(tmp_path):
