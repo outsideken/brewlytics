@@ -66,7 +66,6 @@ from brewlytics import *
 ################################################################################
 ##
 ## D3.JS FORCE-DIRECTED NETWORK GRAPH
-## AUTHOR: K. CHADWICK/NASK
 ##
 ################################################################################
 ## CHANGE LOG
@@ -407,7 +406,8 @@ def graph_stats(g, name):
         In Degree and Out Degree.
     node_stats : dict
         ``{node id: {measure: value}}`` for the same five measures
-        (degree measures are networkx centralities, 0-1).
+        (networkx centralities: In Degree and Out Degree run 0-1; Degree is
+        their sum on this directed graph, so it runs 0-2).
     """
     u = undirected(g)
     pagerank = nx.pagerank(g)

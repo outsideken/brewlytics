@@ -95,7 +95,7 @@ LABELS = {
     'Step-Father of': L('parent_of', role='step'),
     'Step-Son of': L('parent_of', True, role='step'),
     'Grandpa': L('grandparent_of'),
-    'Paternal Grandfather': L('grandparent_of', role='paternal'),
+    'Paternal Grandfather': L('grandparent_of'),  # gender-neutral label: no paternal/maternal
     'Aunt of': L('aunt_or_uncle_of'), 'Uncle of': L('aunt_or_uncle_of'),
     'Nephew of': L('aunt_or_uncle_of', True), 'Niece of': L('aunt_or_uncle_of', True),
     # siblings, cousins, in-laws
@@ -133,7 +133,7 @@ LABELS = {
     'Girlfriend of': L('romantic_with', role='dating'),
     'Ex-Boyfriend of': L('romantic_with', status='ended', role='dating'),
     'Ex-Girlfriend of': L('romantic_with', status='ended', role='dating'),
-    'First Girlfriend': L('romantic_with', status='ended', role='first girlfriend'),
+    'First Girlfriend': L('romantic_with', status='ended', role='first partner'),
     'Had a relationship with': L('romantic_with', status='ended', role='relationship'),
     'Briefly Romantically Connected With': L('romantic_with', status='ended', role='brief'),
     'Once Romantically Linked': L('romantic_with', status='ended', role='brief'),
@@ -338,7 +338,7 @@ LABEL_OVERRIDES = {
     ('romantic_with', 'relationship'): 'relationship with', ('romantic_with', 'brief'): 'brief romance with',
     ('romantic_with', 'slept with'): 'slept with', ('romantic_with', 'hooked up'): 'hooked up with',
     ('romantic_with', 'made out'): 'made out with', ('romantic_with', 'single date'): 'one date with',
-    ('romantic_with', 'prom date'): 'prom date of', ('romantic_with', 'first girlfriend'): 'first girlfriend of',
+    ('romantic_with', 'prom date'): 'prom date of', ('romantic_with', 'first partner'): 'first partner of',
     ('romantic_with', 'litter of puppies'): 'puppies with',
     ('crush_on', 'first crush'): 'first crush',
     ('friend_of', 'best friend'): 'best friend of', ('friend_of', 'ended'): 'ex-friend of',
