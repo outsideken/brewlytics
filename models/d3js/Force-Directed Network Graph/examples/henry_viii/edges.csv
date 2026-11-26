@@ -75,3 +75,7 @@ lady-jane-grey,edward-vi,succeeded,succeeded,succession,True,,,Proclaimed 10 Jul
 mary-i,lady-jane-grey,succeeded,succeeded,succession,True,,,July 1553; Jane was deposed 19 July,https://en.wikipedia.org/wiki/Mary_I
 elizabeth-i,mary-i,succeeded,succeeded,succession,True,,,17 November 1558,https://en.wikipedia.org/wiki/Elizabeth_I
 james-vi-and-i,elizabeth-i,succeeded,succeeded,succession,True,,,24 March 1603,https://en.wikipedia.org/wiki/James_VI_and_I
+julius-ii,henry-viii,granted_dispensation,granted dispensation to,church,True,,,"December 1503: allowed Henry to marry Catherine of Aragon, his brother Arthur's widow",https://en.wikipedia.org/wiki/Pope_Julius_II
+clement-vii,henry-viii,refused_annulment,refused annulment to,church,True,,,Henry asked from 1527 to have his marriage to Catherine of Aragon annulled; Clement refused,https://en.wikipedia.org/wiki/Henry_VIII
+clement-vii,henry-viii,excommunicated,excommunicated,church,True,,,After Cranmer declared the marriage to Catherine void in 1533; not made official until later,https://en.wikipedia.org/wiki/Henry_VIII
+paul-iii,henry-viii,excommunicated,excommunicated,church,True,,,"17 December 1538, the second and final excommunication, with an interdict on England",https://en.wikipedia.org/wiki/Pope_Paul_III

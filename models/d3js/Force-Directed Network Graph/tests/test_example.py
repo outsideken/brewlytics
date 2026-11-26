@@ -19,8 +19,8 @@ EXPECTED = {
                            page='Les_Miserables_Network.html', communities=6, modularity=0.558272),
     'florentine_families': dict(nodes=16, relationships=35, top='Medici',
                                 page='Florentine_Families_Network.html', communities=4, modularity=0.316187),
-    'henry_viii': dict(nodes=44, relationships=76, top='Henry VIII',
-                       page='Henry_VIII_Network.html', communities=7, modularity=0.551132),
+    'henry_viii': dict(nodes=47, relationships=80, top='Henry VIII',
+                       page='Henry_VIII_Network.html', communities=6, modularity=0.561899),
 }
 
 

@@ -15,7 +15,7 @@ result:
 | [The Simpsons](examples/simpsons/) | 336 | 536 | A large, mixed graph: characters, places and organisations, 29 relationship types. |
 | [Les Misérables](examples/les_miserables/) | 77 | 254 | Knuth's chapter co-appearance network, the data behind D3's own force-graph example. One relationship type, so the communities come from structure alone. |
 | [Florentine families](examples/florentine_families/) | 16 | 35 | Padgett's marriage and business ties. A small classic for centrality: see where the Medici land. Shows two relationships on one pair, and an isolated node. |
-| [Henry VIII](examples/henry_viii/) | 44 | 76 | Henry VIII's six wives, their families, and the Tudor succession. A family tree as a network, with every fact linked to its Wikipedia source. |
+| [Henry VIII](examples/henry_viii/) | 47 | 80 | Henry VIII's six wives, their families, the Tudor succession and the popes. A family tree as a network, with every fact linked to its Wikipedia source. |
 
 ## What a force-directed graph is
 

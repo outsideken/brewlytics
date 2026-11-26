@@ -2,20 +2,28 @@
 
 Example data for the [d3.js Force-Directed Network Graph](../../README.md).
 It covers Henry VIII's six marriages, the wives' parents and siblings,
-Henry's own parents and siblings, his children, and the Tudor succession
-through to James VI and I.
+Henry's own parents and siblings, his children, the Tudor succession through
+to James VI and I, and the three popes who shaped his marriages.
 
 | file | what |
 |---|---|
-| `nodes.csv`, `edges.csv` | 44 people, 76 relationships, written by hand. These CSVs are the source; there is no build script. |
+| `nodes.csv`, `edges.csv` | 47 people, 80 relationships, written by hand. These CSVs are the source; there is no build script. |
 | `params.json` | The model parameters used. |
 | `Henry_VIII_Network.html` | The page `run_local.py` produces from this folder. |
 
 **What it teaches.**
 * **A family tree drawn as a network:** parents, siblings and spouses, plus
-  two smaller categories: *succession* (who succeeded whom) and *politics*
-  (Thomas Cromwell brokering the Anne of Cleves marriage; Edward Seymour as
-  Lord Protector).
+  three smaller categories:
+  * *succession*: who succeeded whom;
+  * *politics*: Thomas Cromwell brokering the Anne of Cleves marriage, and
+    Edward Seymour as Lord Protector;
+  * *church*:
+    * Julius II's 1503 dispensation that let Henry marry his brother's widow;
+    * Clement VII refusing to annul that marriage, then excommunicating Henry;
+    * Paul III's final excommunication in 1538.
+
+    Clement VII was born a Medici; the family is in the Florentine families
+    example.
 * **Status and detail:** the marriages carry the vocabulary from the Simpsons
   example:
   * `annulled`: Catherine of Aragon, Anne Boleyn, Anne of Cleves;
@@ -27,17 +35,22 @@ through to James VI and I.
   supports it (`source` column). The facts were checked against those pages on
   2026-11-26.
 * **Communities that mean something:** Henry VIII has the highest undirected
-  PageRank. Louvain finds 7 communities (modularity 0.551) at the versions in
+  PageRank. Louvain finds 6 communities (modularity 0.562) at the versions in
   `../../requirements-reference.txt`, and each is a recognisable faction:
-  * Henry's own family;
+  * Henry with the popes, his mistress Elizabeth Blount and their son;
+  * his parents and sisters, with the sisters' Scottish, French and Brandon
+    marriages;
+  * Catherine of Aragon's family, joined with Mary I and the later monarchs
+    through the succession;
   * the Seymours, who pull in Catherine Parr through her last husband,
     Thomas Seymour;
   * the Boleyns and the Howards together, since the Duke of Norfolk was uncle
     to two of the wives;
-  * Cleves, with Cromwell;
-  * Aragon;
-  * the Scottish line;
-  * the later monarchs, joined by the succession.
+  * Cleves, with Cromwell.
+* **Communities shift when the data changes:** before the three popes were
+  added there were 7 communities, and Henry's sisters, Aragon and the Scottish
+  line were split differently. Louvain optimises the whole graph, so three new
+  nodes can reshuffle groups that they never touch.
 
 **Data notes.**
 * `deceased` is left blank. Everyone here is long dead, so the ring would mark
