@@ -17,9 +17,11 @@ inputs.tables : list of pandas.DataFrame
         ``aliases`` and ``notes`` are ``"; "``-separated; ``deceased`` is
         ``Y`` or blank.
     edges : ``from_id, to_id, relationship, category, directed, status,
-    role, detail, source`` (+ optional ``label``)
+    role, detail, source`` (+ optional ``label``, ``weight``)
         One row per fact. ``label`` is the short text drawn on the link
-        (defaults to ``relationship``). ``directed`` is True/False; symmetric
+        (defaults to ``relationship``). ``weight`` is a positive number
+        (blank = 1); with it, PageRank and Louvain are weighted and link
+        width shows the weight. Without it, every relationship counts once. ``directed`` is True/False; symmetric
         relationships (A relates to B the same way B relates to A) are False.
 inputs.list : list of str
     One JSON string per model parameter:
@@ -49,7 +51,8 @@ Raises
 ------
 ValueError
     If the nodes or edges table can't be identified, node ids are
-    duplicated, or an edge refers to an id that is not in the nodes table.
+    duplicated, an edge refers to an id that is not in the nodes table, or
+    a weight is not a positive number.
 
 Notes
 -----
@@ -340,6 +343,56 @@ def check_ids(nodes, edges):
         raise ValueError('; '.join(problems))
 
 
+def read_weights(edges):
+    """
+    Validate the optional ``weight`` column.
+
+    Parameters
+    ----------
+    edges : pandas.DataFrame
+        Edges table with a ``weight`` column (numbers or numeric strings).
+
+    Returns
+    -------
+    pandas.Series
+        Weights as floats; blank cells become 1.
+
+    Raises
+    ------
+    ValueError
+        Naming the edges (``from_id -> to_id``) whose weight is not a
+        positive number.
+    """
+    raw = edges['weight'].astype(str).str.strip().replace({'': '1', 'nan': '1', 'None': '1'})
+    weights = pd.to_numeric(raw, errors='coerce')
+    bad = edges[~(weights > 0)]
+    if len(bad):
+        raise ValueError('weight must be a positive number: %s'
+                         % ['%s -> %s (%s)' % (r.from_id, r.to_id, r.weight) for r in bad.itertuples()])
+    return weights.astype(float)
+
+
+def pair_weights(edges):
+    """
+    Total weight between each pair of nodes, ignoring direction.
+
+    Parameters
+    ----------
+    edges : pandas.DataFrame
+        Edges table with ``from_id``, ``to_id`` and a float ``weight``.
+
+    Returns
+    -------
+    dict
+        ``{(id, id) sorted: total weight}``. This is the weight of the one
+        link the page draws between the pair.
+    """
+    totals = Counter()
+    for e in edges.itertuples(index=False):
+        totals[tuple(sorted((e.from_id, e.to_id)))] += e.weight
+    return dict(totals)
+
+
 def build_graph(nodes, edges):
     """
     Build the directed graph used for the statistics.
@@ -349,14 +402,16 @@ def build_graph(nodes, edges):
     nodes : pandas.DataFrame
         Nodes table; every ``id`` becomes a node, including unlinked ones.
     edges : pandas.DataFrame
-        Edges table with ``from_id``, ``to_id`` and ``directed``.
+        Edges table with ``from_id``, ``to_id``, ``directed`` and, if the
+        data is weighted, a float ``weight``.
 
     Returns
     -------
     networkx.DiGraph
         Graph keyed by node id. Undirected edges are added in both
         directions, so the directed statistics treat them as mutual.
-        Several edges between the same pair collapse into one.
+        Several edges between the same pair collapse into one; with
+        weights, their weights add up.
     """
     g = nx.DiGraph()
     for n in nodes.itertuples(index=False):
@@ -364,7 +419,10 @@ def build_graph(nodes, edges):
     for e in edges.itertuples(index=False):
         pairs = [(e.from_id, e.to_id)] if as_bool(e.directed) else [(e.from_id, e.to_id), (e.to_id, e.from_id)]
         for a, b in pairs:
-            g.add_edge(a, b)
+            if 'weight' in edges.columns:
+                g.add_edge(a, b, weight=g.edges[a, b]['weight'] + e.weight if g.has_edge(a, b) else e.weight)
+            else:
+                g.add_edge(a, b)
     return g
 
 
@@ -388,7 +446,7 @@ def highest(scores, name):
     return '%s (%f)' % (name[node], score)
 
 
-def graph_stats(g, name):
+def graph_stats(g, u, name):
     """
     Compute overall and per-node network statistics.
 
@@ -396,6 +454,8 @@ def graph_stats(g, name):
     ----------
     g : networkx.DiGraph
         Graph from ``build_graph``.
+    u : networkx.Graph
+        Undirected graph from ``undirected``.
     name : dict
         ``{node id: display name}``, used in the "Highest ..." entries.
 
@@ -407,9 +467,9 @@ def graph_stats(g, name):
         In Degree and Out Degree.
     node_stats : dict
         ``{node id: {measure: value}}`` for the same five measures
-        (degree measures are networkx centralities, 0-1).
+        (degree measures are networkx centralities, 0-1). PageRank uses
+        the edge weights when there are any; degree counts neighbours.
     """
-    u = undirected(g)
     pagerank = nx.pagerank(g)
     pagerank_u = nx.pagerank(u)
     degree = nx.degree_centrality(g)
@@ -431,21 +491,29 @@ def graph_stats(g, name):
     return overall_stats, node_stats
 
 
-def undirected(g):
+def undirected(g, weights=None):
     """
     Undirected copy of a graph without self-loops.
 
     Parameters
     ----------
     g : networkx.DiGraph
+    weights : dict, optional
+        ``{(id, id) sorted: weight}`` from ``pair_weights``. None leaves the
+        graph unweighted.
 
     Returns
     -------
     networkx.Graph
-        Used for undirected PageRank and community detection.
+        Used for undirected PageRank and community detection. With
+        ``weights``, each pair carries the total weight of every
+        relationship between them, whatever its direction.
     """
     u = nx.Graph(g)
     u.remove_edges_from(list(nx.selfloop_edges(u)))
+    if weights is not None:
+        for a, b in u.edges():
+            u.edges[a, b]['weight'] = weights[tuple(sorted((a, b)))]
     return u
 
 
@@ -527,6 +595,11 @@ def node_table(nodes, node_stats, group):
               .reset_index(drop=True))
 
 
+def number(x):
+    """Whole floats as ints (8.0 -> 8), so the page shows 8, not 8.0."""
+    return int(x) if float(x).is_integer() else float(x)
+
+
 def graph_payload(nodes, edges, overall_stats, node_stats, group, sources):
     """
     Assemble the data embedded in the page.
@@ -549,13 +622,18 @@ def graph_payload(nodes, edges, overall_stats, node_stats, group, sources):
     dict
         ``overall``, ``sources`` (list of ``{label, url}``), ``nodes`` and
         ``links``. There is one link per connected pair, holding every edge
-        between the two nodes in ``rels``.
+        between the two nodes in ``rels``; with weights, the link's
+        ``weight`` is their total.
     """
+    weighted = 'weight' in edges.columns
     links = dict()
     for e in edges.itertuples(index=False):
         key = tuple(sorted((e.from_id, e.to_id)))
         link = links.setdefault(key, {'source': key[0], 'target': key[1], 'rels': []})
+        if weighted:
+            link['weight'] = number(link.get('weight', 0) + e.weight)
         link['rels'].append({'from': e.from_id, 'to': e.to_id,
+                             'weight': number(e.weight) if weighted else None,
                              'relationship': e.relationship.replace('_', ' '),
                              'label': e.label or e.relationship.replace('_', ' '),
                              'category': e.category, 'directed': as_bool(e.directed),
@@ -647,7 +725,7 @@ Drag a node to move it &middot; scroll or pinch to zoom &middot; hover a node, o
   <div class="table-scroll"><table id="table">
     <thead><tr>
       <th data-key="fromName">From</th><th data-key="label">Relationship</th><th data-key="toName">To</th>
-      <th data-key="category">Category</th><th data-key="detail">Detail</th><th data-key="source">Source</th>
+      <th data-key="category">Category</th><th data-key="weight" class="w">Weight</th><th data-key="detail">Detail</th><th data-key="source">Source</th>
     </tr></thead>
     <tbody></tbody>
   </table></div>
@@ -708,6 +786,7 @@ button {
 #chart { position: relative; width: 100%; height: 75vh; min-height: 420px; }
 #chart svg { width: 100%; height: 100%; display: block; cursor: grab; }
 .link { stroke: var(--link); stroke-width: 1.1; }
+#table.unweighted .w { display: none; }
 .arrow { fill: var(--link); }
 .node circle { stroke: var(--bg); stroke-width: 1.2; cursor: pointer; }
 .node.deceased circle { stroke: var(--ink-2); stroke-width: 1.5; }
@@ -815,6 +894,13 @@ const arrowTo = (l, end) => visibleRels(l).some((r) => r.directed && r.to === en
 
 const g = svg.append("g");
 const link = g.append("g").selectAll("line").data(links).join("line").attr("class", "link");
+// optional weights: thicker links for heavier pairs (inline style, so it beats the CSS default)
+const weighted = links.some((l) => l.weight != null);
+if (weighted) {
+  const width = d3.scaleSqrt().domain(d3.extent(links, (l) => l.weight)).range([1, 6]);
+  link.style("stroke-width", (l) => width(l.weight));
+}
+d3.select("#table").classed("unweighted", !weighted);
 const node = g.append("g").selectAll("g").data(nodes, (d) => d.id).join("g")
   .attr("class", (d) => "node" + (d.deceased ? " deceased" : ""));
 node.append("circle").attr("r", rad).attr("fill", (d) => colour(d.group));
@@ -848,7 +934,7 @@ function renderTable() {
     .classed("desc", function () { return this.dataset.key === sortKey && !sortAsc; });
   d3.select("#table tbody").selectAll("tr").data(rows).join("tr").html((r) =>
     `<td>${esc(r.fromName)}</td><td>${esc(r.label)}</td><td>${esc(r.toName)}</td><td>${esc(r.category)}</td>` +
-    `<td>${esc(r.detail)}</td><td>${safeLink(r.source, "link")}</td>`);
+    `<td class="w">${r.weight ?? ""}</td><td>${esc(r.detail)}</td><td>${safeLink(r.source, "link")}</td>`);
 }
 tableWrap.addEventListener("toggle", renderTable);
 d3.selectAll("#table th").on("click", function () {
@@ -948,7 +1034,8 @@ let pinned = null;
 function relLine(r) {
   const src = r.source && safeUrl(r.source) ? " " + safeLink(r.source, "source") : "";
   const detail = r.detail && r.detail !== r.label ? ` <span class="meta">\\u2014 ${esc(r.detail)}</span>` : "";
-  return `<li>${esc(nameOf(r.from))} <i>${esc(r.label)}</i> ${esc(nameOf(r.to))}` + detail + src + "</li>";
+  const weight = r.weight != null ? ` <span class="meta">(weight ${r.weight})</span>` : "";
+  return `<li>${esc(nameOf(r.from))} <i>${esc(r.label)}</i> ${esc(nameOf(r.to))}` + weight + detail + src + "</li>";
 }
 
 function focus(d) {
@@ -1032,15 +1119,19 @@ edges = pick_table(tables, EDGE_COLUMNS)
 if 'label' not in edges.columns:  # optional display text; falls back to relationship
     edges['label'] = ''
 check_ids(nodes, edges)
+weighted = 'weight' in edges.columns  # optional; without it every relationship counts once
+if weighted:
+    edges['weight'] = read_weights(edges)
 
 name = dict(zip(nodes['id'], nodes['name']))
 g = build_graph(nodes, edges)
-overall_stats, node_stats = graph_stats(g, name)
+u = undirected(g, pair_weights(edges) if weighted else None)
+overall_stats, node_stats = graph_stats(g, u, name)
 
-u = undirected(g)
 comms = communities(u)
 group = community_lookup(u, comms, name)
-overall_stats.update({'# of Relationships': len(edges),
+overall_stats.update({'Weighted': weighted,
+                      '# of Relationships': len(edges),
                       '# of Communities': len(comms),
                       'Modularity': modularity(u, comms)})
 
@@ -1072,6 +1163,7 @@ outputs.resource = network_graphic_filename
 print('%d nodes, %d relationships (%d directed graph edges)'
       % (len(nodes), len(edges), overall_stats['# of Edges']))
 print('Graph Density: %f' % (overall_stats['Density']))
+print('Weighted: %s' % ('yes (PageRank and Louvain use the weight column)' if weighted else 'no'))
 print()
 for key in ['Pagerank (Undirected)', 'Pagerank', 'Degree', 'In Degree', 'Out Degree']:
     print('Highest %s: %s' % (key, overall_stats['Highest %s' % key]))

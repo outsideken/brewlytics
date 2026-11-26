@@ -16,7 +16,7 @@ EXPECTED = {
     'simpsons': dict(nodes=336, relationships=536, top='Springfield Elementary School',
                      page='The_Simpsons_Network.html', communities=14, modularity=0.709160),
     'les_miserables': dict(nodes=77, relationships=254, top='Valjean',
-                           page='Les_Miserables_Network.html', communities=6, modularity=0.558272),
+                           page='Les_Miserables_Network.html', communities=6, modularity=0.565416),
     'florentine_families': dict(nodes=16, relationships=35, top='Medici',
                                 page='Florentine_Families_Network.html', communities=4, modularity=0.316187),
     'henry_viii': dict(nodes=47, relationships=80, top='Henry VIII',

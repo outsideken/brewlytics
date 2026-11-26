@@ -5,9 +5,9 @@ Data: Donald E. Knuth's character co-appearance network for Victor Hugo's
 networkx (``networkx.les_miserables_graph``). Two characters are linked when
 they appear in the same chapter; the edge weight counts those chapters.
 
-The workflow's schema has no weight column, so the count goes into
-``detail`` ("co-appear in 8 chapters"). Names keep Knuth's spelling, with
-spaces added (``MlleBaptistine`` -> ``Mlle Baptistine``).
+That count goes into the optional ``weight`` column, so PageRank and
+Louvain are weighted and heavier pairs get thicker links. Names keep Knuth's
+spelling, with spaces added (``MlleBaptistine`` -> ``Mlle Baptistine``).
 
     python examples/les_miserables/source/build_data.py           # rewrites the example CSVs
     python examples/les_miserables/source/build_data.py OUT_DIR   # writes them elsewhere
@@ -23,7 +23,7 @@ import networkx as nx
 OUT_DIR = Path(__file__).resolve().parent.parent
 NODE_COLUMNS = ['id', 'name', 'type', 'aliases', 'deceased', 'notes']
 EDGE_COLUMNS = ['from_id', 'to_id', 'relationship', 'label', 'category', 'directed',
-                'status', 'role', 'detail', 'source']
+                'status', 'role', 'detail', 'source', 'weight']
 
 
 def display_name(knuth):
@@ -55,7 +55,7 @@ def main(out_dir=OUT_DIR):
         w = int(d['weight'])
         edges.append(dict(from_id=a, to_id=b, relationship='appears_with', label='appears with',
                           category='co-appearance', directed=False, status='', role='',
-                          detail='co-appear in %d chapter%s' % (w, '' if w == 1 else 's'), source=''))
+                          detail='', source='', weight=w))
     edges.sort(key=lambda e: (e['from_id'], e['to_id']))
     write(out_dir / 'nodes.csv', NODE_COLUMNS, nodes)
     write(out_dir / 'edges.csv', EDGE_COLUMNS, edges)

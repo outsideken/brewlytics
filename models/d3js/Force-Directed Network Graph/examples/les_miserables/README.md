@@ -9,24 +9,28 @@ so the two pages can be compared side by side.
 
 | file | what |
 |---|---|
-| `nodes.csv`, `edges.csv` | 77 characters, 254 co-appearance links. |
+| `nodes.csv`, `edges.csv` | 77 characters, 254 co-appearance links, weighted by shared chapters. |
 | `params.json` | The model parameters used. |
 | `Les_Miserables_Network.html` | The page `run_local.py` produces from this folder. |
 | `source/build_data.py` | Builds the CSVs from `networkx.les_miserables_graph()`, the copy networkx ships. |
 
-**What it teaches.** There is only one relationship type ("appears with"), so
-the communities come purely from who shares chapters with whom. Louvain finds
-6 communities (modularity 0.558). Valjean has the highest undirected PageRank
-and is linked to 36 of the other 76 characters. These figures hold at the
-versions in `../../requirements-reference.txt`.
+**What it teaches.**
+* **Structure alone:** there is only one relationship type ("appears with"),
+  so the communities come purely from who shares chapters with whom.
+* **Weights:** this is the weighted example. `weight` is the number of
+  chapters a pair shares. It sets link thickness and feeds PageRank and
+  Louvain, so a pair that shares 15 chapters pulls harder than a single
+  meeting.
+* **Results:** Louvain finds 6 communities (weighted modularity 0.565).
+  Valjean has the highest undirected PageRank and is linked to 36 of the
+  other 76 characters. These figures hold at the versions in
+  `../../requirements-reference.txt`. Delete the `weight` column and rerun to
+  see the unweighted version: also 6 communities, but modularity 0.558 and
+  different groups.
 
 **Data notes.**
 * Names keep Knuth's spelling, without accents, and with spaces added
   (`MlleBaptistine` → `Mlle Baptistine`).
-* Knuth's data counts how many chapters each pair shares. The workflow's
-  schema has no weight column, so the count goes into each link's `detail`
-  ("co-appear in 8 chapters") and doesn't affect the layout or statistics. A
-  weighted version would need an optional `weight` column in the schema.
 
 Rebuild from the workflow folder:
 

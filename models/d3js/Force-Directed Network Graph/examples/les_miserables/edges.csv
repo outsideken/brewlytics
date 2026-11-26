@@ -1,255 +1,255 @@
-from_id,to_id,relationship,label,category,directed,status,role,detail,source
-anzelma,eponine,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-anzelma,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-anzelma,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-babet,brujon,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-babet,claquesous,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-babet,eponine,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-babet,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-babet,gueulemer,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-babet,javert,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-babet,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-babet,montparnasse,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-babet,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-babet,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bahorel,bossuet,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-bahorel,combeferre,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-bahorel,courfeyrac,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-bahorel,enjolras,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-bahorel,feuilly,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-bahorel,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-bahorel,grantaire,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bahorel,joly,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-bahorel,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-bahorel,marius,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bahorel,mme-hucheloup,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bahorel,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-bamatabois,brevet,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bamatabois,champmathieu,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-bamatabois,chenildieu,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bamatabois,cochepaille,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bamatabois,fantine,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bamatabois,javert,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bamatabois,judge,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-bamatabois,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-baroness-t,gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-baroness-t,marius,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-blacheville,dahlia,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-blacheville,fameuil,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-blacheville,fantine,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-blacheville,favourite,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-blacheville,listolier,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-blacheville,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-blacheville,zephine,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-bossuet,combeferre,appears_with,appears with,co-appearance,False,,,co-appear in 9 chapters,
-bossuet,courfeyrac,appears_with,appears with,co-appearance,False,,,co-appear in 12 chapters,
-bossuet,enjolras,appears_with,appears with,co-appearance,False,,,co-appear in 10 chapters,
-bossuet,feuilly,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-bossuet,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-bossuet,grantaire,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-bossuet,joly,appears_with,appears with,co-appearance,False,,,co-appear in 7 chapters,
-bossuet,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bossuet,marius,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-bossuet,mme-hucheloup,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-bossuet,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-bossuet,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-boulatruelle,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-brevet,champmathieu,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-brevet,chenildieu,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-brevet,cochepaille,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-brevet,judge,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-brevet,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-brujon,claquesous,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-brujon,eponine,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-brujon,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-brujon,gueulemer,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-brujon,montparnasse,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-brujon,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-champmathieu,chenildieu,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-champmathieu,cochepaille,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-champmathieu,judge,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-champmathieu,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-champtercier,myriel,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-chenildieu,cochepaille,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-chenildieu,judge,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-chenildieu,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-child-1,child-2,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-child-1,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-child-2,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-claquesous,enjolras,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-claquesous,eponine,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-claquesous,gueulemer,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-claquesous,javert,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-claquesous,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-claquesous,montparnasse,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-claquesous,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-claquesous,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-cochepaille,judge,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-cochepaille,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-combeferre,courfeyrac,appears_with,appears with,co-appearance,False,,,co-appear in 13 chapters,
-combeferre,enjolras,appears_with,appears with,co-appearance,False,,,co-appear in 15 chapters,
-combeferre,feuilly,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-combeferre,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-combeferre,grantaire,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-combeferre,joly,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-combeferre,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-combeferre,marius,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-combeferre,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-cosette,gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-cosette,javert,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-cosette,lt-gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-cosette,marius,appears_with,appears with,co-appearance,False,,,co-appear in 21 chapters,
-cosette,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-cosette,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-cosette,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-cosette,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-cosette,toussaint,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-cosette,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 31 chapters,
-cosette,woman-2,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-count,myriel,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-countess-de-lo,myriel,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-courfeyrac,enjolras,appears_with,appears with,co-appearance,False,,,co-appear in 17 chapters,
-courfeyrac,eponine,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-courfeyrac,feuilly,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-courfeyrac,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 7 chapters,
-courfeyrac,grantaire,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-courfeyrac,joly,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-courfeyrac,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-courfeyrac,marius,appears_with,appears with,co-appearance,False,,,co-appear in 9 chapters,
-courfeyrac,mme-hucheloup,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-courfeyrac,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-cravatte,myriel,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-dahlia,fameuil,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-dahlia,fantine,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-dahlia,favourite,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-dahlia,listolier,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-dahlia,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-dahlia,zephine,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-enjolras,feuilly,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-enjolras,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 7 chapters,
-enjolras,grantaire,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-enjolras,javert,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-enjolras,joly,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-enjolras,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-enjolras,marius,appears_with,appears with,co-appearance,False,,,co-appear in 7 chapters,
-enjolras,mme-hucheloup,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-enjolras,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-enjolras,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-eponine,gueulemer,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-eponine,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-eponine,marius,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-eponine,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-eponine,montparnasse,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-eponine,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-fameuil,fantine,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-fameuil,favourite,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-fameuil,listolier,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-fameuil,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-fameuil,zephine,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-fantine,favourite,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-fantine,javert,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-fantine,listolier,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-fantine,marguerite,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-fantine,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-fantine,perpetue,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-fantine,simplice,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-fantine,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-fantine,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-fantine,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 9 chapters,
-fantine,zephine,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-fauchelevent,gribier,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-fauchelevent,javert,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-fauchelevent,mother-innocent,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-fauchelevent,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 8 chapters,
-favourite,listolier,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-favourite,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-favourite,zephine,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-feuilly,gavroche,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-feuilly,grantaire,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-feuilly,joly,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-feuilly,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-feuilly,marius,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-feuilly,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-gavroche,grantaire,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,gueulemer,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,javert,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,joly,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-gavroche,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,marius,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-gavroche,mme-burgon,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-gavroche,mme-hucheloup,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,montparnasse,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gavroche,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-geborand,myriel,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gervais,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gillenormand,lt-gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gillenormand,magnon,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gillenormand,marius,appears_with,appears with,co-appearance,False,,,co-appear in 12 chapters,
-gillenormand,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 9 chapters,
-gillenormand,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-grantaire,joly,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-grantaire,mme-hucheloup,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-grantaire,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gueulemer,javert,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gueulemer,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-gueulemer,montparnasse,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-gueulemer,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-gueulemer,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-isabeau,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-javert,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-javert,montparnasse,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-javert,simplice,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-javert,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-javert,toussaint,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-javert,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 17 chapters,
-javert,woman-1,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-javert,woman-2,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-joly,mabeuf,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-joly,marius,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-joly,mme-hucheloup,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-joly,prouvaire,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-jondrette,mme-burgon,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-judge,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-labarre,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-listolier,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 4 chapters,
-listolier,zephine,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-lt-gillenormand,marius,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-lt-gillenormand,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-mabeuf,marius,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-mabeuf,mother-plutarch,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-magnon,mme-thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-marguerite,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-marius,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-marius,pontmercy,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-marius,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-marius,tholomyes,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-marius,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 19 chapters,
-mlle-baptistine,mme-magloire,appears_with,appears with,co-appearance,False,,,co-appear in 6 chapters,
-mlle-baptistine,myriel,appears_with,appears with,co-appearance,False,,,co-appear in 8 chapters,
-mlle-baptistine,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-mlle-gillenormand,mlle-vaubois,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-mlle-gillenormand,mme-pontmercy,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-mlle-gillenormand,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-mme-de-r,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-mme-magloire,myriel,appears_with,appears with,co-appearance,False,,,co-appear in 10 chapters,
-mme-magloire,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-mme-pontmercy,pontmercy,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-mme-thenardier,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 13 chapters,
-mme-thenardier,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 7 chapters,
-montparnasse,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-montparnasse,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-mother-innocent,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-myriel,napoleon,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-myriel,old-man,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-myriel,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 5 chapters,
-perpetue,simplice,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-pontmercy,thenardier,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-scaufflaire,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-simplice,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-thenardier,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 12 chapters,
-tholomyes,zephine,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
-toussaint,valjean,appears_with,appears with,co-appearance,False,,,co-appear in 1 chapter,
-valjean,woman-1,appears_with,appears with,co-appearance,False,,,co-appear in 2 chapters,
-valjean,woman-2,appears_with,appears with,co-appearance,False,,,co-appear in 3 chapters,
+from_id,to_id,relationship,label,category,directed,status,role,detail,source,weight
+anzelma,eponine,appears_with,appears with,co-appearance,False,,,,,2
+anzelma,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,1
+anzelma,thenardier,appears_with,appears with,co-appearance,False,,,,,2
+babet,brujon,appears_with,appears with,co-appearance,False,,,,,3
+babet,claquesous,appears_with,appears with,co-appearance,False,,,,,4
+babet,eponine,appears_with,appears with,co-appearance,False,,,,,1
+babet,gavroche,appears_with,appears with,co-appearance,False,,,,,1
+babet,gueulemer,appears_with,appears with,co-appearance,False,,,,,6
+babet,javert,appears_with,appears with,co-appearance,False,,,,,2
+babet,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,1
+babet,montparnasse,appears_with,appears with,co-appearance,False,,,,,2
+babet,thenardier,appears_with,appears with,co-appearance,False,,,,,6
+babet,valjean,appears_with,appears with,co-appearance,False,,,,,1
+bahorel,bossuet,appears_with,appears with,co-appearance,False,,,,,4
+bahorel,combeferre,appears_with,appears with,co-appearance,False,,,,,5
+bahorel,courfeyrac,appears_with,appears with,co-appearance,False,,,,,6
+bahorel,enjolras,appears_with,appears with,co-appearance,False,,,,,4
+bahorel,feuilly,appears_with,appears with,co-appearance,False,,,,,3
+bahorel,gavroche,appears_with,appears with,co-appearance,False,,,,,5
+bahorel,grantaire,appears_with,appears with,co-appearance,False,,,,,1
+bahorel,joly,appears_with,appears with,co-appearance,False,,,,,5
+bahorel,mabeuf,appears_with,appears with,co-appearance,False,,,,,2
+bahorel,marius,appears_with,appears with,co-appearance,False,,,,,1
+bahorel,mme-hucheloup,appears_with,appears with,co-appearance,False,,,,,1
+bahorel,prouvaire,appears_with,appears with,co-appearance,False,,,,,2
+bamatabois,brevet,appears_with,appears with,co-appearance,False,,,,,1
+bamatabois,champmathieu,appears_with,appears with,co-appearance,False,,,,,2
+bamatabois,chenildieu,appears_with,appears with,co-appearance,False,,,,,1
+bamatabois,cochepaille,appears_with,appears with,co-appearance,False,,,,,1
+bamatabois,fantine,appears_with,appears with,co-appearance,False,,,,,1
+bamatabois,javert,appears_with,appears with,co-appearance,False,,,,,1
+bamatabois,judge,appears_with,appears with,co-appearance,False,,,,,2
+bamatabois,valjean,appears_with,appears with,co-appearance,False,,,,,2
+baroness-t,gillenormand,appears_with,appears with,co-appearance,False,,,,,1
+baroness-t,marius,appears_with,appears with,co-appearance,False,,,,,1
+blacheville,dahlia,appears_with,appears with,co-appearance,False,,,,,3
+blacheville,fameuil,appears_with,appears with,co-appearance,False,,,,,4
+blacheville,fantine,appears_with,appears with,co-appearance,False,,,,,3
+blacheville,favourite,appears_with,appears with,co-appearance,False,,,,,4
+blacheville,listolier,appears_with,appears with,co-appearance,False,,,,,4
+blacheville,tholomyes,appears_with,appears with,co-appearance,False,,,,,4
+blacheville,zephine,appears_with,appears with,co-appearance,False,,,,,3
+bossuet,combeferre,appears_with,appears with,co-appearance,False,,,,,9
+bossuet,courfeyrac,appears_with,appears with,co-appearance,False,,,,,12
+bossuet,enjolras,appears_with,appears with,co-appearance,False,,,,,10
+bossuet,feuilly,appears_with,appears with,co-appearance,False,,,,,6
+bossuet,gavroche,appears_with,appears with,co-appearance,False,,,,,5
+bossuet,grantaire,appears_with,appears with,co-appearance,False,,,,,3
+bossuet,joly,appears_with,appears with,co-appearance,False,,,,,7
+bossuet,mabeuf,appears_with,appears with,co-appearance,False,,,,,1
+bossuet,marius,appears_with,appears with,co-appearance,False,,,,,5
+bossuet,mme-hucheloup,appears_with,appears with,co-appearance,False,,,,,1
+bossuet,prouvaire,appears_with,appears with,co-appearance,False,,,,,2
+bossuet,valjean,appears_with,appears with,co-appearance,False,,,,,1
+boulatruelle,thenardier,appears_with,appears with,co-appearance,False,,,,,1
+brevet,champmathieu,appears_with,appears with,co-appearance,False,,,,,2
+brevet,chenildieu,appears_with,appears with,co-appearance,False,,,,,2
+brevet,cochepaille,appears_with,appears with,co-appearance,False,,,,,2
+brevet,judge,appears_with,appears with,co-appearance,False,,,,,2
+brevet,valjean,appears_with,appears with,co-appearance,False,,,,,2
+brujon,claquesous,appears_with,appears with,co-appearance,False,,,,,1
+brujon,eponine,appears_with,appears with,co-appearance,False,,,,,1
+brujon,gavroche,appears_with,appears with,co-appearance,False,,,,,1
+brujon,gueulemer,appears_with,appears with,co-appearance,False,,,,,3
+brujon,montparnasse,appears_with,appears with,co-appearance,False,,,,,1
+brujon,thenardier,appears_with,appears with,co-appearance,False,,,,,3
+champmathieu,chenildieu,appears_with,appears with,co-appearance,False,,,,,2
+champmathieu,cochepaille,appears_with,appears with,co-appearance,False,,,,,2
+champmathieu,judge,appears_with,appears with,co-appearance,False,,,,,3
+champmathieu,valjean,appears_with,appears with,co-appearance,False,,,,,3
+champtercier,myriel,appears_with,appears with,co-appearance,False,,,,,1
+chenildieu,cochepaille,appears_with,appears with,co-appearance,False,,,,,2
+chenildieu,judge,appears_with,appears with,co-appearance,False,,,,,2
+chenildieu,valjean,appears_with,appears with,co-appearance,False,,,,,2
+child-1,child-2,appears_with,appears with,co-appearance,False,,,,,3
+child-1,gavroche,appears_with,appears with,co-appearance,False,,,,,2
+child-2,gavroche,appears_with,appears with,co-appearance,False,,,,,2
+claquesous,enjolras,appears_with,appears with,co-appearance,False,,,,,1
+claquesous,eponine,appears_with,appears with,co-appearance,False,,,,,1
+claquesous,gueulemer,appears_with,appears with,co-appearance,False,,,,,4
+claquesous,javert,appears_with,appears with,co-appearance,False,,,,,1
+claquesous,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,1
+claquesous,montparnasse,appears_with,appears with,co-appearance,False,,,,,2
+claquesous,thenardier,appears_with,appears with,co-appearance,False,,,,,4
+claquesous,valjean,appears_with,appears with,co-appearance,False,,,,,1
+cochepaille,judge,appears_with,appears with,co-appearance,False,,,,,2
+cochepaille,valjean,appears_with,appears with,co-appearance,False,,,,,2
+combeferre,courfeyrac,appears_with,appears with,co-appearance,False,,,,,13
+combeferre,enjolras,appears_with,appears with,co-appearance,False,,,,,15
+combeferre,feuilly,appears_with,appears with,co-appearance,False,,,,,5
+combeferre,gavroche,appears_with,appears with,co-appearance,False,,,,,6
+combeferre,grantaire,appears_with,appears with,co-appearance,False,,,,,1
+combeferre,joly,appears_with,appears with,co-appearance,False,,,,,5
+combeferre,mabeuf,appears_with,appears with,co-appearance,False,,,,,2
+combeferre,marius,appears_with,appears with,co-appearance,False,,,,,5
+combeferre,prouvaire,appears_with,appears with,co-appearance,False,,,,,2
+cosette,gillenormand,appears_with,appears with,co-appearance,False,,,,,3
+cosette,javert,appears_with,appears with,co-appearance,False,,,,,1
+cosette,lt-gillenormand,appears_with,appears with,co-appearance,False,,,,,1
+cosette,marius,appears_with,appears with,co-appearance,False,,,,,21
+cosette,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,,,2
+cosette,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,4
+cosette,thenardier,appears_with,appears with,co-appearance,False,,,,,1
+cosette,tholomyes,appears_with,appears with,co-appearance,False,,,,,1
+cosette,toussaint,appears_with,appears with,co-appearance,False,,,,,2
+cosette,valjean,appears_with,appears with,co-appearance,False,,,,,31
+cosette,woman-2,appears_with,appears with,co-appearance,False,,,,,1
+count,myriel,appears_with,appears with,co-appearance,False,,,,,2
+countess-de-lo,myriel,appears_with,appears with,co-appearance,False,,,,,1
+courfeyrac,enjolras,appears_with,appears with,co-appearance,False,,,,,17
+courfeyrac,eponine,appears_with,appears with,co-appearance,False,,,,,1
+courfeyrac,feuilly,appears_with,appears with,co-appearance,False,,,,,6
+courfeyrac,gavroche,appears_with,appears with,co-appearance,False,,,,,7
+courfeyrac,grantaire,appears_with,appears with,co-appearance,False,,,,,2
+courfeyrac,joly,appears_with,appears with,co-appearance,False,,,,,5
+courfeyrac,mabeuf,appears_with,appears with,co-appearance,False,,,,,2
+courfeyrac,marius,appears_with,appears with,co-appearance,False,,,,,9
+courfeyrac,mme-hucheloup,appears_with,appears with,co-appearance,False,,,,,1
+courfeyrac,prouvaire,appears_with,appears with,co-appearance,False,,,,,3
+cravatte,myriel,appears_with,appears with,co-appearance,False,,,,,1
+dahlia,fameuil,appears_with,appears with,co-appearance,False,,,,,3
+dahlia,fantine,appears_with,appears with,co-appearance,False,,,,,4
+dahlia,favourite,appears_with,appears with,co-appearance,False,,,,,5
+dahlia,listolier,appears_with,appears with,co-appearance,False,,,,,3
+dahlia,tholomyes,appears_with,appears with,co-appearance,False,,,,,3
+dahlia,zephine,appears_with,appears with,co-appearance,False,,,,,4
+enjolras,feuilly,appears_with,appears with,co-appearance,False,,,,,6
+enjolras,gavroche,appears_with,appears with,co-appearance,False,,,,,7
+enjolras,grantaire,appears_with,appears with,co-appearance,False,,,,,3
+enjolras,javert,appears_with,appears with,co-appearance,False,,,,,6
+enjolras,joly,appears_with,appears with,co-appearance,False,,,,,5
+enjolras,mabeuf,appears_with,appears with,co-appearance,False,,,,,1
+enjolras,marius,appears_with,appears with,co-appearance,False,,,,,7
+enjolras,mme-hucheloup,appears_with,appears with,co-appearance,False,,,,,1
+enjolras,prouvaire,appears_with,appears with,co-appearance,False,,,,,4
+enjolras,valjean,appears_with,appears with,co-appearance,False,,,,,4
+eponine,gueulemer,appears_with,appears with,co-appearance,False,,,,,1
+eponine,mabeuf,appears_with,appears with,co-appearance,False,,,,,1
+eponine,marius,appears_with,appears with,co-appearance,False,,,,,5
+eponine,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,2
+eponine,montparnasse,appears_with,appears with,co-appearance,False,,,,,1
+eponine,thenardier,appears_with,appears with,co-appearance,False,,,,,3
+fameuil,fantine,appears_with,appears with,co-appearance,False,,,,,3
+fameuil,favourite,appears_with,appears with,co-appearance,False,,,,,3
+fameuil,listolier,appears_with,appears with,co-appearance,False,,,,,4
+fameuil,tholomyes,appears_with,appears with,co-appearance,False,,,,,4
+fameuil,zephine,appears_with,appears with,co-appearance,False,,,,,3
+fantine,favourite,appears_with,appears with,co-appearance,False,,,,,4
+fantine,javert,appears_with,appears with,co-appearance,False,,,,,5
+fantine,listolier,appears_with,appears with,co-appearance,False,,,,,3
+fantine,marguerite,appears_with,appears with,co-appearance,False,,,,,2
+fantine,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,2
+fantine,perpetue,appears_with,appears with,co-appearance,False,,,,,1
+fantine,simplice,appears_with,appears with,co-appearance,False,,,,,2
+fantine,thenardier,appears_with,appears with,co-appearance,False,,,,,1
+fantine,tholomyes,appears_with,appears with,co-appearance,False,,,,,3
+fantine,valjean,appears_with,appears with,co-appearance,False,,,,,9
+fantine,zephine,appears_with,appears with,co-appearance,False,,,,,4
+fauchelevent,gribier,appears_with,appears with,co-appearance,False,,,,,2
+fauchelevent,javert,appears_with,appears with,co-appearance,False,,,,,1
+fauchelevent,mother-innocent,appears_with,appears with,co-appearance,False,,,,,3
+fauchelevent,valjean,appears_with,appears with,co-appearance,False,,,,,8
+favourite,listolier,appears_with,appears with,co-appearance,False,,,,,3
+favourite,tholomyes,appears_with,appears with,co-appearance,False,,,,,3
+favourite,zephine,appears_with,appears with,co-appearance,False,,,,,4
+feuilly,gavroche,appears_with,appears with,co-appearance,False,,,,,2
+feuilly,grantaire,appears_with,appears with,co-appearance,False,,,,,1
+feuilly,joly,appears_with,appears with,co-appearance,False,,,,,5
+feuilly,mabeuf,appears_with,appears with,co-appearance,False,,,,,1
+feuilly,marius,appears_with,appears with,co-appearance,False,,,,,1
+feuilly,prouvaire,appears_with,appears with,co-appearance,False,,,,,2
+gavroche,grantaire,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,gueulemer,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,javert,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,joly,appears_with,appears with,co-appearance,False,,,,,3
+gavroche,mabeuf,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,marius,appears_with,appears with,co-appearance,False,,,,,4
+gavroche,mme-burgon,appears_with,appears with,co-appearance,False,,,,,2
+gavroche,mme-hucheloup,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,montparnasse,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,prouvaire,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,thenardier,appears_with,appears with,co-appearance,False,,,,,1
+gavroche,valjean,appears_with,appears with,co-appearance,False,,,,,1
+geborand,myriel,appears_with,appears with,co-appearance,False,,,,,1
+gervais,valjean,appears_with,appears with,co-appearance,False,,,,,1
+gillenormand,lt-gillenormand,appears_with,appears with,co-appearance,False,,,,,1
+gillenormand,magnon,appears_with,appears with,co-appearance,False,,,,,1
+gillenormand,marius,appears_with,appears with,co-appearance,False,,,,,12
+gillenormand,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,,,9
+gillenormand,valjean,appears_with,appears with,co-appearance,False,,,,,2
+grantaire,joly,appears_with,appears with,co-appearance,False,,,,,2
+grantaire,mme-hucheloup,appears_with,appears with,co-appearance,False,,,,,1
+grantaire,prouvaire,appears_with,appears with,co-appearance,False,,,,,1
+gueulemer,javert,appears_with,appears with,co-appearance,False,,,,,1
+gueulemer,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,1
+gueulemer,montparnasse,appears_with,appears with,co-appearance,False,,,,,2
+gueulemer,thenardier,appears_with,appears with,co-appearance,False,,,,,5
+gueulemer,valjean,appears_with,appears with,co-appearance,False,,,,,1
+isabeau,valjean,appears_with,appears with,co-appearance,False,,,,,1
+javert,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,1
+javert,montparnasse,appears_with,appears with,co-appearance,False,,,,,1
+javert,simplice,appears_with,appears with,co-appearance,False,,,,,1
+javert,thenardier,appears_with,appears with,co-appearance,False,,,,,5
+javert,toussaint,appears_with,appears with,co-appearance,False,,,,,1
+javert,valjean,appears_with,appears with,co-appearance,False,,,,,17
+javert,woman-1,appears_with,appears with,co-appearance,False,,,,,1
+javert,woman-2,appears_with,appears with,co-appearance,False,,,,,1
+joly,mabeuf,appears_with,appears with,co-appearance,False,,,,,1
+joly,marius,appears_with,appears with,co-appearance,False,,,,,2
+joly,mme-hucheloup,appears_with,appears with,co-appearance,False,,,,,1
+joly,prouvaire,appears_with,appears with,co-appearance,False,,,,,2
+jondrette,mme-burgon,appears_with,appears with,co-appearance,False,,,,,1
+judge,valjean,appears_with,appears with,co-appearance,False,,,,,3
+labarre,valjean,appears_with,appears with,co-appearance,False,,,,,1
+listolier,tholomyes,appears_with,appears with,co-appearance,False,,,,,4
+listolier,zephine,appears_with,appears with,co-appearance,False,,,,,3
+lt-gillenormand,marius,appears_with,appears with,co-appearance,False,,,,,1
+lt-gillenormand,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,,,2
+mabeuf,marius,appears_with,appears with,co-appearance,False,,,,,1
+mabeuf,mother-plutarch,appears_with,appears with,co-appearance,False,,,,,3
+magnon,mme-thenardier,appears_with,appears with,co-appearance,False,,,,,1
+marguerite,valjean,appears_with,appears with,co-appearance,False,,,,,1
+marius,mlle-gillenormand,appears_with,appears with,co-appearance,False,,,,,6
+marius,pontmercy,appears_with,appears with,co-appearance,False,,,,,1
+marius,thenardier,appears_with,appears with,co-appearance,False,,,,,2
+marius,tholomyes,appears_with,appears with,co-appearance,False,,,,,1
+marius,valjean,appears_with,appears with,co-appearance,False,,,,,19
+mlle-baptistine,mme-magloire,appears_with,appears with,co-appearance,False,,,,,6
+mlle-baptistine,myriel,appears_with,appears with,co-appearance,False,,,,,8
+mlle-baptistine,valjean,appears_with,appears with,co-appearance,False,,,,,3
+mlle-gillenormand,mlle-vaubois,appears_with,appears with,co-appearance,False,,,,,1
+mlle-gillenormand,mme-pontmercy,appears_with,appears with,co-appearance,False,,,,,1
+mlle-gillenormand,valjean,appears_with,appears with,co-appearance,False,,,,,2
+mme-de-r,valjean,appears_with,appears with,co-appearance,False,,,,,1
+mme-magloire,myriel,appears_with,appears with,co-appearance,False,,,,,10
+mme-magloire,valjean,appears_with,appears with,co-appearance,False,,,,,3
+mme-pontmercy,pontmercy,appears_with,appears with,co-appearance,False,,,,,1
+mme-thenardier,thenardier,appears_with,appears with,co-appearance,False,,,,,13
+mme-thenardier,valjean,appears_with,appears with,co-appearance,False,,,,,7
+montparnasse,thenardier,appears_with,appears with,co-appearance,False,,,,,1
+montparnasse,valjean,appears_with,appears with,co-appearance,False,,,,,1
+mother-innocent,valjean,appears_with,appears with,co-appearance,False,,,,,1
+myriel,napoleon,appears_with,appears with,co-appearance,False,,,,,1
+myriel,old-man,appears_with,appears with,co-appearance,False,,,,,1
+myriel,valjean,appears_with,appears with,co-appearance,False,,,,,5
+perpetue,simplice,appears_with,appears with,co-appearance,False,,,,,2
+pontmercy,thenardier,appears_with,appears with,co-appearance,False,,,,,1
+scaufflaire,valjean,appears_with,appears with,co-appearance,False,,,,,1
+simplice,valjean,appears_with,appears with,co-appearance,False,,,,,3
+thenardier,valjean,appears_with,appears with,co-appearance,False,,,,,12
+tholomyes,zephine,appears_with,appears with,co-appearance,False,,,,,3
+toussaint,valjean,appears_with,appears with,co-appearance,False,,,,,1
+valjean,woman-1,appears_with,appears with,co-appearance,False,,,,,2
+valjean,woman-2,appears_with,appears with,co-appearance,False,,,,,3
