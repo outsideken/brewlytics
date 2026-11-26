@@ -28,7 +28,7 @@ elizabeth-howard,thomas-boleyn,spouse_of,spouse of,romance,False,,,,https://en.w
 anne-boleyn,henry-viii,spouse_of,ex-spouse of,romance,False,annulled,,"Married 1532 (secretly), 1533 (formally); annulled 17 May 1536, two days before her execution",https://en.wikipedia.org/wiki/Anne_Boleyn
 anne-boleyn,elizabeth-i,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Elizabeth_I
 henry-viii,elizabeth-i,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Elizabeth_I
-henry-viii,mary-boleyn,romantic_with,lover of,romance,False,,mistress,Henry's mistress from about 1519; over by 1526,"https://en.wikipedia.org/wiki/George_Boleyn,_Viscount_Rochford"
+henry-viii,mary-boleyn,romantic_with,lover of,romance,False,,lover,Henry's lover from about 1519; over by 1526,"https://en.wikipedia.org/wiki/George_Boleyn,_Viscount_Rochford"
 john-seymour,jane-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
 john-seymour,edward-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
 john-seymour,thomas-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
@@ -49,15 +49,15 @@ anne-of-cleves,henry-viii,spouse_of,ex-spouse of,romance,False,annulled,,Married
 thomas-cromwell,anne-of-cleves,brokered_marriage_of,brokered marriage of,politics,True,,,Urged the match on Henry and oversaw the negotiations,https://en.wikipedia.org/wiki/Anne_of_Cleves
 edmund-howard,catherine-howard,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Catherine_Howard
 catherine-howard,henry-viii,spouse_of,ex-spouse of,romance,False,ended,,"Married 28 July 1540, the day Cromwell was executed; she was executed 13 February 1542",https://en.wikipedia.org/wiki/Catherine_Howard
-thomas-howard,catherine-howard,aunt_or_uncle_of,uncle of,family,True,,,,https://en.wikipedia.org/wiki/Catherine_Howard
-thomas-howard,anne-boleyn,aunt_or_uncle_of,uncle of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+thomas-howard,catherine-howard,aunt_or_uncle_of,aunt/uncle of,family,True,,,,https://en.wikipedia.org/wiki/Catherine_Howard
+thomas-howard,anne-boleyn,aunt_or_uncle_of,aunt/uncle of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
 catherine-parr,edward-burgh,spouse_of,spouse of,romance,False,widowed,,Married 1529; he died 1533,https://en.wikipedia.org/wiki/Catherine_Parr
 catherine-parr,john-neville,spouse_of,spouse of,romance,False,widowed,,Married 1534; he died 1543,https://en.wikipedia.org/wiki/Catherine_Parr
 catherine-parr,henry-viii,spouse_of,spouse of,romance,False,widowed,,Married 12 July 1543; Henry died 28 January 1547,https://en.wikipedia.org/wiki/Catherine_Parr
 catherine-parr,thomas-seymour,spouse_of,spouse of,romance,False,,,"Married 1547, about six months after Henry died",https://en.wikipedia.org/wiki/Catherine_Parr
 henry-viii,henry-fitzroy,parent_of,parent of,family,True,,illegitimate,Illegitimate son,"https://en.wikipedia.org/wiki/Henry_FitzRoy,_Duke_of_Richmond_and_Somerset"
 elizabeth-blount,henry-fitzroy,parent_of,parent of,family,True,,,,"https://en.wikipedia.org/wiki/Henry_FitzRoy,_Duke_of_Richmond_and_Somerset"
-elizabeth-blount,henry-viii,romantic_with,lover of,romance,False,,mistress,,"https://en.wikipedia.org/wiki/Henry_FitzRoy,_Duke_of_Richmond_and_Somerset"
+elizabeth-blount,henry-viii,romantic_with,lover of,romance,False,,lover,,"https://en.wikipedia.org/wiki/Henry_FitzRoy,_Duke_of_Richmond_and_Somerset"
 mary-i,philip-ii,spouse_of,spouse of,romance,False,,,Married July 1554,https://en.wikipedia.org/wiki/Mary_I
 louis-xii,mary-tudor,spouse_of,spouse of,romance,False,widowed,,Married 9 October 1514,"https://en.wikipedia.org/wiki/Mary_Tudor,_Queen_of_France"
 charles-brandon,mary-tudor,spouse_of,spouse of,romance,False,,,Married 1515,"https://en.wikipedia.org/wiki/Mary_Tudor,_Queen_of_France"
