@@ -19,6 +19,8 @@ EXPECTED = {
                            page='Les_Miserables_Network.html', communities=6, modularity=0.565416),
     'florentine_families': dict(nodes=16, relationships=35, top='Medici',
                                 page='Florentine_Families_Network.html', communities=4, modularity=0.316187),
+    'star_trek': dict(nodes=56, relationships=124, top='Star Trek: The Next Generation',
+                      page='Star_Trek_Network.html', communities=4, modularity=0.549070),
     'henry_viii': dict(nodes=47, relationships=80, top='Henry VIII',
                        page='Henry_VIII_Network.html', communities=6, modularity=0.561899),
 }
@@ -119,7 +121,8 @@ def test_builder_rebuilds_committed_csvs(builder, tmp_path):
 # Words from the example data that must never appear in the reusable files.
 EXAMPLE_WORDS = re.compile(r'simpson|springfield|homer|bart|marge|lisa|maggie|burns|flanders|bouvier'
                            r'|valjean|cosette|javert|thenardier|medici|strozzi|padgett'
-                           r'|tudor|boleyn|seymour|cleves|aragon', re.IGNORECASE)
+                           r'|tudor|boleyn|seymour|cleves|aragon'
+                           r'|trek|picard|janeway|sisko|enterprise|klingon', re.IGNORECASE)
 
 
 @pytest.mark.parametrize('name', ['d3_force_network_graph.py', 'run_local.py',
