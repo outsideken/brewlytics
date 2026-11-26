@@ -1,0 +1,47 @@
+name: CI
+
+# CI is the referee: a PR merges only when these checks pass.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  d3js-force-network-graph:
+    name: d3js Force-Directed Network Graph (${{ matrix.name }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # The pins that produced the committed example: every test, exact numbers included.
+          - name: reference
+            python: '3.14'
+            requirements: requirements-reference.txt
+            pytest_args: ''
+          # Oldest supported versions. Louvain output differs between networkx
+          # releases, so the exact-number tests (marked `reference`) are skipped.
+          - name: floor
+            python: '3.11'
+            requirements: requirements-floor.txt
+            pytest_args: -m "not reference"
+    defaults:
+      run:
+        working-directory: models/d3js/Force-Directed Network Graph
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4   # runs the page's own safeUrl JavaScript
+        with:
+          node-version: '22'
+      - name: Install
+        run: python -m pip install -r ${{ matrix.requirements }} pytest
+      - name: Versions
+        run: python -c "import sys, networkx, pandas, scipy; print('python', sys.version.split()[0], '| networkx', networkx.__version__, '| pandas', pandas.__version__, '| scipy', scipy.__version__)"
+      - name: Test
+        run: python -m pytest -v ${{ matrix.pytest_args }} tests

@@ -1,0 +1,8 @@
+from_id,to_id,relationship,label,category,directed,status,role,detail,source
+alex,blair,sibling_of,sibling of,family,False,,,,
+alex,dana,parent_of,parent of,family,True,,,,
+alex,acme,works_at,founder at,work,True,,founder,,
+blair,acme,works_at,former analyst at,work,True,former,analyst,Left to start a new venture,https://example.org/history
+casey,alex,mentor_of,mentor of,social,True,,,,
+blair,casey,friend_of,friend of,social,False,,,,
+acme,city,located_in,located in,place,True,,,,

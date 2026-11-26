@@ -1,0 +1,537 @@
+from_id,to_id,relationship,label,category,directed,status,role,detail,source,original_labels
+arnie-gumble,parade-float-accident-in-1979,died_in,died in,event,True,,,,,Killed in
+etch-wesgrin,parade-float-accident-in-1979,died_in,died in,event,True,,,,,Killed in
+griff-mcdonald,parade-float-accident-in-1979,died_in,died in,event,True,,,,,Killed in
+iggy-wiggum,parade-float-accident-in-1979,died_in,died in,event,True,,,,,Killed in
+maude-flanders,springfield-speedway,died_in,killed at,event,True,,killed by T-shirt cannon,,,Killed by T-Shirt Cannon at
+sheldon-skinner,parade-float-accident-in-1979,died_in,died in,event,True,,,,,Killed in
+joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,freddy,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Uncle of
+mr-macdougal,billy-macdougal,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Uncle of | Nephew of
+mrs-macdougal,billy-macdougal,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Nephew of
+mrs-mussolini,milhouse-mussolini-van-houten,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Nephew of
+patty-bouvier,bart,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Nephew of
+patty-bouvier,lisa,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Niece of
+patty-bouvier,maggie,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Niece of
+selma-bouvier,bart,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Nephew of
+selma-bouvier,lisa,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Niece of
+selma-bouvier,maggie,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Aunt of | Niece of
+zack-bastardo,milhouse-mussolini-van-houten,aunt_or_uncle_of,aunt/uncle of,family,True,,,,,Uncle of | Nephew of
+annika,milhouse-mussolini-van-houten,cousin_of,cousin of,family,False,,,,,Cousin of | Cousin of
+apu-nahasapeemapetilon,kavi,cousin_of,cousin of,family,False,,,,,Cousin of | Cousin of
+billy-macdougal,william-sean-mclavel,cousin_of,cousin of,family,False,,,,,Cousin of | Cousin of
+chuck-muntz,nelson-muntz,cousin_of,cousin of,family,False,,,,,Cousin of | Cousin of
+nelson-muntz,reilly-muntz,cousin_of,cousin of,family,False,,,,,Cousin of | Cousin of
+abraham-jebediah-abe-simpson-ii,bart,grandparent_of,grandparent of,family,True,,,,,Grandpa
+abraham-jebediah-abe-simpson-ii,lisa,grandparent_of,grandparent of,family,True,,,,,Grandpa
+abraham-jebediah-abe-simpson-ii,maggie,grandparent_of,grandparent of,family,True,,,,,Grandpa
+judge-muntz,nelson-muntz,grandparent_of,paternal grandparent of,family,True,,paternal,,,Paternal Grandfather
+police-superintendent-chalmers,rosemary-chalmers,in_law_of,in-law of,family,False,,,,,Deceased Sister-in-Law | Brother-in-Law
+abraham-jebediah-abe-simpson-ii,abbie,parent_of,parent of,family,True,,,,,Father of
+abraham-jebediah-abe-simpson-ii,herb-powell,parent_of,parent of,family,True,,,,,Father of
+abraham-jebediah-abe-simpson-ii,homer,parent_of,parent of,family,True,,,,,Father of
+agnes-skinner,seymour-skinner,parent_of,parent of,family,True,,,,,Mother of | Son of
+apu-nahasapeemapetilon,anoop,parent_of,parent of,family,True,,,,,Father of
+apu-nahasapeemapetilon,gheet,parent_of,parent of,family,True,,,,,Father of
+apu-nahasapeemapetilon,nabendu,parent_of,parent of,family,True,,,,,Father of
+apu-nahasapeemapetilon,poonam,parent_of,parent of,family,True,,,,,Father of
+apu-nahasapeemapetilon,priya,parent_of,parent of,family,True,,,,,Father of
+apu-nahasapeemapetilon,sandeep,parent_of,parent of,family,True,,,,,Father of
+apu-nahasapeemapetilon,sashi,parent_of,parent of,family,True,,,,,Father of
+apu-nahasapeemapetilon,uma,parent_of,parent of,family,True,,,,,Father of
+arnie-gumble,barnard-arnold-barney-gumble,parent_of,parent of,family,True,,,,,Father of
+bernice-hibbert,jj-hibbert,parent_of,parent of,family,True,,,,,Mother of
+bernice-hibbert,unnamed-daughter,parent_of,parent of,family,True,,,,,Mother of
+bernice-hibbert,unnamed-son,parent_of,parent of,family,True,,,,,Mother of
+carl-carlson-sr,carlton-carl-carlson,parent_of,adoptive parent of,family,True,,adoptive,,,Adoptive Father of
+carol-jones,corky-james-jones,parent_of,parent of,family,True,,,,,Mother of | Son of
+cheryl,cheryl-leonard,parent_of,parent of,family,True,,,,,Mother of
+cheryl,lenford-lenny-leonard,parent_of,parent of,family,True,,,,,Mother of
+chief-clancy-wiggum,ralph-wiggum,parent_of,parent of,family,True,,,,,Father of | Son of
+clancy-bouvier,marge,parent_of,parent of,family,True,,,,,Father of
+clancy-bouvier,selma-bouvier,parent_of,parent of,family,True,,,,,Father of
+doris-freedman,jeremy-freedman,parent_of,parent of,family,True,,,,,Mother of | Son of
+eddie-muntz,nelson-muntz,parent_of,parent of,family,True,,,,,Father of | Son of
+gary-chalmers,shauna-chalmers,parent_of,parent of,family,True,,,,,Father of | Daughter of
+gunnar,corky-james-jones,parent_of,step-parent of,family,True,,step,,,Step-Father of | Step-Son of
+helen-lovejoy,jessica-lovejoy,parent_of,parent of,family,True,,,,,Mother of | Daughter of
+herschel-shmoikel-pinchas-yerucham-krustofsky,sophie-krustofsky,parent_of,parent of (illegitimate),family,True,,illegitimate,,,Illegitimate daughter of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-01,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-02,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-03,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-04,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-05,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-06,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-07,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-08,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-09,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-10,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-11,parent_of,parent of,family,True,,,,,Father of
+herschel-shmoikel-pinchas-yerucham-krustofsky,unnamed-child-12,parent_of,parent of,family,True,,,,,Father of
+homer,bart,parent_of,parent of,family,True,,,,,Father of | Son of
+homer,lisa,parent_of,parent of,family,True,,,,,Father of | Daughter of
+homer,maggie,parent_of,parent of,family,True,,,,,Father of | Daughter of
+iggy-wiggum,chief-clancy-wiggum,parent_of,parent of,family,True,,,,,Deceased Father of
+jacqueline-bouvier,marge,parent_of,parent of,family,True,,,,,Mother of | Daughter of
+jeffrey-jeff-albertson,priu-albertson,parent_of,adoptive parent of,family,True,,adoptive,,,Adopted | Adopted Son of
+joe-quimby,joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,parent_of,parent of,family,True,,,,,Son of | Father of
+joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,joey-quimby,parent_of,parent of,family,True,,,,,Father of
+joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,shirley-quimby,parent_of,parent of,family,True,,,,,Father of
+julius-m-hibbert-m-d,jj-hibbert,parent_of,parent of,family,True,,,,,Father of
+julius-m-hibbert-m-d,unnamed-daughter,parent_of,parent of,family,True,,,,,Father of
+julius-m-hibbert-m-d,unnamed-son,parent_of,parent of,family,True,,,,,Father of
+kearney-zzyzwicz-sr,kearney-zzyzwicz-jr,parent_of,parent of,family,True,,,,,Father of | Son of
+kirk-van-houten,milhouse-mussolini-van-houten,parent_of,parent of,family,True,,,,,Father of | Son of
+kumiko,priu-albertson,parent_of,adoptive parent of,family,True,,adoptive,,,Adopted | Adopted Son of
+luann-van-houten,milhouse-mussolini-van-houten,parent_of,parent of,family,True,,,,,Mother of | Son of
+manjula-nahasapeemapetilon,anoop,parent_of,parent of,family,True,,,,,Mother of
+manjula-nahasapeemapetilon,gheet,parent_of,parent of,family,True,,,,,Mother of
+manjula-nahasapeemapetilon,nabendu,parent_of,parent of,family,True,,,,,Mother of
+manjula-nahasapeemapetilon,poonam,parent_of,parent of,family,True,,,,,Mother of
+manjula-nahasapeemapetilon,priya,parent_of,parent of,family,True,,,,,Mother of
+manjula-nahasapeemapetilon,sandeep,parent_of,parent of,family,True,,,,,Mother of
+manjula-nahasapeemapetilon,sashi,parent_of,parent of,family,True,,,,,Mother of
+manjula-nahasapeemapetilon,uma,parent_of,parent of,family,True,,,,,Mother of
+marge,bart,parent_of,parent of,family,True,,,,,Mother of | Son of
+marge,lisa,parent_of,parent of,family,True,,,,,Mother of | Daughter of
+marge,maggie,parent_of,parent of,family,True,,,,,Mother of | Daughter of
+martha-prince,martin-prince-jr,parent_of,parent of,family,True,,,,,Son of | Mother of
+martin-prince-sr,martin-prince-jr,parent_of,parent of,family,True,,,,,Father of | Son of
+maude-flanders,rod-flanders,parent_of,parent of,family,True,,,,,Mother of
+maude-flanders,todd-flanders,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-01,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-02,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-03,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-04,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-05,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-06,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-07,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-08,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-09,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-10,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-11,parent_of,parent of,family,True,,,,,Mother of
+mia-farrow,unnamed-child-12,parent_of,parent of,family,True,,,,,Mother of
+mona-flanders,ned-flanders,parent_of,parent of,family,True,,,,,Son of | Mother of
+morty-szyslak,moammar-moe-szyslak,parent_of,parent of,family,True,,,,,Son of | Father of
+mr-jones,corky-james-jones,parent_of,parent of,family,True,,,,,Father of | Son of
+mr-macdougal,william-sean-mclavel,parent_of,parent of,family,True,,,,,Father of | Son of
+mr-powell,janine-janey-powell,parent_of,parent of,family,True,,,,,Father of | Daughter of
+mr-starbeam,dolphin-dolph-starbeam,parent_of,parent of,family,True,,,,,Father of | Son of
+mr-zzyzwicz,kearney-zzyzwicz-sr,parent_of,parent of,family,True,,,,,Father of | Son of
+mrs-macdougal,william-sean-mclavel,parent_of,parent of,family,True,,,,,Mother of | Son of
+mrs-marilyn-muntz,nelson-muntz,parent_of,parent of,family,True,,,,,Mother of | Son of
+mrs-powell,janine-janey-powell,parent_of,parent of,family,True,,,,,Mother of | Daughter of
+mrs-starbeam,dolphin-dolph-starbeam,parent_of,parent of,family,True,,,,,Mother of | Son of
+ned-flanders,rod-flanders,parent_of,parent of,family,True,,,,,Father of | Son of
+ned-flanders,todd-flanders,parent_of,parent of,family,True,,,,,Father of | Son of
+nedward-flanders-sr,ned-flanders,parent_of,parent of,family,True,,,,,Father of | Son of
+orville-j-simpson,abraham-jebediah-abe-simpson-ii,parent_of,parent of,family,True,,,,,Father of | Son of
+rabbi-hyman-krustofsky,herschel-shmoikel-pinchas-yerucham-krustofsky,parent_of,parent of,family,True,,,,,Father of | Son of
+rachel-krustofsky,herschel-shmoikel-pinchas-yerucham-krustofsky,parent_of,parent of,family,True,,,,,Mother of
+rainier-luftwaffe-wolfcastle,greta-wolfcastle,parent_of,parent of,family,True,,,,,Father of | Daughter of
+richard-freedman,jeremy-freedman,parent_of,parent of,family,True,,,,,Deceased Father of | Son of
+richard-rich-texan,paris-texan,parent_of,parent of,family,True,,,,,Father of | Daughter of
+rose-quimby,joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,parent_of,parent of,family,True,,,,,Son of | Mother of
+rosemary-chalmers,shauna-chalmers,parent_of,parent of,family,True,,,,,Deceased Mother of
+ruth-powers,laura-powers,parent_of,parent of,family,True,,,,,Daughter of | Mother of
+sanjay-nahasapeemapetilon,jamshed-nahasapeemapetilon,parent_of,parent of,family,True,,,,,Father of | Son of
+sanjay-nahasapeemapetilon,pahasatira-nahasapeemapetilon,parent_of,parent of,family,True,,,,,Father of | Daughter of
+sarah-wiggum,ralph-wiggum,parent_of,parent of,family,True,,,,,Son of | Mother of
+selma-bouvier,ling,parent_of,adoptive parent of,family,True,,adoptive,,,Adopted
+sheldon-skinner,seymour-skinner,parent_of,parent of,family,True,,,,,Deceased Father of
+sigrin-siguardottir,carlton-carl-carlson,parent_of,adoptive parent of,family,True,,adoptive,,,Adoptive Mother of
+timothy-lovejoy-jr,jessica-lovejoy,parent_of,parent of,family,True,,,,,Father of | Daughter of
+timothy-lovejoy-sr,timothy-lovejoy-jr,parent_of,parent of,family,True,,,,,Father of | Son of
+waylon-smithers-sr,waylon-joseph-smithers-jr,parent_of,parent of,family,True,,,,,Deceased Father of | Son of
+yuma-hickman,abraham-jebediah-abe-simpson-ii,parent_of,parent of,family,True,,,,,Mother of | Son of
+abraham-jebediah-abe-simpson-ii,chet,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+abraham-jebediah-abe-simpson-ii,cyrus,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+angus-macdougal,william-sean-mclavel,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+apu-nahasapeemapetilon,sanjay-nahasapeemapetilon,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+barbara-van-horne,herschel-shmoikel-pinchas-yerucham-krustofsky,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+bart,lisa,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+bart,maggie,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+bernice-hibbert,chester-dupree,sibling_of,sibling of,family,False,,,,https://simpsons.fandom.com/wiki/Bernice_Hibbert,Sister of | Brother of
+bleeding-gums-murphy-hibbert,julius-m-hibbert-m-d,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+carlotta-carlson,carlton-carl-carlson,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+cheryl-leonard,lenford-lenny-leonard,sibling_of,sibling of,family,False,,,,,Sister of | Brother of
+clovis-quimby,joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+cookie-kwan,nookie-kwan,sibling_of,sibling of,family,False,,,,,Sister of | Sister of
+corky-james-jones,gary-jones,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+corky-james-jones,karen-jones,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+gary-chalmers,police-superintendent-chalmers,sibling_of,twin of,family,False,,twin,,,Twin Brother of | Twin Brother of
+gary-jones,karen-jones,sibling_of,sibling of,family,False,,,,,Sister of | Brother of
+gina,herschel-shmoikel-pinchas-yerucham-krustofsky,sibling_of,half-sibling of,family,False,,half,,,Half-Brother of | Half-Sister of
+herschel-shmoikel-pinchas-yerucham-krustofsky,luke-perry,sibling_of,half-sibling of,family,False,,half,,,Half-Brother of | Half-Brother of
+jamshed-nahasapeemapetilon,pahasatira-nahasapeemapetilon,sibling_of,sibling of,family,False,,,,,Sister of | Brother of
+lisa,maggie,sibling_of,sibling of,family,False,,,,,Sister of | Sister of
+marge,patty-bouvier,sibling_of,sibling of,family,False,,,,,Sister of | Sister of
+marge,selma-bouvier,sibling_of,sibling of,family,False,,,,,Sister of | Sister of
+marv-szyslak,minnie-szyslak,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+marv-szyslak,moammar-moe-szyslak,sibling_of,sibling of,family,False,,,,,Brother of | Brother of
+maureen-muntz,nelson-muntz,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+minnie-szyslak,moammar-moe-szyslak,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+muriel-chalmers,police-superintendent-chalmers,sibling_of,sibling of,family,False,,,,,Brother of | Sister of
+patty-bouvier,selma-bouvier,sibling_of,twin of,family,False,,twin,,,Twin Sister of | Twin Sister of
+sherri-mackleberry,terri-mackleberry,sibling_of,twin of,family,False,,twin,,,Twin Sister of | Twin Sister of
+bleeding-gums-murphy-hibbert,the-cosby-show,appears_in,appears in,media,True,,,,,Appeared on
+bleeding-gums-murphy-hibbert,tonight-show,appears_in,appears in,media,True,,,,,Appeared on
+holly-hippie,the-krusty-the-clown-show,appears_in,co-star of,media,True,,co-star,,,Co-Star
+kent-brockman,eye-on-springfield,appears_in,host of,media,True,,host,,,Hosts
+kent-brockman,smartline,appears_in,host of,media,True,,host,,,Hosts
+moammar-moe-szyslak,smelly,appears_in,played,media,True,,played,,,Played
+penelope-owsley,the-krusty-the-clown-show,appears_in,co-star of,media,True,,co-star,,,Co-Star
+rainier-luftwaffe-wolfcastle,academy-awards,appears_in,presenter at,media,True,,presenter,,,Once a Presenter
+rainier-luftwaffe-wolfcastle,frankenberry-the-movie-2-the-frankenberry-wears-prada,appears_in,starred in,media,True,,star,,,Starred in
+rainier-luftwaffe-wolfcastle,i-shoot-you-face-again,appears_in,starred in,media,True,,star,,,Starred in
+rainier-luftwaffe-wolfcastle,i-shoot-your-face,appears_in,starred in,media,True,,star,,,Starred in
+rainier-luftwaffe-wolfcastle,mcbain-tv-series,appears_in,starred in,media,True,,star,,,Starred in
+rainier-luftwaffe-wolfcastle,mrs-mom,appears_in,starred in,media,True,,star,,,Starred in
+rainier-luftwaffe-wolfcastle,my-son-is-a-nerd,appears_in,starred in,media,True,,star,,,Starred in
+rainier-luftwaffe-wolfcastle,radioactive-man,appears_in,lead in,media,True,,lead role (movie),,,Played Lead Role in Movie version of Comic Book Series
+troy-mcclure,stop-the-planet-of-the-apes-i-want-to-get-off,appears_in,starred in,media,True,,star,,,Starred in
+bleeding-gums-murphy-hibbert,sax-on-the-beach,created,album,media,True,,album,,,Album
+lenford-lenny-leonard,the-murderer-did-it,created,wrote,media,True,,novelist,,,"Wrote a Series of Mystery Novels, one titled"
+lisa,consequences-eradicator-conrad-app,created,co-developed,media,True,,co-developer,,,Co-Developer of
+marge,mrs-mom,created,wrote,media,True,,screenwriter,,,Wrote Movie Script
+party-posse,drop-da-bomb,created,album,media,True,,album,,,Album
+party-posse,sign-me-up,created,single,media,True,,single,,,Single
+party-posse,silent-g,created,single,media,True,,single,,,Single
+party-posse,special-girl,created,album,media,True,,album,,,Album
+quinn-hopper,consequences-eradicator-conrad-app,created,co-developed,media,True,,co-developer,,,Co-Developer of
+barnard-arnold-barney-gumble,moe-s-tavern,frequents,frequents,membership,True,,,,,Frequent
+carlton-carl-carlson,moe-s-tavern,frequents,frequents,membership,True,,,,,Frequent
+homer,moe-s-tavern,frequents,frequents,membership,True,,,,,Frequent
+larry,moe-s-tavern,frequents,frequents,membership,True,,,,,Frequent
+laura-powers,two-guys-from-kabul,frequents,favourite restaurant,membership,True,,favourite restaurant,,,Favorite Restaurant
+lenford-lenny-leonard,moe-s-tavern,frequents,frequents,membership,True,,,,,Frequent
+sam,moe-s-tavern,frequents,frequents,membership,True,,,,,Frequent
+abraham-jebediah-abe-simpson-ii,flying-hellfish,member_of,unit commander in,membership,True,,unit commander,,,Unit Commander
+agnes-skinner,church-council,member_of,member of,membership,True,,,,,Member of
+apu-nahasapeemapetilon,be-sharps-barbershop-quartet,member_of,member of,membership,True,,,,,Member of | Apu's Stage Name
+apu-nahasapeemapetilon,kwik-e-mart-gougers,member_of,coach of,membership,True,,coach,,,Coach
+arnie-gumble,flying-hellfish,member_of,private 5th class in,membership,True,,private 5th class,,,Private 5th Class
+asa-phelps,flying-hellfish,member_of,member of,membership,True,,,,,Member of
+barnard-arnold-barney-gumble,be-sharps-barbershop-quartet,member_of,member of,membership,True,,,,,Member of
+bart,kidz-news,member_of,newsreader in,membership,True,,newsreader (Bart's People),,,Bart's People Newsreader
+bart,mighty-pigs,member_of,captain of,membership,True,,team captain,,,Team Captain
+bart,party-posse,member_of,lead vocals in,membership,True,,lead vocals,,,Lead Vocals
+bob-dole,springfield-s-republicans,member_of,member of,membership,True,,,,,Member of
+charles-montgomery-monty-burns,flying-hellfish,member_of,private in,membership,True,,private,,,Private
+charles-montgomery-monty-burns,springfield-s-republicans,member_of,member of,membership,True,,,,,Member of
+chief-clancy-wiggum,mighty-pigs,member_of,coach of,membership,True,,coach,,,Coach
+corky-james-jones,kwik-e-mart-gougers,member_of,player in,membership,True,,player,,,Player
+count-dracula,springfield-s-republicans,member_of,member of,membership,True,,,,,Member of
+dolphin-dolph-starbeam,mighty-pigs,member_of,player in,membership,True,,player,,,Player
+etch-wesgrin,flying-hellfish,member_of,member of,membership,True,,,,,Member of
+griff-mcdonald,flying-hellfish,member_of,member of,membership,True,,,,,Member of
+hans-moleman,the-molepeople,member_of,leader of,membership,True,,leader,,,Leader of the
+helen-lovejoy,church-council,member_of,member of,membership,True,,,,,Member of
+homer,be-sharps-barbershop-quartet,member_of,member of,membership,True,,,,,Member of
+iggy-wiggum,flying-hellfish,member_of,member of,membership,True,,,,,Member of
+jeffrey-jeff-albertson,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+jonathan-john-i-q-neidelbaum-frink,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+julius-m-hibbert-m-d,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+julius-m-hibbert-m-d,springfield-s-republicans,member_of,member of,membership,True,,,,,Member of
+kearney-zzyzwicz-sr,church-council,member_of,member of,membership,True,,,,,Member of
+kearney-zzyzwicz-sr,kwik-e-mart-gougers,member_of,player in,membership,True,,player,,,Player
+kearney-zzyzwicz-sr,nra,member_of,member of,membership,True,,,,,Member of
+l-t-smash,party-posse,member_of,manager of,membership,True,,band manager,,,Band Manager
+lewis-clark,mighty-pigs,member_of,player in,membership,True,,player,,,Player
+lindsey-naegle,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+lindsey-naegle,springfield-s-democratic-party,member_of,former member of,membership,True,former,,,,Once attended
+lindsey-naegle,ssccatagapp-singles-seniors-childless-couples-and-teens-and-gays-against-parasitic-parents,member_of,founder of,membership,True,,founder,,,Founded
+lisa,kidz-news,member_of,newsreader in,membership,True,,newsreader,,,Newsreader
+lisa,kwik-e-mart-gougers,member_of,player in,membership,True,,player,,,Player
+lisa,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+manjula-nahasapeemapetilon,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+marge,church-council,member_of,member of,membership,True,,,,,Member of
+martin-prince-jr,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+melvin-van-horne,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+milhouse-mussolini-van-houten,kidz-news,member_of,newsreader in,membership,True,,newsreader,,,Newsreader
+milhouse-mussolini-van-houten,kwik-e-mart-gougers,member_of,player in,membership,True,,player,,,Player
+milhouse-mussolini-van-houten,party-posse,member_of,sub vocals in,membership,True,,sub vocals,,,Sub Vocals
+milton-oxford-haas,flying-hellfish,member_of,member of,membership,True,,,,,Member of
+ned-flanders,church-council,member_of,member of,membership,True,,,,,Member of
+nelson-muntz,kidz-news,member_of,newsreader in,membership,True,,newsreader,,,Newsreader
+nelson-muntz,kwik-e-mart-gougers,member_of,player in,membership,True,,player,,,Player
+nelson-muntz,model-united-nations,member_of,represented Japan in,membership,True,,represented Japan,,,Represented Japan
+nelson-muntz,party-posse,member_of,main vocals in,membership,True,,main vocals,,,Main Vocals 1
+rabbi-hyman-krustofsky,gabbin-about-god-radio-talk-show,member_of,co-host in,membership,True,,co-host,,,Radioshow Cohosts
+rachel-jordan,kovenant-christian-rock-band,member_of,lead singer in,membership,True,,lead singer,,,Lead Singer of
+rainier-luftwaffe-wolfcastle,springfield-s-republicans,member_of,member of,membership,True,,,,,Member of
+ralph-wiggum,mighty-pigs,member_of,player in,membership,True,,player,,,Player
+ralph-wiggum,party-posse,member_of,main vocals in,membership,True,,main vocals,,,Main Vocals 2
+richard-rich-texan,springfield-s-republicans,member_of,member of,membership,True,,,,,Member of
+rod-flanders,mighty-pigs,member_of,player in,membership,True,,player,,,Player
+seymour-skinner,be-sharps-barbershop-quartet,member_of,member of,membership,True,,,,,Member of
+seymour-skinner,springfield-mensa,member_of,member of,membership,True,,,,,Member of
+sheldon-skinner,flying-hellfish,member_of,radio operator in,membership,True,,radio operator,,,Radio Operator
+timothy-lovejoy-jr,gabbin-about-god-radio-talk-show,member_of,co-host in,membership,True,,co-host,,,Radioshow Cohosts
+uter-zorker,kwik-e-mart-gougers,member_of,player in,membership,True,,player,,,Player
+aunt-gladys,jub-jub,has_pet,former pet iguana,ownership,True,former,iguana,,https://simpsons.fandom.com/wiki/Jub-Jub_Bouvier,Pet Iguana
+bart,santa-s-little-helper,has_pet,has pet,ownership,True,,,,,Pet
+jacqueline-bouvier,jub-jub,has_pet,former pet iguana (inherited),ownership,True,former,iguana (inherited),,https://simpsons.fandom.com/wiki/Jub-Jub_Bouvier,(added)
+jeffrey-jeff-albertson,chewbacca,has_pet,pet dog,ownership,True,,dog,,,Pet Dog (Deceased)
+julius-m-hibbert-m-d,rosa-barks,has_pet,pet poodle,ownership,True,,poodle,,,Pet Poodle
+kent-brockman,jessica,has_pet,pet border collie,ownership,True,,border collie,,,Pet Border Collie
+lisa,snowball-v,has_pet,has pet,ownership,True,,,,,Pet
+selma-bouvier,jub-jub,has_pet,pet iguana (adopted),ownership,True,,iguana (adopted),,https://simpsons.fandom.com/wiki/Jub-Jub_Bouvier,Adopted
+timothy-lovejoy-jr,old-english-sheepdog,has_pet,has pet,ownership,True,,,,,Pet
+charles-montgomery-monty-burns,springfield-nuclear-power-plant,owns,owns,ownership,True,,,,,Owns
+coach-krupt,saturn-sc-coupe,owns,owns,ownership,True,,,,,Owns a
+herschel-shmoikel-pinchas-yerucham-krustofsky,krusty-burger,owns,owns,ownership,True,,,,,Owns
+jeffrey-jeff-albertson,the-android-s-dungeon,owns,proprietor of,ownership,True,,proprietor,,,Proprietor/Owner
+julius-m-hibbert-m-d,mercedes-benz-g500,owns,owns,ownership,True,,,,,Owns a
+julius-m-hibbert-m-d,volvo-850-sedan,owns,owned,ownership,True,former,,,,Owned a
+moammar-moe-szyslak,moe-s-tavern,owns,owner/bartender of,ownership,True,,proprietor/bartender,,,Proprietor/Bartender
+ned-flanders,the-leftorium,owns,owned,ownership,True,former,,,,Owned the
+rainier-luftwaffe-wolfcastle,ferrari-f40,owns,owns,ownership,True,,,,,Owns a
+rainier-luftwaffe-wolfcastle,hummer-h1,owns,owns,ownership,True,,,,,Owns a
+richard-rich-texan,austin-celtics-basketball-team,owns,owned,ownership,True,former,,,,Once Owned
+fat-tony,springfield-heights,lives_in,lives in,place,True,,,,,Lives in
+hans-moleman,920-oak-grove-springfield,lives_in,lives in,place,True,,,,,Lives at
+herschel-shmoikel-pinchas-yerucham-krustofsky,springfield-heights,lives_in,lives in,place,True,,,,,Lives in
+troy-mcclure,springfield-heights,lives_in,lives in,place,True,,,,,Lives in
+bart,laura-powers,crush_on,first crush,romance,True,,first crush,,,First Crush
+milhouse-mussolini-van-houten,lisa,crush_on,crush on,romance,True,,,,,Has a Crush on
+uter-zorker,janine-janey-powell,crush_on,crush on,romance,True,,,,,Has a Crush on
+herschel-shmoikel-pinchas-yerucham-krustofsky,penelope-owsley,engaged_to,almost married,romance,False,ended,almost married,,,Almost Married
+shary-bobbins,william-sean-mclavel,engaged_to,ex-fiancé(e) of,romance,False,ended,,,,Ex-Fiance | Ex-Fiancee
+abraham-jebediah-abe-simpson-ii,jacqueline-bouvier,romantic_with,brief romance with,romance,False,ended,brief,,,Once Romantically Linked
+apu-nahasapeemapetilon,elizabeth-hoover,romantic_with,one date with,romance,False,ended,single date,,,Had a single date with
+artie-ziff,marge,romantic_with,prom date of,romance,False,ended,prom date,,,Went to Prom with
+bart,greta-wolfcastle,romantic_with,dated,romance,False,,dated,,,Dated
+bart,shauna-chalmers,romantic_with,dated,romance,False,,dated,,,Dated
+blue-haired-lawyer,lindsey-naegle,romantic_with,slept with,romance,False,,slept with,,,Slept with
+cookie-kwan,jonathan-john-i-q-neidelbaum-frink,romantic_with,relationship with,romance,False,ended,relationship,,,Had a relationship with
+cookie-kwan,joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,romantic_with,relationship with,romance,False,ended,relationship,,,Had a relationship with
+cookie-kwan,kirk-van-houten,romantic_with,hooked up with,romance,False,,hooked up,,,Hooked up with
+cookie-kwan,otto,romantic_with,hooked up with,romance,False,,hooked up,,,Hooked up with
+corky-james-jones,darcy,romantic_with,ex of,romance,False,ended,dating,,,Ex-Boyfriend of | Ex-Girlfriend of
+corky-james-jones,laura-powers,romantic_with,ex of,romance,False,ended,dating,,,Ex-Boyfriend of | Ex-Girlfriend of
+corky-james-jones,shauna-chalmers,romantic_with,ex of,romance,False,ended,dating,,,Ex-Boyfriend of | Ex-Girlfriend of
+dewey,dewey-largo,romantic_with,ex of,romance,False,ended,dating,,https://simpsons.fandom.com/wiki/Dewey_Largo,Ex-Boyfriend of | Ex-Boyfriend of
+dewey-largo,geoffrey,romantic_with,dating,romance,False,,dating,,https://simpsons.fandom.com/wiki/Dewey_Largo,(added)
+disco-stu,lindsey-naegle,romantic_with,slept with,romance,False,,slept with,,,Slept with
+doris-freedman,hans-moleman,romantic_with,dated,romance,False,ended,dated,,,Once Dated | Once Dated
+edna-krabappel,jonathan-john-i-q-neidelbaum-frink,romantic_with,dated,romance,False,ended,dated,,,Once dated
+edna-krabappel,kent-brockman,romantic_with,relationship with,romance,False,ended,relationship,,,Had a relationship with
+edna-krabappel,seymour-skinner,romantic_with,dated,romance,False,,dated,,,Dated
+greta-wolfcastle,milhouse-mussolini-van-houten,romantic_with,dated,romance,False,ended,dated,,,Dated to make Bart Jealous
+hans-moleman,selma-bouvier,romantic_with,ex of,romance,False,ended,dating,,,Ex-Boyfriend of | Ex-Girlfriend of
+herschel-shmoikel-pinchas-yerucham-krustofsky,lindsey-naegle,romantic_with,slept with,romance,False,,slept with,,,Slept with
+inga,william-sean-mclavel,romantic_with,dating,romance,False,,dating,,,Boyfriend of | Girlfriend of
+jeremy-freedman,mom,romantic_with,made out with,romance,False,,made out,,,Makes out with
+jeremy-freedman,shauna-chalmers,romantic_with,ex of,romance,False,ended,dating,,,Ex-Girlfriend of | Ex-Boyfriend of
+julius-m-hibbert-m-d,luann-van-houten,romantic_with,slept with,romance,False,,slept with,,,Slept with
+kent-brockman,lindsey-naegle,romantic_with,slept with,romance,False,,slept with,,,Slept with
+lenford-lenny-leonard,lindsey-naegle,romantic_with,slept with,romance,False,,slept with,,,Slept with
+lindsey-naegle,moammar-moe-szyslak,romantic_with,slept with,romance,False,,slept with,,,Slept with
+lindsey-naegle,ned-flanders,romantic_with,dated,romance,False,ended,dated,,,Once dated
+lindsey-naegle,rainier-luftwaffe-wolfcastle,romantic_with,slept with,romance,False,,slept with,,,Slept with
+lindsey-naegle,sea-captian,romantic_with,slept with,romance,False,,slept with,,,Slept with
+milhouse-mussolini-van-houten,paris-texan,romantic_with,made out with,romance,False,,made out,,,Made out with
+milhouse-mussolini-van-houten,samantha-stanky,romantic_with,first girlfriend of,romance,False,ended,first girlfriend,,,First Girlfriend
+milhouse-mussolini-van-houten,taffy,romantic_with,dated,romance,False,,dated,,,Dated
+ned-flanders,rachel-jordan,romantic_with,brief romance with,romance,False,ended,brief,,,Briefly Romantically Connected With
+ned-flanders,sara-sloane,romantic_with,brief romance with,romance,False,ended,brief,,,Briefly Romantically Connected With
+patty-bouvier,seymour-skinner,romantic_with,dated,romance,False,,dated,,,Dated
+patty-bouvier,veronica,romantic_with,relationship with,romance,False,ended,relationship,,,Only Serious Relationship with a Woman
+rosa-barks,santa-s-little-helper,romantic_with,puppies with,romance,False,,litter of puppies,,,Fathered a Litter of Puppies with
+abraham-jebediah-abe-simpson-ii,amber,spouse_of,spouse of (widowed),romance,False,widowed,,,,Husband of (Deceased)
+abraham-jebediah-abe-simpson-ii,mona,spouse_of,spouse of (widowed),romance,False,widowed,,,,Husband of (Deceased)
+abraham-jebediah-abe-simpson-ii,rita-lafleur,spouse_of,ex-spouse of,romance,False,divorced,,,,Husband of (Divorced)
+abraham-jebediah-abe-simpson-ii,selma-bouvier,spouse_of,ex-spouse of,romance,False,divorced,,,,Husband of (Divorced)
+agnes-skinner,sheldon-skinner,spouse_of,spouse of (widowed),romance,False,widowed,,,,Deceased Husband of | Wife of
+agnes-skinner,tow-truck-driver-01,spouse_of,ex-spouse of,romance,False,divorced,,,,Married to (Divorced)
+agnes-skinner,tow-truck-driver-02,spouse_of,ex-spouse of,romance,False,divorced,,,,Married to (Divorced)
+agnes-skinner,tow-truck-driver-03,spouse_of,ex-spouse of,romance,False,divorced,,,,Married to (Divorced)
+amber,homer,spouse_of,briefly married to,romance,False,,brief,,,Briefly Married to
+apu-nahasapeemapetilon,manjula-nahasapeemapetilon,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+bart,darcy,spouse_of,spouse of,romance,False,,,,,Also Married
+bernice-hibbert,julius-m-hibbert-m-d,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+chief-clancy-wiggum,sarah-wiggum,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+clancy-bouvier,jacqueline-bouvier,spouse_of,spouse of,romance,False,,,,,Husband of
+coach-krupt,mrs-krupt,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+disco-stu,selma-bouvier,spouse_of,ex-spouse of,romance,False,divorced,,,,Married to (Divorced)
+doris-freedman,richard-freedman,spouse_of,spouse of (widowed),romance,False,widowed,,,,Widow of | Deceased Husband of
+eartha-kitt,herschel-shmoikel-pinchas-yerucham-krustofsky,spouse_of,ex-spouse of,romance,False,divorced,,,,Formerly Married to
+edna-krabappel,ned-flanders,spouse_of,spouse of (widowed),romance,False,widowed,,,,Husband of | Deceased Wife of
+fat-tony,selma-bouvier,spouse_of,spouse of,romance,False,,,,,Married to
+frank,myra,spouse_of,annulled marriage,romance,False,annulled,,,,Wife of (Annulled) | Husband of
+gary-chalmers,rosemary-chalmers,spouse_of,spouse of (widowed),romance,False,widowed,,,,Deceased Wife of | Husband of
+ginger,ned-flanders,spouse_of,annulled marriage,romance,False,annulled,,,,Husband of (Annulled) | Wife of (Annulled)
+helen-lovejoy,timothy-lovejoy-jr,spouse_of,spouse of,romance,False,,,,,Wife of | Husband of
+herschel-shmoikel-pinchas-yerucham-krustofsky,holly-hippie,spouse_of,ex-spouse of,romance,False,divorced,,,,Formerly Married to
+herschel-shmoikel-pinchas-yerucham-krustofsky,mia-farrow,spouse_of,ex-spouse of,romance,False,divorced,,,,Divorced from | Divorced from
+homer,marge,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+jeffrey-jeff-albertson,kumiko,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,martha-quimby,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+kent-brockman,stephanie-brockman,spouse_of,ex-spouse of,romance,False,divorced,,,,Husband of (Divorced) | Wife of (divorced)
+kirk-van-houten,luann-van-houten,spouse_of,ex-spouse of,romance,False,divorced,,,,Divorced | Divorced
+lionel-hutz,selma-bouvier,spouse_of,ex-spouse of,romance,False,divorced,,,,Married to (Divorced)
+martha-prince,martin-prince-sr,spouse_of,spouse of,romance,False,,,,,Husband of | Wife of
+maude-flanders,ned-flanders,spouse_of,spouse of (widowed),romance,False,widowed,,,,Husband of | Deceased Wife of
+mona-flanders,nedward-flanders-sr,spouse_of,spouse of,romance,False,,,,,Wife of | Husband of
+rabbi-hyman-krustofsky,rachel-krustofsky,spouse_of,spouse of (widowed),romance,False,widowed,,,,Deceased Wife of | Husband of
+robert-terwilliger,selma-bouvier,spouse_of,ex-spouse of,romance,False,divorced,,,,Wife of (divorced) | Husband of
+selma-bouvier,troy-mcclure,spouse_of,ex-spouse of,romance,False,divorced,,,,Married to (Divorced)
+apu-nahasapeemapetilon,calcutta-technical-institute,student_at,top of class at,school,True,graduated,1st in class of 7 million,,,Graduated 1st in Class of 7 Million
+apu-nahasapeemapetilon,springfield-heights-institute-of-technology-s-h-i-t,student_at,doctoral student at,school,True,,doctorate,,,Earning his Doctorate at
+bart,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+carlton-carl-carlson,springfield-a-m-university,student_at,attended,school,True,former,,,,Attended
+cookie-kwan,camp-land-a-man,student_at,attended,school,True,former,,,,Attended as a young girl
+corky-james-jones,springfield-elementary-school,student_at,bully at,school,True,,school bully,,,Student at | School Bully
+dolphin-dolph-starbeam,springfield-elementary-school,student_at,bully at,school,True,,school bully,,,School Bully
+hans-moleman,springfield-university,student_at,attended,school,True,former,,,,Attended
+helen-lovejoy,camp-land-a-man,student_at,attended,school,True,former,,,,Attended as a young girl
+homer,how-to-strip-for-your-wife-course,student_at,attended,school,True,former,,,,Attended
+isabel-gutierrez,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+kearney-zzyzwicz-jr,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+kearney-zzyzwicz-sr,springfield-elementary-school,student_at,bully at,school,True,,school bully,,,School Bully
+lewis-clark,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+lindsey-naegle,wharton-business-school,student_at,graduated from,school,True,graduated,,,,Graduated from
+lisa,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+luann-van-houten,camp-land-a-man,student_at,attended,school,True,former,,,,Attended as a young girl
+marge,camp-land-a-man,student_at,attended,school,True,former,,,,Attended as a young girl
+martin-prince-jr,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+milhouse-mussolini-van-houten,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+moammar-moe-szyslak,swigmore-university,student_at,former bartending student at,school,True,former,bartending school,,,Attended Bartending School at
+ned-flanders,oral-roberts-university,student_at,graduated from,school,True,graduated,,,,Graduated from
+nelson-muntz,springfield-elementary-school,student_at,bully at,school,True,,school bully,,,School Bully
+patty-bouvier,camp-land-a-man,student_at,attended,school,True,former,,,,Attended as a young girl
+ralph-wiggum,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+richard,springfield-elementary-school,student_at,student at,school,True,,,,,Student at | Student at
+rod-flanders,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+selma-bouvier,camp-land-a-man,student_at,attended,school,True,former,,,,Attended as a young girl
+sherri-mackleberry,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+terri-mackleberry,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+todd-flanders,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+uter-zorker,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+wendell-borton,springfield-elementary-school,student_at,student at,school,True,,,,,Student at
+bart,milhouse-mussolini-van-houten,friend_of,best friend of,social,False,,best friend,,,Best Friend of | Best Friend of
+carlton-carl-carlson,lenford-lenny-leonard,friend_of,best friend of,social,False,,best friend,,,Best Friend of | Best Friend of
+cookie-kwan,rainier-luftwaffe-wolfcastle,friend_of,friend of,social,False,,,,,Friends with
+duffman,rainier-luftwaffe-wolfcastle,friend_of,friend of,social,False,,,,,Friends with
+isabel-gutierrez,lisa,friend_of,ex-friend of,social,False,ended,,,,Ex-Friend of
+janine-janey-powell,lisa,friend_of,best friend of,social,False,,best friend,,,Best Friend of | Best Friend of
+lewis-clark,richard,friend_of,best friend of,social,False,,best friend,,,Best Friend of | Best Friend of
+miss-springfield,rainier-luftwaffe-wolfcastle,friend_of,friend of,social,False,,,,,Friends with
+bart,herschel-shmoikel-pinchas-yerucham-krustofsky,likes,biggest fan of,social,True,,biggest fan,,,Biggest Fan
+homer,pork-rinds,likes,loves,social,True,,loves,,,Loves
+santa-s-little-helper,bart,likes,loves,social,True,,loves,,,Loves
+santa-s-little-helper,pork-rinds,likes,loves,social,True,,loves,,,Loves
+bleeding-gums-murphy-hibbert,lisa,mentor_of,mentor of,social,True,,,,,Mentored
+blind-willie,bleeding-gums-murphy-hibbert,mentor_of,jazz mentor of,social,True,,jazz,,,Learned Jazz from
+homer,ned-flanders,neighbour_of,neighbour of,social,False,,,,,Neighbor of
+arnie-pye,kent-brockman,rival_of,feuds with,social,False,,feud,,,Ongoing Feud with
+groundskeeper-seamus,william-sean-mclavel,rival_of,rival of,social,False,,,,,Irish Rival | Scottish Rival
+apu-nahasapeemapetilon,marge,story_event,fake marriage,story,True,,,Pretended to be Married to,,Pretended to be Married to
+bart,dr-stacey-swanson,story_event,sent to,story,True,,,Sent to visit after telling false story about Dark Stanley,,Sent to visit after telling false story about Dark Stanley
+bart,robert-terwilliger,story_event,foiled plot of,story,True,,,Discovered Sideshow Bob's Plot to kill Selma,,Discovered Sideshow Bob's Plot to kill Selma
+bart,stampy,story_event,won,story,True,,,"Wins the elephant in a radio contest called ""KBBL Is Gonna Gimme Something Stupid""",,"Wins the elephant in a radio contest called ""KBBL Is Gonna Gimme Something Stupid"""
+bleeding-gums-murphy-hibbert,the-jazz-hole,story_event,played at,story,True,,,Played Lisa's Song,,Played Lisa's Song
+cookie-kwan,homer,story_event,courted,story,True,,,Tried to get to move in,,Tried to get to move in
+cookie-kwan,joseph-fitzgerald-o-malley-fitzpatrick-o-donnell-the-edge-diamond-joe-quimby-jr,story_event,paternity suit,story,True,,,Plaintiff in Paternity Suit (with 36 other women),,Plaintiff in Paternity Suit (with 36 other women)
+corky-james-jones,greta-wolfcastle,story_event,bullied,story,True,,,Bullied,,Bullied
+dewey-largo,juilliard-school-of-music,story_event,accepted (letter lost),story,True,,,"Accepted as student, but acceptance letter frozen at top of Mt. Springfield",https://simpsons.fandom.com/wiki/Dewey_Largo,"Accepted as student, but acceptance letter frozen at top of Mt. Springfield"
+dr-stacey-swanson,milhouse-mussolini-van-houten,story_event,treats,story,True,,,Treats,,Treats
+gary-chalmers,seymour-skinner,story_event,fired,story,True,,,Fired,,Fired
+groundskeeper-seamus,william-sean-mclavel,story_event,blames,story,True,,,Blames for getting fired,,Blames for getting fired
+julius-m-hibbert-m-d,malcom-sex,story_event,worked as,story,True,,,Worked as a male stripper to pay for Med school,,Worked as a male stripper to pay for Med school
+julius-m-hibbert-m-d,robert-terwilliger,story_event,misdeclared dead,story,True,,,Incorrectly pronounced as dead,,Incorrectly pronounced as dead
+l-t-smash,bart,story_event,recruited,story,True,,,Recruited to form a Boy Band,,Recruited to form a Boy Band
+l-t-smash,milhouse-mussolini-van-houten,story_event,recruited,story,True,,,Recruited to form a Boy Band,,Recruited to form a Boy Band
+l-t-smash,nelson-muntz,story_event,recruited,story,True,,,Recruited to form a Boy Band,,Recruited to form a Boy Band
+l-t-smash,ralph-wiggum,story_event,recruited,story,True,,,Recruited to form a Boy Band,,Recruited to form a Boy Band
+marge,pork-rinds,story_event,buys,story,True,,,Buys,,Buys
+marge,santa-s-little-helper,story_event,feeds,story,True,,,Feeds,,Feeds
+marge,snowball-v,story_event,feeds,story,True,,,Feeds,,Feeds
+marge,veronica,story_event,unmasked,story,True,,,Discovered that Veronica actually a man in disguise,,Discovered that Veronica actually a man in disguise
+melvin-van-horne,robert-terwilliger,story_event,replaced,story,True,,,Replaced,,Replaced
+moammar-moe-szyslak,simon-cowell,story_event,punched,story,True,,,Once Punched and no longer allowed to judge contests,,Once Punched and no longer allowed to judge contests
+ms-dubinsky,lisa,story_event,invited,story,True,,,Invited to School Debate Team,,Invited to School Debate Team
+robert-terwilliger,herschel-shmoikel-pinchas-yerucham-krustofsky,story_event,framed,story,True,,,Framed for Armed Robbery,,Framed for Armed Robbery
+robert-terwilliger,selma-bouvier,story_event,plotted to kill,story,True,,,Plotted to kill,,Plotted to kill
+samantha-stanky,saint-sebastian-s-school-for-wicked-girls,story_event,sent to,story,True,,,Sent to Private School after caught Kissing Milhouse,,Sent to Private School after caught Kissing Milhouse
+selma-bouvier,homer,story_event,fake marriage,story,True,,,Pretended to be Married to,,Pretended to be Married to
+seymour-skinner,groundskeeper-seamus,story_event,fired,story,True,,,Fired,,Fired
+seymour-skinner,patty-bouvier,story_event,proposed to,story,True,,,Proposed to,,Proposed to
+stephen-hawking,lisa,story_event,rescued,story,True,,,Rescued,,Rescued
+stephen-hawking,seymour-skinner,story_event,punched,story,True,,,Punched in face,,Punched in face
+stephen-hawking,springfield-mensa,story_event,criticized,story,True,,,"Sharply criticized, comparing their failure to transform the town to his own failure to formulate a unified field theory",,"Sharply criticized, comparing their failure to transform the town to his own failure to formulate a unified field theory"
+timothy-lovejoy-jr,springfield-alcoholics-anonymous,story_event,hosts,story,True,,,Hosts meetings at church,,Hosts meetings at church
+kidz-news,channel-6-news,part_of,programme on,structure,True,,educational programming,,,Educational Programming
+kwik-e-mart-gougers,springfield-peewee-hockey-league,part_of,part of,structure,True,,,,,Team
+mighty-pigs,springfield-peewee-hockey-league,part_of,part of,structure,True,,,,,Team
+remote-onsite-correctional-center,springfield-elementary-school,part_of,detention centre for,structure,True,,detention centre,,,New Detention Center for
+smelly,the-little-rascal,part_of,part of,structure,True,,,,,Character on TV Show
+springfield-elementary-school,springfield-school-district,part_of,part of,structure,True,,,,,In
+herschel-shmoikel-pinchas-yerucham-krustofsky,melvin-van-horne,colleague_of,colleague of,work,False,,,,,Works with
+abraham-jebediah-abe-simpson-ii,krusty-burger,works_at,worked at,work,True,former,,,,Worked at
+apu-nahasapeemapetilon,kwik-e-mart,works_at,works at,work,True,,,,,Works at
+arnie-pye,channel-6-news,works_at,traffic reporter at,work,True,,traffic reporter,,,Traffic Reporter
+asa-phelps,united-strut-and-bracing-works,works_at,worked at,work,True,former,,,,Worked at
+brunella-pommelhorst,springfield-elementary-school,works_at,gym teacher at,work,True,,gym teacher,,,Gym Teacher
+brunella-pommelhorst,starving-teachers-moving-co,works_at,works at,work,True,,,,,Works at
+carlton-carl-carlson,springfield-nuclear-power-plant,works_at,works at,work,True,,,,,Works at
+coach-krupt,springfield-elementary-school,works_at,gym teacher at,work,True,,gym teacher,,,Gym Teacher
+dewey-largo,springfield-elementary-school,works_at,music teacher at,work,True,,music teacher,,https://simpsons.fandom.com/wiki/Dewey_Largo,Music Teacher
+dewey-largo,starving-teachers-moving-co,works_at,works at,work,True,,,,https://simpsons.fandom.com/wiki/Dewey_Largo,Works at
+doris-freedman,springfield-elementary-school,works_at,cafeteria chef at; school nurse at,work,True,,cafeteria chef; school nurse,,,Cafeteria Chef | School Nurse
+edna-krabappel,springfield-elementary-school,works_at,teacher at,work,True,,teacher,,,Teaches at
+elizabeth-hoover,springfield-elementary-school,works_at,second grade teacher at,work,True,,second grade teacher,,,Second Grade Teacher
+evelyn-trunch,springfield-elementary-school,works_at,art teacher at,work,True,,art teacher,,,Art Teacher
+gary-chalmers,springfield-school-district,works_at,superintendent of,work,True,,superintendent,,,Superintendent of
+groundskeeper-seamus,springfield-elementary-school,works_at,former groundskeeper at,work,True,former,groundskeeper,,,Former Groundskeeper
+homer,springfield-nuclear-power-plant,works_at,works at,work,True,,,,,Works at
+j-loren-pryor,springfield-elementary-school,works_at,school district psychologist at,work,True,,school district psychologist,,,School District Psychologist
+jeremy-freedman,barney-s-bowlarama,works_at,works at,work,True,,,,,Works at
+jeremy-freedman,book-returns,works_at,works at,work,True,,,,,Works at
+jeremy-freedman,krusty-burger,works_at,works at,work,True,,,,,Works at
+jeremy-freedman,moe-s-express,works_at,works at,work,True,,,,,Works at
+jeremy-freedman,mom-pop-hardware-store,works_at,works at,work,True,,,,,Works at
+jeremy-freedman,the-brown-burrito,works_at,works at,work,True,,,,,Works at
+jonathan-john-i-q-neidelbaum-frink,springfield-heights-institute-of-technology-s-h-i-t,works_at,professor at,work,True,,professor,,,Professor at
+julius-m-hibbert-m-d,dr-julius-hibbert-m-d-family-practice,works_at,works at,work,True,,,,,Works at
+julius-m-hibbert-m-d,how-to-strip-for-your-wife-course,works_at,teacher at,work,True,,teacher,,,Taught
+julius-m-hibbert-m-d,springfield-general-hospital,works_at,works at,work,True,,,,,Works at
+kent-brockman,channel-6-news,works_at,anchor at,work,True,,anchor,,,Anchor
+lenford-lenny-leonard,adult-education-annex,works_at,"teaches ""How to Chew Tobacco"" at",work,True,,"teaches ""How to Chew Tobacco""",,,"Teaches class on ""How to Chew Tobacco"""
+lenford-lenny-leonard,springfield-nuclear-power-plant,works_at,works at,work,True,,,,,Works at
+lindsey-naegle,remote-onsite-correctional-center,works_at,host of,work,True,,host,,,Host of
+lindsey-naegle,springfield-alcoholics-anonymous,works_at,head of,work,True,,head,,,Head of
+martha-peterson,springfield-department-of-motor-vehicles,works_at,works at,work,True,,,,,Works at
+meredith-milgram,springfield-elementary-school,works_at,former principal at,work,True,former,principal,,,Former Principal of
+mom,mom-pop-hardware-store,works_at,works at,work,True,,,,,Works at
+mr-johnson,springfield-elementary-school,works_at,gym teacher at,work,True,,gym teacher,,,Gym Teacher
+mrs-marilyn-muntz,hooters,works_at,works at,work,True,,,,,Works at
+ms-barr,springfield-elementary-school,works_at,gym teacher at,work,True,,gym teacher,,,Gym Teacher
+ms-dubinsky,springfield-elementary-school,works_at,debate team teacher at,work,True,,debate team teacher,,,Debate Team Teacher
+ms-phipps,springfield-elementary-school,works_at,school nurse at,work,True,,school nurse,,,School Nurse
+myra,springfield-elementary-school,works_at,secretary at,work,True,,secretary,,,Principal Skinner's Secretary
+ned-flanders,springfield-elementary-school,works_at,Bart's teacher at,work,True,,Bart's teacher,,,Bart's Teacher
+otto-mann,springfield-elementary-school,works_at,school bus driver at,work,True,,school bus driver,,,School Bus Driver
+patty-bouvier,springfield-department-of-motor-vehicles,works_at,works at,work,True,,,,,Works at
+professor-huntington,swigmore-university,works_at,professor at,work,True,,professor,,,Professor at
+quinn-hopper,springfield-elementary-school,works_at,coding teacher at,work,True,,coding teacher,,,Coding Teacher
+sanjay-nahasapeemapetilon,kwik-e-mart,works_at,works at,work,True,,,,,Works at
+selma-bouvier,springfield-department-of-motor-vehicles,works_at,commissioner (former tester) at,work,True,,commissioner (former tester),,,Former Tester and Current Commissioner
+seymour-skinner,springfield-elementary-school,works_at,principal at,work,True,,principal,,,Principal
+shauna-chalmers,krusty-burger,works_at,worked at,work,True,former,,,,Former Employee
+shauna-chalmers,smart-tykes,works_at,manager at,work,True,,manager,,,Manager at
+stanley-degroot,springfield-elementary-school,works_at,former school cook at,work,True,former,school cook,,,Former School Cook
+stanley-peterson,springfield-department-of-motor-vehicles,works_at,security guard at,work,True,,security guard,,,Security Guard at
+stephanie-brockman,channel-6-news,works_at,weather presenter at,work,True,,weather presenter,,,Weather Lady
+timothy-lovejoy-jr,first-church-of-springfield,works_at,reverend at,work,True,,reverend,,,Reverend
+waylon-joseph-smithers-jr,springfield-nuclear-power-plant,works_at,works at,work,True,,,,,Works at
+waylon-smithers-sr,springfield-nuclear-power-plant,works_at,worked at,work,True,former,,,,Worked at
+wayne-slater,springfield-department-of-motor-vehicles,works_at,works at,work,True,,,,,Works at
+william-sean-mclavel,springfield-elementary-school,works_at,groundskeeper at,work,True,,groundskeeper,,,Groundskeeper
+chief-clancy-wiggum,police-superintendent-chalmers,works_for,works for,work,True,,,,,Boss of
+homer,charles-montgomery-monty-burns,works_for,works for,work,True,,,,,Boss of
+rainier-luftwaffe-wolfcastle,powersauce-energy-bar,works_for,spokesperson for,work,True,,spokesperson,,,Spokesperson
+shary-bobbins,bart,works_for,nanny for,work,True,,nanny,,,Nanny for
+shary-bobbins,lisa,works_for,nanny for,work,True,,nanny,,,Nanny for
+shary-bobbins,maggie,works_for,nanny for,work,True,,nanny,,,Nanny for
+waylon-joseph-smithers-jr,charles-montgomery-monty-burns,works_for,executive personal assistant for,work,True,,executive personal assistant,,,Executive Personal Assistant
