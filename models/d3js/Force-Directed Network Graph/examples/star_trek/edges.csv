@@ -1,0 +1,125 @@
+from_id,to_id,relationship,label,category,directed,status,role,detail,source
+james-t-kirk,tos,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series
+james-t-kirk,enterprise,serves_on,captain on,crew,True,,captain,,https://en.wikipedia.org/wiki/James_T._Kirk
+spock,tos,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series
+spock,enterprise,serves_on,first officer on,crew,True,,first officer,,https://en.wikipedia.org/wiki/Spock
+leonard-mccoy,tos,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series
+leonard-mccoy,enterprise,serves_on,chief medical officer on,crew,True,,chief medical officer,,https://en.wikipedia.org/wiki/Leonard_McCoy
+montgomery-scott,tos,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series
+montgomery-scott,enterprise,serves_on,chief engineer on,crew,True,,chief engineer,,https://en.wikipedia.org/wiki/Scotty_(Star_Trek)
+nyota-uhura,tos,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series
+nyota-uhura,enterprise,serves_on,communications officer on,crew,True,,communications officer,,https://en.wikipedia.org/wiki/Uhura
+hikaru-sulu,tos,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series
+hikaru-sulu,enterprise,serves_on,helmsman on,crew,True,,helmsman,,https://en.wikipedia.org/wiki/Hikaru_Sulu
+pavel-chekov,tos,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series
+pavel-chekov,enterprise,serves_on,navigator on,crew,True,,navigator,,https://en.wikipedia.org/wiki/Pavel_Chekov
+sarek,tos,appears_in,guest in,cast,True,,guest,"""Journey to Babel""",https://en.wikipedia.org/wiki/Sarek
+jean-luc-picard,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+jean-luc-picard,enterprise-d,serves_on,captain on,crew,True,,captain,,https://en.wikipedia.org/wiki/Jean-Luc_Picard
+william-riker,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+william-riker,enterprise-d,serves_on,first officer on,crew,True,,first officer,,https://en.wikipedia.org/wiki/William_Riker
+data,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+data,enterprise-d,serves_on,second officer on,crew,True,,second officer,,https://en.wikipedia.org/wiki/Data_(Star_Trek)
+geordi-la-forge,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+geordi-la-forge,enterprise-d,serves_on,chief engineer on,crew,True,,chief engineer,,https://en.wikipedia.org/wiki/Geordi_La_Forge
+worf,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+worf,enterprise-d,serves_on,chief of security on,crew,True,,chief of security,,https://en.wikipedia.org/wiki/Worf
+beverly-crusher,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+beverly-crusher,enterprise-d,serves_on,chief medical officer on,crew,True,,chief medical officer,,https://en.wikipedia.org/wiki/Beverly_Crusher
+deanna-troi,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+deanna-troi,enterprise-d,serves_on,counselor on,crew,True,,counselor,,https://en.wikipedia.org/wiki/Deanna_Troi
+wesley-crusher,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+wesley-crusher,enterprise-d,serves_on,acting ensign on,crew,True,,acting ensign,,https://en.wikipedia.org/wiki/Wesley_Crusher
+tasha-yar,tng,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+tasha-yar,enterprise-d,serves_on,chief of security on,crew,True,,chief of security,,https://en.wikipedia.org/wiki/Tasha_Yar
+miles-o-brien,tng,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+miles-o-brien,enterprise-d,serves_on,transporter chief on,crew,True,,transporter chief,,https://en.wikipedia.org/wiki/Miles_O%27Brien_(Star_Trek)
+keiko-o-brien,tng,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+reginald-barclay,tng,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+reginald-barclay,enterprise-d,serves_on,engineer on,crew,True,,engineer,,https://en.wikipedia.org/wiki/Reginald_Barclay
+q,tng,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+lwaxana-troi,tng,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+alexander-rozhenko,tng,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+lore,tng,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation
+benjamin-sisko,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+benjamin-sisko,deep-space-nine,serves_on,commanding officer on,crew,True,,commanding officer,,https://en.wikipedia.org/wiki/Benjamin_Sisko
+kira-nerys,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+kira-nerys,deep-space-nine,serves_on,first officer on,crew,True,,first officer,,https://en.wikipedia.org/wiki/Kira_Nerys
+odo,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+odo,deep-space-nine,serves_on,chief of security on,crew,True,,chief of security,,https://en.wikipedia.org/wiki/Odo_(Star_Trek)
+jadzia-dax,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+jadzia-dax,deep-space-nine,serves_on,science officer on,crew,True,,science officer,,https://en.wikipedia.org/wiki/Jadzia_Dax
+julian-bashir,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+julian-bashir,deep-space-nine,serves_on,chief medical officer on,crew,True,,chief medical officer,,https://en.wikipedia.org/wiki/Julian_Bashir
+quark,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+jake-sisko,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+ezri-dax,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+ezri-dax,deep-space-nine,serves_on,counselor on,crew,True,,counselor,,https://en.wikipedia.org/wiki/Ezri_Dax
+rom,ds9,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+nog,ds9,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+elim-garak,ds9,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+dukat,ds9,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+quark,deep-space-nine,lives_on,lives on,place,True,,,,https://en.wikipedia.org/wiki/List_of_Star_Trek:_Deep_Space_Nine_characters
+jake-sisko,deep-space-nine,lives_on,lives on,place,True,,,,https://en.wikipedia.org/wiki/List_of_Star_Trek:_Deep_Space_Nine_characters
+rom,deep-space-nine,lives_on,lives on,place,True,,,,https://en.wikipedia.org/wiki/List_of_Star_Trek:_Deep_Space_Nine_characters
+nog,deep-space-nine,lives_on,lives on,place,True,,,,https://en.wikipedia.org/wiki/List_of_Star_Trek:_Deep_Space_Nine_characters
+elim-garak,deep-space-nine,lives_on,lives on,place,True,,,,https://en.wikipedia.org/wiki/List_of_Star_Trek:_Deep_Space_Nine_characters
+dukat,deep-space-nine,serves_on,former commanding officer of,crew,True,former,commanding officer,"As Terok Nor, during the Cardassian occupation of Bajor",https://en.wikipedia.org/wiki/Dukat_(Star_Trek)
+miles-o-brien,ds9,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine
+miles-o-brien,deep-space-nine,serves_on,chief of operations on,crew,True,,chief of operations,,https://en.wikipedia.org/wiki/Miles_O%27Brien_(Star_Trek)
+worf,ds9,appears_in,main character in,cast,True,,main,Seasons 4–7,https://en.wikipedia.org/wiki/Worf
+worf,deep-space-nine,serves_on,strategic operations officer on,crew,True,,strategic operations officer,,https://en.wikipedia.org/wiki/Worf
+benjamin-sisko,defiant,serves_on,commanding officer of,crew,True,,commanding officer,,https://en.wikipedia.org/wiki/Benjamin_Sisko
+keiko-o-brien,ds9,appears_in,recurring in,cast,True,,recurring,,https://en.wikipedia.org/wiki/Miles_O%27Brien_(Star_Trek)
+kathryn-janeway,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+kathryn-janeway,voyager,serves_on,captain on,crew,True,,captain,,https://en.wikipedia.org/wiki/Kathryn_Janeway
+chakotay,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+chakotay,voyager,serves_on,first officer on,crew,True,,first officer,,https://en.wikipedia.org/wiki/Chakotay
+tuvok,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+tuvok,voyager,serves_on,chief of security on,crew,True,,chief of security,,https://en.wikipedia.org/wiki/Tuvok
+tom-paris,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+tom-paris,voyager,serves_on,helmsman on,crew,True,,helmsman,,https://en.wikipedia.org/wiki/Tom_Paris
+b-elanna-torres,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+b-elanna-torres,voyager,serves_on,chief engineer on,crew,True,,chief engineer,,https://en.wikipedia.org/wiki/B%27Elanna_Torres
+harry-kim,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+harry-kim,voyager,serves_on,operations officer on,crew,True,,operations officer,,https://en.wikipedia.org/wiki/Harry_Kim
+the-doctor,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+the-doctor,voyager,serves_on,chief medical officer on,crew,True,,chief medical officer,,https://en.wikipedia.org/wiki/The_Doctor_(Star_Trek:_Voyager)
+neelix,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+neelix,voyager,serves_on,cook and morale officer on,crew,True,,cook and morale officer,,https://en.wikipedia.org/wiki/Neelix
+kes,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+kes,voyager,serves_on,medical assistant on,crew,True,,medical assistant,,https://en.wikipedia.org/wiki/Kes_(Star_Trek)
+seven-of-nine,voy,appears_in,main character in,cast,True,,main,,https://en.wikipedia.org/wiki/Star_Trek:_Voyager
+seven-of-nine,voyager,serves_on,crew member on,crew,True,,crew member,,https://en.wikipedia.org/wiki/Seven_of_Nine
+leonard-mccoy,tng,appears_in,guest in,cast,True,,guest,"""Encounter at Farpoint""",https://en.wikipedia.org/wiki/Leonard_McCoy
+spock,tng,appears_in,guest in,cast,True,,guest,"""Unification"" I and II",https://en.wikipedia.org/wiki/Unification_(Star_Trek:_The_Next_Generation)
+montgomery-scott,tng,appears_in,guest in,cast,True,,guest,"""Relics""",https://en.wikipedia.org/wiki/Scotty_(Star_Trek)
+sarek,tng,appears_in,guest in,cast,True,,guest,"""Sarek"", ""Unification I""",https://en.wikipedia.org/wiki/Sarek
+hikaru-sulu,voy,appears_in,guest in,cast,True,,guest,"""Flashback""",https://en.wikipedia.org/wiki/Hikaru_Sulu
+hikaru-sulu,excelsior,serves_on,captain of,crew,True,,captain,,https://en.wikipedia.org/wiki/Hikaru_Sulu
+tuvok,excelsior,serves_on,former junior science officer on,crew,True,former,junior science officer,"Under Captain Sulu, seen in ""Flashback""",https://en.wikipedia.org/wiki/Tuvok
+jean-luc-picard,ds9,appears_in,guest in,cast,True,,guest,"""Emissary""",https://en.wikipedia.org/wiki/Emissary_(Star_Trek:_Deep_Space_Nine)
+quark,voy,appears_in,guest in,cast,True,,guest,"""Caretaker""",https://en.wikipedia.org/wiki/Caretaker_(Star_Trek:_Voyager)
+julian-bashir,tng,appears_in,guest in,cast,True,,guest,"""Birthright, Part I""",https://en.wikipedia.org/wiki/Julian_Bashir
+q,ds9,appears_in,guest in,cast,True,,guest,"""Q-Less""",https://en.wikipedia.org/wiki/Q_(Star_Trek)
+q,voy,appears_in,guest in,cast,True,,guest,"""Death Wish"" and others",https://en.wikipedia.org/wiki/Q_(Star_Trek)
+william-riker,voy,appears_in,guest in,cast,True,,guest,"""Death Wish""",https://en.wikipedia.org/wiki/Death_Wish_(Star_Trek:_Voyager)
+deanna-troi,voy,appears_in,guest in,cast,True,,guest,"""Pathfinder"", ""Life Line"", ""Inside Man""",https://en.wikipedia.org/wiki/Deanna_Troi
+reginald-barclay,voy,appears_in,recurring in,cast,True,,recurring,"""Projections"", ""Pathfinder"" and others",https://en.wikipedia.org/wiki/Reginald_Barclay
+lwaxana-troi,ds9,appears_in,guest in,cast,True,,guest,"""The Forsaken"", ""Fascination"", ""The Muse""",https://en.wikipedia.org/wiki/List_of_minor_Star_Trek:_The_Next_Generation_characters
+alexander-rozhenko,ds9,appears_in,guest in,cast,True,,guest,"""Sons and Daughters"", ""You Are Cordially Invited""",https://en.wikipedia.org/wiki/List_of_minor_Star_Trek:_The_Next_Generation_characters
+sarek,spock,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Sarek
+worf,alexander-rozhenko,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Worf
+beverly-crusher,wesley-crusher,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/List_of_minor_Star_Trek:_The_Next_Generation_characters
+lwaxana-troi,deanna-troi,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Deanna_Troi
+benjamin-sisko,jake-sisko,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/List_of_Star_Trek:_Deep_Space_Nine_characters
+rom,nog,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/List_of_Star_Trek:_Deep_Space_Nine_characters
+quark,rom,sibling_of,sibling of,family,False,,,,https://en.wikipedia.org/wiki/Quark_(Star_Trek)
+data,lore,sibling_of,sibling of,family,False,,,Both androids built by Noonien Soong,https://en.wikipedia.org/wiki/List_of_minor_Star_Trek:_The_Next_Generation_characters
+keiko-o-brien,miles-o-brien,spouse_of,spouse of,romance,False,,,"Married aboard the Enterprise-D (""Data's Day"")",https://en.wikipedia.org/wiki/Miles_O%27Brien_(Star_Trek)
+jadzia-dax,worf,spouse_of,spouse of,romance,False,widowed,,"Married in ""You Are Cordially Invited""; Jadzia was killed by Dukat in ""Tears of the Prophets""",https://en.wikipedia.org/wiki/Jadzia_Dax
+b-elanna-torres,tom-paris,spouse_of,spouse of,romance,False,,,They marry during an interstellar race,https://en.wikipedia.org/wiki/Tom_Paris
+kira-nerys,odo,romantic_with,romance with,romance,False,,,,https://en.wikipedia.org/wiki/Odo_(Star_Trek)
+lwaxana-troi,odo,spouse_of,ex-spouse of,romance,False,ended,,"A brief marriage in ""The Muse"" to void Jeyal's claim to her unborn child",https://en.wikipedia.org/wiki/List_of_minor_Star_Trek:_The_Next_Generation_characters
+deanna-troi,william-riker,romantic_with,former romance with,romance,False,former,,Former lovers when Riker joins the Enterprise-D,https://en.wikipedia.org/wiki/Deanna_Troi
+ezri-dax,jadzia-dax,successor_host_of,next Dax host after,symbiont,True,,,The Dax symbiont passes to Ezri after Jadzia's death,https://en.wikipedia.org/wiki/Jadzia_Dax
