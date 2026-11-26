@@ -1,0 +1,77 @@
+from_id,to_id,relationship,label,category,directed,status,role,detail,source
+henry-vii,arthur,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+henry-vii,henry-viii,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+henry-vii,margaret-tudor,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+henry-vii,mary-tudor,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+elizabeth-of-york,arthur,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+elizabeth-of-york,henry-viii,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+elizabeth-of-york,margaret-tudor,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+elizabeth-of-york,mary-tudor,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Henry_VIII
+elizabeth-of-york,henry-vii,spouse_of,spouse of,romance,False,,,,https://en.wikipedia.org/wiki/Henry_VIII
+arthur,henry-viii,sibling_of,sibling of,family,False,,,,https://en.wikipedia.org/wiki/Henry_VIII
+henry-viii,margaret-tudor,sibling_of,sibling of,family,False,,,,https://en.wikipedia.org/wiki/Henry_VIII
+henry-viii,mary-tudor,sibling_of,sibling of,family,False,,,,https://en.wikipedia.org/wiki/Henry_VIII
+ferdinand-ii,catherine-of-aragon,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Catherine_of_Aragon
+isabella-i,catherine-of-aragon,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Catherine_of_Aragon
+ferdinand-ii,isabella-i,spouse_of,spouse of,romance,False,,,,https://en.wikipedia.org/wiki/Catherine_of_Aragon
+arthur,catherine-of-aragon,spouse_of,spouse of,romance,False,widowed,,Married 1501; Arthur died 1502,https://en.wikipedia.org/wiki/Catherine_of_Aragon
+catherine-of-aragon,henry-viii,spouse_of,ex-spouse of,romance,False,annulled,,Married 1509; declared void 1533 (reversed under Mary I),https://en.wikipedia.org/wiki/Wives_of_Henry_VIII
+catherine-of-aragon,mary-i,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Mary_I
+henry-viii,mary-i,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Mary_I
+thomas-boleyn,anne-boleyn,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+thomas-boleyn,mary-boleyn,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+thomas-boleyn,george-boleyn,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+elizabeth-howard,anne-boleyn,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+elizabeth-howard,mary-boleyn,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+elizabeth-howard,george-boleyn,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+elizabeth-howard,thomas-boleyn,spouse_of,spouse of,romance,False,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+anne-boleyn,henry-viii,spouse_of,ex-spouse of,romance,False,annulled,,"Married 1532 (secretly), 1533 (formally); annulled 17 May 1536, two days before her execution",https://en.wikipedia.org/wiki/Anne_Boleyn
+anne-boleyn,elizabeth-i,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Elizabeth_I
+henry-viii,elizabeth-i,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Elizabeth_I
+henry-viii,mary-boleyn,romantic_with,lover of,romance,False,,mistress,Henry's mistress from about 1519; over by 1526,"https://en.wikipedia.org/wiki/George_Boleyn,_Viscount_Rochford"
+john-seymour,jane-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
+john-seymour,edward-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
+john-seymour,thomas-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
+margery-wentworth,jane-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
+margery-wentworth,edward-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
+margery-wentworth,thomas-seymour,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Jane_Seymour
+john-seymour,margery-wentworth,spouse_of,spouse of,romance,False,,,,https://en.wikipedia.org/wiki/Jane_Seymour
+henry-viii,jane-seymour,spouse_of,spouse of,romance,False,widowed,,Married 30 May 1536; Jane died 24 October 1537,https://en.wikipedia.org/wiki/Jane_Seymour
+jane-seymour,edward-vi,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Edward_VI
+henry-viii,edward-vi,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Edward_VI
+edward-seymour,edward-vi,protector_of,Lord Protector of,politics,True,,,,https://en.wikipedia.org/wiki/Edward_VI
+john-iii-of-cleves,anne-of-cleves,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_of_Cleves
+john-iii-of-cleves,william-of-cleves,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_of_Cleves
+maria-of-julich-berg,anne-of-cleves,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_of_Cleves
+maria-of-julich-berg,william-of-cleves,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Anne_of_Cleves
+john-iii-of-cleves,maria-of-julich-berg,spouse_of,spouse of,romance,False,,,,https://en.wikipedia.org/wiki/Anne_of_Cleves
+anne-of-cleves,henry-viii,spouse_of,ex-spouse of,romance,False,annulled,,Married 6 January 1540; annulled 12 July 1540,https://en.wikipedia.org/wiki/Anne_of_Cleves
+thomas-cromwell,anne-of-cleves,brokered_marriage_of,brokered marriage of,politics,True,,,Urged the match on Henry and oversaw the negotiations,https://en.wikipedia.org/wiki/Anne_of_Cleves
+edmund-howard,catherine-howard,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Catherine_Howard
+catherine-howard,henry-viii,spouse_of,ex-spouse of,romance,False,ended,,"Married 28 July 1540, the day Cromwell was executed; she was executed 13 February 1542",https://en.wikipedia.org/wiki/Catherine_Howard
+thomas-howard,catherine-howard,aunt_or_uncle_of,uncle of,family,True,,,,https://en.wikipedia.org/wiki/Catherine_Howard
+thomas-howard,anne-boleyn,aunt_or_uncle_of,uncle of,family,True,,,,https://en.wikipedia.org/wiki/Anne_Boleyn
+catherine-parr,edward-burgh,spouse_of,spouse of,romance,False,widowed,,Married 1529; he died 1533,https://en.wikipedia.org/wiki/Catherine_Parr
+catherine-parr,john-neville,spouse_of,spouse of,romance,False,widowed,,Married 1534; he died 1543,https://en.wikipedia.org/wiki/Catherine_Parr
+catherine-parr,henry-viii,spouse_of,spouse of,romance,False,widowed,,Married 12 July 1543; Henry died 28 January 1547,https://en.wikipedia.org/wiki/Catherine_Parr
+catherine-parr,thomas-seymour,spouse_of,spouse of,romance,False,,,"Married 1547, about six months after Henry died",https://en.wikipedia.org/wiki/Catherine_Parr
+henry-viii,henry-fitzroy,parent_of,parent of,family,True,,illegitimate,Illegitimate son,"https://en.wikipedia.org/wiki/Henry_FitzRoy,_Duke_of_Richmond_and_Somerset"
+elizabeth-blount,henry-fitzroy,parent_of,parent of,family,True,,,,"https://en.wikipedia.org/wiki/Henry_FitzRoy,_Duke_of_Richmond_and_Somerset"
+elizabeth-blount,henry-viii,romantic_with,lover of,romance,False,,mistress,,"https://en.wikipedia.org/wiki/Henry_FitzRoy,_Duke_of_Richmond_and_Somerset"
+mary-i,philip-ii,spouse_of,spouse of,romance,False,,,Married July 1554,https://en.wikipedia.org/wiki/Mary_I
+louis-xii,mary-tudor,spouse_of,spouse of,romance,False,widowed,,Married 9 October 1514,"https://en.wikipedia.org/wiki/Mary_Tudor,_Queen_of_France"
+charles-brandon,mary-tudor,spouse_of,spouse of,romance,False,,,Married 1515,"https://en.wikipedia.org/wiki/Mary_Tudor,_Queen_of_France"
+mary-tudor,frances-brandon,parent_of,parent of,family,True,,,,"https://en.wikipedia.org/wiki/Mary_Tudor,_Queen_of_France"
+charles-brandon,frances-brandon,parent_of,parent of,family,True,,,,"https://en.wikipedia.org/wiki/Mary_Tudor,_Queen_of_France"
+frances-brandon,lady-jane-grey,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Lady_Jane_Grey
+james-iv,margaret-tudor,spouse_of,spouse of,romance,False,,,Married 1503,https://en.wikipedia.org/wiki/Margaret_Tudor
+margaret-tudor,james-v,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Margaret_Tudor
+james-iv,james-v,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/Margaret_Tudor
+james-v,mary-queen-of-scots,parent_of,parent of,family,True,,,,"https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots"
+mary-queen-of-scots,james-vi-and-i,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/James_VI_and_I
+henry-viii,henry-vii,succeeded,succeeded,succession,True,,,1509,https://en.wikipedia.org/wiki/Henry_VIII
+edward-vi,henry-viii,succeeded,succeeded,succession,True,,,28 January 1547,https://en.wikipedia.org/wiki/Edward_VI
+lady-jane-grey,edward-vi,succeeded,succeeded,succession,True,,,Proclaimed 10 July 1553 (disputed),https://en.wikipedia.org/wiki/Lady_Jane_Grey
+mary-i,lady-jane-grey,succeeded,succeeded,succession,True,,,July 1553; Jane was deposed 19 July,https://en.wikipedia.org/wiki/Mary_I
+elizabeth-i,mary-i,succeeded,succeeded,succession,True,,,17 November 1558,https://en.wikipedia.org/wiki/Elizabeth_I
+james-vi-and-i,elizabeth-i,succeeded,succeeded,succession,True,,,24 March 1603,https://en.wikipedia.org/wiki/James_VI_and_I

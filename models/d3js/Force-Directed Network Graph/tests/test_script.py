@@ -4,6 +4,7 @@ import re
 import shutil
 import subprocess
 
+import pandas as pd
 import pytest
 
 from conftest import HERE
@@ -67,7 +68,7 @@ def test_no_image_means_no_logo(template_tables, run):
 
 def test_image_is_embedded_inline(template_tables, run):
     nodes, edges = template_tables
-    logo = HERE / 'example' / 'The_Simpsons_logo.svg'
+    logo = HERE / 'examples' / 'simpsons' / 'The_Simpsons_logo.svg'
     _, _, page = run(nodes, edges, resources=[str(logo)])
     assert '<img class="logo" src="data:image/svg+xml;base64,' in page
 
@@ -122,3 +123,26 @@ def test_safe_url_allows_only_http_and_https(template_tables, run):
         else:
             assert link.startswith('<a href="https://') or link.startswith('<a href="http://'), url
             assert 'rel="noopener"' in link
+
+
+def page_data(page):
+    import json
+    return json.loads(re.search(r'<script id="graph-data" type="application/json">(.*?)</script>',
+                                page, re.DOTALL).group(1))
+
+
+def test_two_relationships_between_one_pair_share_a_link(template_tables, run):
+    nodes, edges = template_tables
+    extra = edges.iloc[[0]].assign(relationship='colleague_of', label='colleague of', category='work')
+    _, stats, page = run(nodes, pd.concat([edges, extra], ignore_index=True))
+    assert stats['Overall Stats']['# of Relationships'] == len(edges) + 1
+    pair = [l for l in page_data(page)['links'] if {l['source'], l['target']} == {'alex', 'blair'}]
+    assert len(pair) == 1 and sorted(r['category'] for r in pair[0]['rels']) == ['family', 'work']
+
+
+def test_isolated_node_is_kept(template_tables, run):
+    nodes, edges = template_tables
+    nodes = pd.concat([nodes, nodes.iloc[[0]].assign(id='loner', name='Loner')], ignore_index=True)
+    out, _, page = run(nodes, edges)
+    assert 'Loner' in set(out.table['Node'])
+    assert 'loner' in {n['id'] for n in page_data(page)['nodes']}

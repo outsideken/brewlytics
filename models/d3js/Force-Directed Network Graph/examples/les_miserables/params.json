@@ -1,0 +1,8 @@
+{
+  "Network Graphic Title": "Les Misérables: A d3.js Force-Directed Network Graph",
+  "Network Graphic Filename": "Les Miserables Network",
+  "Data Sources": {
+    "Knuth, The Stanford GraphBase (1993)": "https://www-cs-faculty.stanford.edu/~knuth/sgb.html",
+    "networkx les_miserables_graph": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.social.les_miserables_graph.html"
+  }
+}

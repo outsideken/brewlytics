@@ -6,12 +6,12 @@ anyone can download and open in a browser.
 
 | workflow | what it shows | example |
 |---|---|---|
-| [Force-Directed Network Graph](Force-Directed%20Network%20Graph/) | Entities and their relationships, laid out by d3-force, sized by PageRank, coloured by Louvain community | The Simpsons |
+| [Force-Directed Network Graph](Force-Directed%20Network%20Graph/) | Entities and their relationships, laid out by d3-force, sized by PageRank, coloured by Louvain community | The Simpsons, Les Misérables, Florentine families, Henry VIII |
 
 Each workflow folder has the same shape:
 
 * a dataset-agnostic script to paste into brew;
 * `run_local.py`, which runs that script locally;
 * a `template/` of starter data;
-* an `example/` that works the method through on one dataset;
+* `examples/`, which work the method through on real datasets;
 * tests, which CI runs on every pull request.

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Florentine Families: A d3.js Force-Directed Network Graph</title>
+<style>
+:root {
+  --bg: #fcfcfb; --ink: #1f1f1e; --ink-2: #55554f; --ink-3: #8a8a83;
+  --rule: #e4e4df; --link: #c4c4bd; --tip-bg: #ffffff;
+  /* ColorBrewer Dark2 */
+  --g-0: #1b9e77; --g-1: #d95f02; --g-2: #7570b3; --g-3: #e7298a;
+  --g-4: #66a61e; --g-5: #e6ab02; --g-6: #a6761d; --g-other: #b3b3ad;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a1a19; --ink: #ecece8; --ink-2: #b4b4ad; --ink-3: #7d7d77;
+    --rule: #33332f; --link: #4a4a45; --tip-bg: #262624; --g-other: #5f5f5a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a1a19; --ink: #ecece8; --ink-2: #b4b4ad; --ink-3: #7d7d77;
+  --rule: #33332f; --link: #4a4a45; --tip-bg: #262624; --g-other: #5f5f5a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto; padding: 24px 16px; max-width: 1400px; background: var(--bg); color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+header { display: flex; align-items: center; gap: 16px; }
+.logo { height: 56px; width: auto; flex: none; }
+@media (max-width: 600px) { header { flex-direction: column; align-items: flex-start; gap: 8px; } .logo { height: 44px; } }
+h1 { font-size: 20px; margin: 0 0 4px; font-weight: 600; }
+.sub { margin: 0; color: var(--ink-2); }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0 8px; }
+#search {
+  font: inherit; font-size: 13px; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--rule); border-radius: 6px; padding: 4px 10px; min-width: 16rem;
+}
+button {
+  font: inherit; font-size: 13px; color: var(--ink-2); background: none;
+  border: 1px solid var(--rule); border-radius: 999px; padding: 3px 10px; cursor: pointer;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.chips button.on { color: var(--ink); border-color: var(--ink-3); }
+.chips button:not(.on) { text-decoration: line-through; opacity: 0.55; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+.legend span::before {
+  content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--c); margin-right: 6px; vertical-align: -1px;
+}
+#chart { position: relative; width: 100%; height: 75vh; min-height: 420px; }
+#chart svg { width: 100%; height: 100%; display: block; cursor: grab; }
+.link { stroke: var(--link); stroke-width: 1.1; }
+.arrow { fill: var(--link); }
+.node circle { stroke: var(--bg); stroke-width: 1.2; cursor: pointer; }
+.node.deceased circle { stroke: var(--ink-2); stroke-width: 1.5; }
+.link-label { fill: var(--ink-2); text-anchor: middle; pointer-events: none;
+              paint-order: stroke; stroke: var(--bg); stroke-linejoin: round; }  /* size + halo set in JS */
+.node text { fill: var(--ink-2); pointer-events: none; paint-order: stroke; stroke: var(--bg); }  /* size + halo set in JS */
+.node.lit text { display: inline !important; fill: var(--ink); }
+.dim { opacity: 0.12; }
+.off { display: none; }
+.hint { font-size: 12px; color: var(--ink-3); margin: 8px 0 0; }
+.tip {
+  position: absolute; top: 8px; right: 8px; width: min(380px, calc(100% - 16px)); max-height: calc(100% - 16px);
+  overflow: auto; background: var(--tip-bg); color: var(--ink); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 8px 12px; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.tip b { font-weight: 600; font-size: 13px; }
+.tip .meta, .tip .notes { color: var(--ink-2); margin-top: 2px; }
+.tip ul { margin: 6px 0 0; padding-left: 16px; }
+.tip i { color: var(--ink-2); }
+.tip a { color: inherit; }
+.sources { margin: 0 0 4px; font-size: 13px; color: var(--ink-2); }
+.sources a { color: inherit; }
+details { margin-top: 16px; border-top: 1px solid var(--rule); padding-top: 8px; }
+summary { cursor: pointer; font-weight: 600; }
+summary span { font-weight: normal; color: var(--ink-3); }
+.table-scroll { max-height: 60vh; overflow: auto; margin-top: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 12px; }
+th { position: sticky; top: 0; background: var(--bg); text-align: left; font-weight: 600;
+     padding: 4px 8px; border-bottom: 1px solid var(--rule); cursor: pointer; white-space: nowrap; }
+th.asc::after { content: " \25b4"; } th.desc::after { content: " \25be"; }
+td { padding: 3px 8px; vertical-align: top; }
+tbody tr:hover { background: var(--rule); }
+td a { color: inherit; }
+</style>
+</head>
+<body>
+<header>
+  
+  <div>
+    <h1>Florentine Families: A d3.js Force-Directed Network Graph</h1>
+    <p class="sources" id="sources"></p>
+    <p class="sources">Built with <a href="https://d3js.org/" target="_blank" rel="noopener">d3.js</a> v7.9.0 &middot;
+      layout: <a href="https://d3js.org/d3-force" target="_blank" rel="noopener">d3-force</a> &middot;
+      <a href="https://observablehq.com/@d3/force-directed-graph/2" target="_blank" rel="noopener">force-directed graph example</a></p>
+    <p class="sub" id="stats"></p>
+  </div>
+</header>
+<div class="controls">
+  <input id="search" type="search" list="names" placeholder="Find a name or alias..." aria-label="Find a name">
+  <datalist id="names"></datalist>
+  <button id="reset">Reset view</button>
+</div>
+<div class="chips" id="cats" aria-label="Relationship categories"></div>
+<div class="legend" id="legend"></div>
+<div id="chart"><div id="tip" class="tip" hidden></div></div>
+<p class="hint">Node size = PageRank, ignoring link direction; colour = Louvain community, named after its best-connected member;
+ringed node = deceased; arrows show one-way relationships; link labels show for the focused node, or everywhere once zoomed in.
+Drag a node to move it &middot; scroll or pinch to zoom &middot; hover a node, or click to pin it &middot; click a category to hide or show it.</p>
+<details id="table-wrap">
+  <summary>Table view <span id="table-count"></span></summary>
+  <div class="table-scroll"><table id="table">
+    <thead><tr>
+      <th data-key="fromName">From</th><th data-key="label">Relationship</th><th data-key="toName">To</th>
+      <th data-key="category">Category</th><th data-key="detail">Detail</th><th data-key="source">Source</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table></div>
+</details>
+<script id="graph-data" type="application/json">{"overall": {"Density": 0.225, "# of Nodes": 16, "# of Edges": 54, "Highest Pagerank": "Medici (0.149265)", "Highest Pagerank (Undirected)": "Medici (0.149265)", "Highest Degree": "Medici (1.066667)", "Highest In Degree": "Medici (0.533333)", "Highest Out Degree": "Medici (0.533333)", "# of Relationships": 35, "# of Communities": 4, "Modularity": 0.3161865569272977}, "sources": [{"label": "Padgett & Ansell (1993), UCINET PADGETT.DAT", "url": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}], "nodes": [{"id": "acciaiuoli", "name": "Acciaiuoli", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 1, "hub": "Medici", "links": 1, "stats": {"Pagerank (Undirected)": 0.025760513570100767, "Pagerank": 0.025760513570100767, "Degree": 0.13333333333333333, "In Degree": 0.06666666666666667, "Out Degree": 0.06666666666666667}}, {"id": "albizzi", "name": "Albizzi", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 1, "hub": "Medici", "links": 3, "stats": {"Pagerank (Undirected)": 0.056997700116733135, "Pagerank": 0.056997700116733135, "Degree": 0.4, "In Degree": 0.2, "Out Degree": 0.2}}, {"id": "barbadori", "name": "Barbadori", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 0, "hub": "Peruzzi", "links": 4, "stats": {"Pagerank (Undirected)": 0.07046285488195639, "Pagerank": 0.07046285488195639, "Degree": 0.5333333333333333, "In Degree": 0.26666666666666666, "Out Degree": 0.26666666666666666}}, {"id": "bischeri", "name": "Bischeri", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 0, "hub": "Peruzzi", "links": 4, "stats": {"Pagerank (Undirected)": 0.06827014651912215, "Pagerank": 0.06827014651912215, "Degree": 0.5333333333333333, "In Degree": 0.26666666666666666, "Out Degree": 0.26666666666666666}}, {"id": "castellani", "name": "Castellani", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 0, "hub": "Peruzzi", "links": 4, "stats": {"Pagerank (Undirected)": 0.06812344874004739, "Pagerank": 0.06812344874004739, "Degree": 0.5333333333333333, "In Degree": 0.26666666666666666, "Out Degree": 0.26666666666666666}}, {"id": "ginori", "name": "Ginori", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 1, "hub": "Medici", "links": 3, "stats": {"Pagerank (Undirected)": 0.05688353674974841, "Pagerank": 0.05688353674974841, "Degree": 0.4, "In Degree": 0.2, "Out Degree": 0.2}}, {"id": "guadagni", "name": "Guadagni", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 0, "hub": "Peruzzi", "links": 4, "stats": {"Pagerank (Undirected)": 0.07115447938738857, "Pagerank": 0.07115447938738857, "Degree": 0.5333333333333333, "In Degree": 0.26666666666666666, "Out Degree": 0.26666666666666666}}, {"id": "lamberteschi", "name": "Lamberteschi", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 0, "hub": "Peruzzi", "links": 4, "stats": {"Pagerank (Undirected)": 0.0681136272997114, "Pagerank": 0.0681136272997114, "Degree": 0.5333333333333333, "In Degree": 0.26666666666666666, "Out Degree": 0.26666666666666666}}, {"id": "medici", "name": "Medici", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 1, "hub": "Medici", "links": 8, "stats": {"Pagerank (Undirected)": 0.14926481961113044, "Pagerank": 0.14926481961113044, "Degree": 1.0666666666666667, "In Degree": 0.5333333333333333, "Out Degree": 0.5333333333333333}}, {"id": "pazzi", "name": "Pazzi", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 1, "hub": "Medici", "links": 2, "stats": {"Pagerank (Undirected)": 0.044801561442707166, "Pagerank": 0.044801561442707166, "Degree": 0.26666666666666666, "In Degree": 0.13333333333333333, "Out Degree": 0.13333333333333333}}, {"id": "peruzzi", "name": "Peruzzi", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 0, "hub": "Peruzzi", "links": 5, "stats": {"Pagerank (Undirected)": 0.08299735493460611, "Pagerank": 0.08299735493460611, "Degree": 0.6666666666666666, "In Degree": 0.3333333333333333, "Out Degree": 0.3333333333333333}}, {"id": "pucci", "name": "Pucci", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 3, "hub": "Pucci", "links": 0, "stats": {"Pagerank (Undirected)": 0.009900990099009903, "Pagerank": 0.009900990099009903, "Degree": 0.0, "In Degree": 0.0, "Out Degree": 0.0}}, {"id": "ridolfi", "name": "Ridolfi", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 2, "hub": "Tornabuoni", "links": 3, "stats": {"Pagerank (Undirected)": 0.056548886643311036, "Pagerank": 0.056548886643311036, "Degree": 0.4, "In Degree": 0.2, "Out Degree": 0.2}}, {"id": "salviati", "name": "Salviati", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 1, "hub": "Medici", "links": 2, "stats": {"Pagerank (Undirected)": 0.044801561442707166, "Pagerank": 0.044801561442707166, "Degree": 0.26666666666666666, "In Degree": 0.13333333333333333, "Out Degree": 0.13333333333333333}}, {"id": "strozzi", "name": "Strozzi", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 0, "hub": "Peruzzi", "links": 4, "stats": {"Pagerank (Undirected)": 0.06901568527509619, "Pagerank": 0.06901568527509619, "Degree": 0.5333333333333333, "In Degree": 0.26666666666666666, "Out Degree": 0.26666666666666666}}, {"id": "tornabuoni", "name": "Tornabuoni", "type": "Family", "aliases": [], "deceased": false, "notes": [], "group": 2, "hub": "Tornabuoni", "links": 3, "stats": {"Pagerank (Undirected)": 0.05690283328662373, "Pagerank": 0.05690283328662373, "Degree": 0.4, "In Degree": 0.2, "Out Degree": 0.2}}], "links": [{"source": "barbadori", "target": "castellani", "rels": [{"from": "barbadori", "to": "castellani", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "barbadori", "to": "castellani", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "barbadori", "target": "ginori", "rels": [{"from": "barbadori", "to": "ginori", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "barbadori", "target": "medici", "rels": [{"from": "barbadori", "to": "medici", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "barbadori", "to": "medici", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "barbadori", "target": "peruzzi", "rels": [{"from": "barbadori", "to": "peruzzi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "bischeri", "target": "guadagni", "rels": [{"from": "bischeri", "to": "guadagni", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "bischeri", "to": "guadagni", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "bischeri", "target": "lamberteschi", "rels": [{"from": "bischeri", "to": "lamberteschi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "bischeri", "target": "peruzzi", "rels": [{"from": "bischeri", "to": "peruzzi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "bischeri", "to": "peruzzi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "castellani", "target": "lamberteschi", "rels": [{"from": "castellani", "to": "lamberteschi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "castellani", "target": "peruzzi", "rels": [{"from": "castellani", "to": "peruzzi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "castellani", "to": "peruzzi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "ginori", "target": "medici", "rels": [{"from": "ginori", "to": "medici", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "guadagni", "target": "lamberteschi", "rels": [{"from": "guadagni", "to": "lamberteschi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "guadagni", "to": "lamberteschi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "lamberteschi", "target": "peruzzi", "rels": [{"from": "lamberteschi", "to": "peruzzi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "medici", "target": "pazzi", "rels": [{"from": "medici", "to": "pazzi", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "medici", "target": "salviati", "rels": [{"from": "medici", "to": "salviati", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "medici", "to": "salviati", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "medici", "target": "tornabuoni", "rels": [{"from": "medici", "to": "tornabuoni", "relationship": "business tie", "label": "business tie", "category": "business", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}, {"from": "medici", "to": "tornabuoni", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "acciaiuoli", "target": "medici", "rels": [{"from": "acciaiuoli", "to": "medici", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "albizzi", "target": "ginori", "rels": [{"from": "albizzi", "to": "ginori", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "albizzi", "target": "guadagni", "rels": [{"from": "albizzi", "to": "guadagni", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "albizzi", "target": "medici", "rels": [{"from": "albizzi", "to": "medici", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "bischeri", "target": "strozzi", "rels": [{"from": "bischeri", "to": "strozzi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "castellani", "target": "strozzi", "rels": [{"from": "castellani", "to": "strozzi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "guadagni", "target": "tornabuoni", "rels": [{"from": "guadagni", "to": "tornabuoni", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "medici", "target": "ridolfi", "rels": [{"from": "medici", "to": "ridolfi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "pazzi", "target": "salviati", "rels": [{"from": "pazzi", "to": "salviati", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "peruzzi", "target": "strozzi", "rels": [{"from": "peruzzi", "to": "strozzi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "ridolfi", "target": "strozzi", "rels": [{"from": "ridolfi", "to": "strozzi", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}, {"source": "ridolfi", "target": "tornabuoni", "rels": [{"from": "ridolfi", "to": "tornabuoni", "relationship": "marriage tie", "label": "marriage tie", "category": "marriage", "directed": false, "status": "", "role": "", "detail": "", "source": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"}]}]}</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+const data = JSON.parse(document.getElementById("graph-data").textContent);
+const N_COLOURS = 7; // biggest communities get Dark2; the rest share the "other" grey
+const colour = (g) => (g < N_COLOURS ? `var(--g-${g})` : "var(--g-other)");
+const f3 = d3.format(".3f");
+const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+// URLs from the data become links only if they are absolute http(s); anything else
+// (javascript:, data:, relative paths) is shown as plain text or dropped.
+const safeUrl = (u) => {
+  try { const p = new URL(String(u)); return p.protocol === "http:" || p.protocol === "https:" ? p.href : null; }
+  catch (err) { return null; }
+};
+const safeLink = (u, text) => { const s = safeUrl(u); return s ? `<a href="${esc(s)}" target="_blank" rel="noopener">${esc(text)}</a>` : ""; };
+
+const o = data.overall;
+d3.select("#stats").text(
+  `${o["# of Nodes"]} nodes \u00b7 ${data.links.reduce((s, l) => s + l.rels.length, 0)} relationships \u00b7 density ${f3(o.Density)} \u00b7 ` +
+  `${o["# of Communities"]} communities (modularity ${f3(o.Modularity)}) \u00b7 highest PageRank: ${o["Highest Pagerank (Undirected)"]}`);
+
+// data sources under the title
+d3.select("#sources").html(data.sources.length
+  ? "Data: " + data.sources.map((s) => safeLink(s.url, s.label) || esc(s.label)).join(" \u00b7 ")
+  : null);
+
+// legend: top communities by hub name, then "other"
+const comms = d3.rollups(data.nodes, (v) => ({ hub: v[0].hub, n: v.length }), (d) => d.group).sort((a, b) => a[0] - b[0]);
+const legend = comms.slice(0, N_COLOURS).map(([g, v]) => ({ g, text: `${v.hub} (${v.n})` }));
+if (comms.length > N_COLOURS) {
+  legend.push({ g: N_COLOURS, text: `${comms.length - N_COLOURS} smaller communities (${d3.sum(comms.slice(N_COLOURS), ([, v]) => v.n)})` });
+}
+d3.select("#legend").selectAll("span").data(legend).join("span").style("--c", (d) => colour(d.g)).text((d) => d.text);
+
+const nodes = data.nodes.map((d) => ({ ...d }));
+const links = data.links.map((d) => ({ ...d }));
+const byId = new Map(nodes.map((n) => [n.id, n]));
+const nameOf = (id) => byId.get(id).name;
+
+// search: names and aliases
+const lookup = new Map();
+nodes.forEach((n) => { lookup.set(n.name, n.id); n.aliases.forEach((a) => { if (!lookup.has(a)) lookup.set(a, n.id); }); });
+d3.select("#names").selectAll("option").data([...lookup.keys()].sort(d3.ascending)).join("option").attr("value", (d) => d);
+
+// category chips
+const catCounts = d3.rollups(links.flatMap((l) => l.rels), (v) => v.length, (r) => r.category).sort((a, b) => b[1] - a[1]);
+const activeCats = new Set(catCounts.map(([c]) => c));
+d3.select("#cats").selectAll("button").data(catCounts).join("button").attr("class", "on")
+  .text(([c, n]) => `${c} (${n})`)
+  .on("click", function (_, [c]) {
+    activeCats.has(c) ? activeCats.delete(c) : activeCats.add(c);
+    d3.select(this).classed("on", activeCats.has(c));
+    applyCats();
+  });
+
+const size = (d) => d.stats["Pagerank (Undirected)"];
+const pr = d3.scaleSqrt().domain([0, d3.max(nodes, size)]).range([2.5, 20]);
+const rad = (d) => pr(size(d));
+const rank = new Map([...nodes].sort((a, b) => size(b) - size(a)).map((d, i) => [d.id, i]));
+
+const chart = document.getElementById("chart");
+const svg = d3.select(chart).insert("svg", "#tip");
+const defs = svg.append("defs");
+[["arrow-end", "M0,-4L8,0L0,4", 8], ["arrow-start", "M8,-4L0,0L8,4", 0]].forEach(([id, d, refX]) =>
+  defs.append("marker").attr("id", id).attr("viewBox", "0 -4 8 8").attr("refX", refX)
+    .attr("markerWidth", 6).attr("markerHeight", 6).attr("orient", "auto")
+    .append("path").attr("class", "arrow").attr("d", d));
+
+// a link shows an arrow at an end when some visible one-way relationship points there
+const visibleRels = (l) => l.rels.filter((r) => activeCats.has(r.category));
+const arrowTo = (l, end) => visibleRels(l).some((r) => r.directed && r.to === end) && !visibleRels(l).some((r) => !r.directed);
+
+const g = svg.append("g");
+const link = g.append("g").selectAll("line").data(links).join("line").attr("class", "link");
+const node = g.append("g").selectAll("g").data(nodes, (d) => d.id).join("g")
+  .attr("class", (d) => "node" + (d.deceased ? " deceased" : ""));
+node.append("circle").attr("r", rad).attr("fill", (d) => colour(d.group));
+node.append("text").attr("x", (d) => rad(d) + 3).attr("y", 4).text((d) => d.name);
+
+function applyCats() {
+  link.classed("off", (l) => visibleRels(l).length === 0)
+    .attr("marker-end", (l) => (arrowTo(l, l.target.id ?? l.target) ? "url(#arrow-end)" : null))
+    .attr("marker-start", (l) => (arrowTo(l, l.source.id ?? l.source) ? "url(#arrow-start)" : null));
+  if (pinned) focus(pinned);
+  else updateLinkLabels();
+  renderTable();
+}
+
+// table view: the relationships currently shown (active categories; only the
+// pinned node's when one is pinned). Hidden by default; drawn only while open.
+const tableWrap = document.getElementById("table-wrap");
+let sortKey = "fromName", sortAsc = true;
+function tableRows() {
+  const pick = pinned ? links.filter((l) => l.source.id === pinned.id || l.target.id === pinned.id) : links;
+  return pick.flatMap(visibleRels).map((r) => ({
+    ...r, fromName: nameOf(r.from), toName: nameOf(r.to),
+  }));
+}
+function renderTable() {
+  const rows = tableRows();
+  d3.select("#table-count").text(`(${rows.length} relationships${pinned ? " of " + pinned.name : ""})`);
+  if (!tableWrap.open) return;
+  rows.sort((a, b) => (sortAsc ? 1 : -1) * d3.ascending(a[sortKey], b[sortKey]));
+  d3.selectAll("#table th").classed("asc", function () { return this.dataset.key === sortKey && sortAsc; })
+    .classed("desc", function () { return this.dataset.key === sortKey && !sortAsc; });
+  d3.select("#table tbody").selectAll("tr").data(rows).join("tr").html((r) =>
+    `<td>${esc(r.fromName)}</td><td>${esc(r.label)}</td><td>${esc(r.toName)}</td><td>${esc(r.category)}</td>` +
+    `<td>${esc(r.detail)}</td><td>${safeLink(r.source, "link")}</td>`);
+}
+tableWrap.addEventListener("toggle", renderTable);
+d3.selectAll("#table th").on("click", function () {
+  const key = this.dataset.key;
+  sortAsc = key === sortKey ? !sortAsc : true;
+  sortKey = key;
+  renderTable();
+});
+
+// link labels: the focused node's links always; every visible link once zoomed in.
+// Drawn between the links and the nodes; kept upright; constant size on screen.
+const LINK_LABEL_ZOOM = 2.5;
+let focusId = null;
+const linkLabel = g.insert("g", function () { return node.node().parentNode; })
+  .selectAll("text").data(links).join("text").attr("class", "link-label").attr("dy", -3);
+const linkText = (l) => [...new Set(visibleRels(l).map((r) => r.label))].join(" \u00b7 ");
+function updateLinkLabels() {
+  linkLabel.text(linkText).attr("font-size", 10 / k).attr("stroke-width", 3 / k).attr("dy", -3 / k).attr("display", (l) => {
+    if (!visibleRels(l).length) return "none";
+    if (focusId) return l.source.id === focusId || l.target.id === focusId ? null : "none";
+    return k >= LINK_LABEL_ZOOM ? null : "none";
+  });
+  placeLinkLabels();
+}
+function placeLinkLabels() {  // midpoint of the link, rotated along it, kept upright
+  linkLabel.filter(function () { return this.getAttribute("display") !== "none"; })
+    .attr("transform", (d) => {
+      let a = (Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x) * 180) / Math.PI;
+      if (a > 90) a -= 180;
+      if (a < -90) a += 180;
+      return `translate(${(d.source.x + d.target.x) / 2},${(d.source.y + d.target.y) / 2}) rotate(${a})`;
+    });
+}
+
+// node labels: top PageRank always, more as you zoom in
+let k = 0.6;
+const showLabels = () => node.select("text")
+  .attr("display", (d) => (rank.get(d.id) < 15 * k * k ? null : "none"))
+  .attr("font-size", 11 / Math.max(k, 1))   // same size on screen once zoomed in
+  .attr("stroke-width", 3 / Math.max(k, 1));
+
+let viewerMoved = false;   // once the viewer zooms or pans, never re-fit on their behalf
+const zoom = d3.zoom().scaleExtent([0.2, 6]).on("zoom", (e) => {
+  if (e.sourceEvent) viewerMoved = true;
+  g.attr("transform", e.transform);
+  if (e.transform.k !== k) { k = e.transform.k; showLabels(); updateLinkLabels(); }
+});
+svg.call(zoom).on("click", (e) => { if (e.target === svg.node()) clear(); });
+
+const sim = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(links).id((d) => d.id).distance(35))
+  .force("charge", d3.forceManyBody().strength(-70))
+  .force("collide", d3.forceCollide().radius((d) => rad(d) + 2))
+  .force("x", d3.forceX().strength(0.06))
+  .force("y", d3.forceY().strength(0.06))
+  .on("tick", () => {
+    link.each(function (d) {
+      const s = d.source, t = d.target;
+      const dx = t.x - s.x, dy = t.y - s.y, len = Math.hypot(dx, dy) || 1;
+      const offT = arrowTo(d, t.id) ? rad(t) + 1.5 : 0, offS = arrowTo(d, s.id) ? rad(s) + 1.5 : 0;
+      d3.select(this)
+        .attr("x1", s.x + (dx / len) * offS).attr("y1", s.y + (dy / len) * offS)
+        .attr("x2", t.x - (dx / len) * offT).attr("y2", t.y - (dy / len) * offT);
+    });
+    node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+    placeLinkLabels();
+  });
+
+function resize() {
+  const { width, height } = chart.getBoundingClientRect();
+  svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
+}
+resize();
+window.addEventListener("resize", resize);
+svg.call(zoom.transform, d3.zoomIdentity.scale(k));
+showLabels();
+
+// zoom to fit the whole graph: small graphs get bigger, large ones smaller
+function fitView(duration) {
+  const { width, height } = chart.getBoundingClientRect();
+  const pad = 40;
+  const x0 = d3.min(nodes, (d) => d.x - rad(d)), x1 = d3.max(nodes, (d) => d.x + rad(d));
+  const y0 = d3.min(nodes, (d) => d.y - rad(d)), y1 = d3.max(nodes, (d) => d.y + rad(d));
+  const s = Math.max(0.2, Math.min(2, (width - 2 * pad) / (x1 - x0 || 1), (height - 2 * pad) / (y1 - y0 || 1)));
+  const t = d3.zoomIdentity.scale(s).translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+  (duration ? svg.transition().duration(duration) : svg).call(zoom.transform, t);
+}
+sim.on("end.fit", () => {
+  sim.on("end.fit", null);              // only the first time the layout settles
+  if (!viewerMoved) fitView(600);
+});
+
+// focus: hover previews, click pins
+const tip = d3.select("#tip");
+let pinned = null;
+
+function relLine(r) {
+  const src = r.source && safeUrl(r.source) ? " " + safeLink(r.source, "source") : "";
+  const detail = r.detail && r.detail !== r.label ? ` <span class="meta">\u2014 ${esc(r.detail)}</span>` : "";
+  return `<li>${esc(nameOf(r.from))} <i>${esc(r.label)}</i> ${esc(nameOf(r.to))}` + detail + src + "</li>";
+}
+
+function focus(d) {
+  focusId = d.id;
+  updateLinkLabels();
+  const mine = links.filter((l) => (l.source.id === d.id || l.target.id === d.id) && visibleRels(l).length);
+  const keep = new Set(mine.flatMap((l) => [l.source.id, l.target.id]));
+  keep.add(d.id);
+  node.classed("dim", (n) => !keep.has(n.id)).classed("lit", (n) => keep.has(n.id));
+  link.classed("dim", (l) => !mine.includes(l));
+  const rels = mine.flatMap(visibleRels).sort((a, b) => d3.ascending(a.category, b.category) || d3.ascending(a.from !== d.id, b.from !== d.id));
+  const s = d.stats;
+  tip.attr("hidden", null).html(
+    `<b>${esc(d.name)}</b>` +
+    `<div class="meta">${esc(d.type)}${d.deceased ? " \u00b7 deceased" : ""} \u00b7 ${d.links} connections \u00b7 community: ${esc(d.hub)}</div>` +
+    (d.aliases.length ? `<div class="meta">Also known as: ${d.aliases.map(esc).join(", ")}</div>` : "") +
+    `<div class="meta">PageRank ${f3(s["Pagerank (Undirected)"])} (directed ${f3(s.Pagerank)}) \u00b7 degree ${f3(s.Degree)} \u00b7 in ${f3(s["In Degree"])} \u00b7 out ${f3(s["Out Degree"])}</div>` +
+    (d.notes.length ? `<div class="notes">${d.notes.map(esc).join("<br>")}</div>` : "") +
+    `<ul>${rels.map(relLine).join("")}</ul>`);
+}
+function clear() {
+  const was = pinned;
+  pinned = null;
+  node.classed("dim", false).classed("lit", false);
+  link.classed("dim", false);
+  tip.attr("hidden", true);
+  focusId = null;
+  updateLinkLabels();
+  if (was) renderTable();
+}
+function pin(d) {
+  pinned = d;
+  focus(d);
+  renderTable();
+}
+
+node
+  .on("mouseenter", (_, d) => { if (!pinned) focus(d); })
+  .on("mouseleave", () => { if (!pinned) clear(); })
+  .on("click", (e, d) => { e.stopPropagation(); pin(d); })
+  .call(d3.drag()
+    .on("start", (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+    .on("drag", (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on("end", (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
+
+d3.select("#search").on("change", function () {
+  const d = byId.get(lookup.get(this.value));
+  if (!d) return;
+  pin(d);
+  svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity.scale(2).translate(-d.x, -d.y));
+});
+
+d3.select("#reset").on("click", () => {
+  clear();
+  d3.select("#search").property("value", "");
+  fitView(400);
+});
+
+applyCats();
+</script>
+</body>
+</html>

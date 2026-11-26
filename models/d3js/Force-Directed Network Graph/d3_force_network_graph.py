@@ -890,7 +890,9 @@ const showLabels = () => node.select("text")
   .attr("font-size", 11 / Math.max(k, 1))   // same size on screen once zoomed in
   .attr("stroke-width", 3 / Math.max(k, 1));
 
+let viewerMoved = false;   // once the viewer zooms or pans, never re-fit on their behalf
 const zoom = d3.zoom().scaleExtent([0.2, 6]).on("zoom", (e) => {
+  if (e.sourceEvent) viewerMoved = true;
   g.attr("transform", e.transform);
   if (e.transform.k !== k) { k = e.transform.k; showLabels(); updateLinkLabels(); }
 });
@@ -923,6 +925,21 @@ resize();
 window.addEventListener("resize", resize);
 svg.call(zoom.transform, d3.zoomIdentity.scale(k));
 showLabels();
+
+// zoom to fit the whole graph: small graphs get bigger, large ones smaller
+function fitView(duration) {
+  const { width, height } = chart.getBoundingClientRect();
+  const pad = 40;
+  const x0 = d3.min(nodes, (d) => d.x - rad(d)), x1 = d3.max(nodes, (d) => d.x + rad(d));
+  const y0 = d3.min(nodes, (d) => d.y - rad(d)), y1 = d3.max(nodes, (d) => d.y + rad(d));
+  const s = Math.max(0.2, Math.min(2, (width - 2 * pad) / (x1 - x0 || 1), (height - 2 * pad) / (y1 - y0 || 1)));
+  const t = d3.zoomIdentity.scale(s).translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+  (duration ? svg.transition().duration(duration) : svg).call(zoom.transform, t);
+}
+sim.on("end.fit", () => {
+  sim.on("end.fit", null);              // only the first time the layout settles
+  if (!viewerMoved) fitView(600);
+});
 
 // focus: hover previews, click pins
 const tip = d3.select("#tip");
@@ -987,7 +1004,7 @@ d3.select("#search").on("change", function () {
 d3.select("#reset").on("click", () => {
   clear();
   d3.select("#search").property("value", "");
-  svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity.scale(0.6));
+  fitView(400);
 });
 
 applyCats();
