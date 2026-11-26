@@ -1,0 +1,7 @@
+{
+  "Network Graphic Title": "Florentine Families: A d3.js Force-Directed Network Graph",
+  "Network Graphic Filename": "Florentine Families Network",
+  "Data Sources": {
+    "Padgett & Ansell (1993), UCINET PADGETT.DAT": "https://github.com/bavla/Nets/blob/master/data/Pajek/ucinet/PADGETT.DAT"
+  }
+}

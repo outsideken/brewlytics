@@ -1,43 +1,62 @@
-"""The worked example: its numbers, its sample page and its rebuildable data."""
+"""The worked examples: their numbers, their sample pages and their rebuildable data."""
 
 import importlib.util
 import json
 import re
-from pathlib import Path
 
 import pytest
 
 import run_local
 from conftest import HERE
 
-EXAMPLE = HERE / 'example'
+EXAMPLES = HERE / 'examples'
+
+## One entry per example folder. Louvain numbers hold only at the reference pins.
+EXPECTED = {
+    'simpsons': dict(nodes=336, relationships=536, top='Springfield Elementary School',
+                     page='The_Simpsons_Network.html', communities=14, modularity=0.709160),
+    'les_miserables': dict(nodes=77, relationships=254, top='Valjean',
+                           page='Les_Miserables_Network.html', communities=6, modularity=0.565416),
+    'florentine_families': dict(nodes=16, relationships=35, top='Medici',
+                                page='Florentine_Families_Network.html', communities=4, modularity=0.316187),
+    'henry_viii': dict(nodes=47, relationships=80, top='Henry VIII',
+                       page='Henry_VIII_Network.html', communities=6, modularity=0.561899),
+}
 
 
-@pytest.fixture(scope='module')
-def example(tmp_path_factory):
-    out_dir = tmp_path_factory.mktemp('example')
-    out = run_local.run_folder(EXAMPLE, out_dir)
-    return out, json.loads(out.string)['Overall Stats'], out_dir
+def test_every_example_has_expectations():
+    folders = {p.name for p in EXAMPLES.iterdir() if p.is_dir()}
+    assert folders == set(EXPECTED), 'add the new example to EXPECTED'
+
+
+@pytest.fixture(scope='module', params=sorted(EXPECTED))
+def example(request, tmp_path_factory):
+    name = request.param
+    out_dir = tmp_path_factory.mktemp(name)
+    out = run_local.run_folder(EXAMPLES / name, out_dir)
+    return name, out, json.loads(out.string)['Overall Stats'], out_dir
 
 
 def test_example_counts(example):
-    _, stats, _ = example
-    assert stats['# of Nodes'] == 336
-    assert stats['# of Relationships'] == 536
-    assert stats['Highest Pagerank (Undirected)'].startswith('Springfield Elementary School')
+    name, out, stats, _ = example
+    want = EXPECTED[name]
+    assert stats['# of Nodes'] == want['nodes']
+    assert stats['# of Relationships'] == want['relationships']
+    assert stats['Highest Pagerank (Undirected)'].startswith(want['top'] + ' (')
+    assert len(out.table) == want['nodes']
+    assert out.resource == want['page']
 
 
 @pytest.mark.reference
 def test_example_communities(example):
     """Louvain output depends on the networkx version, so this is checked at the reference pins only."""
-    _, stats, _ = example
-    assert stats['# of Communities'] == 14
-    assert stats['Modularity'] == pytest.approx(0.709160, abs=5e-7)
+    name, _, stats, _ = example
+    assert stats['# of Communities'] == EXPECTED[name]['communities']
+    assert stats['Modularity'] == pytest.approx(EXPECTED[name]['modularity'], abs=5e-7)
 
 
-def test_example_table(example):
-    out, _, _ = example
-    assert len(out.table) == 336
+def test_example_table_columns(example):
+    _, out, _, _ = example
     assert list(out.table.columns) == ['Node', 'Type', 'Aliases', 'Deceased', 'Community',
                                        'Community Hub', 'Pagerank (Undirected)', 'Pagerank',
                                        'Degree', 'In Degree', 'Out Degree']
@@ -70,33 +89,37 @@ def same_data(a, b, path='data'):
 
 @pytest.mark.reference
 def test_committed_sample_page_is_current(example):
-    """example/The_Simpsons_Network.html must be what the committed script + data produce.
+    """Each example's committed page must be what the committed script + data produce.
 
     Markup, CSS and JS must match exactly. The embedded data must match too, but
     floats only to 1e-9 relative: PageRank's last digits differ between macOS and
     Linux builds of numpy/scipy.
     """
-    out, _, out_dir = example
-    assert out.resource == 'The_Simpsons_Network.html'
+    name, out, _, out_dir = example
     fresh_page, fresh_data = split_page((out_dir / out.resource).read_text(encoding='utf-8'))
-    old_page, old_data = split_page((EXAMPLE / out.resource).read_text(encoding='utf-8'))
-    assert fresh_page == old_page, 'rerun `python run_local.py` and commit the page'
+    old_page, old_data = split_page((EXAMPLES / name / out.resource).read_text(encoding='utf-8'))
+    assert fresh_page == old_page, 'rerun `python run_local.py examples/%s` and commit the page' % name
     same_data(fresh_data, old_data)
 
 
-def test_converter_rebuilds_committed_csvs(tmp_path):
-    path = EXAMPLE / 'source' / 'convert_schema.py'
-    spec = importlib.util.spec_from_file_location('convert_schema', path)
+BUILDERS = sorted(p for p in EXAMPLES.glob('*/source/*.py'))
+
+
+@pytest.mark.parametrize('builder', BUILDERS, ids=lambda p: p.parent.parent.name)
+def test_builder_rebuilds_committed_csvs(builder, tmp_path):
+    """An example whose CSVs are generated must be reproducible from its source/ script."""
+    spec = importlib.util.spec_from_file_location(builder.stem, builder)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     mod.main(tmp_path)
     for name in ('nodes.csv', 'edges.csv'):
-        assert (tmp_path / name).read_bytes() == (EXAMPLE / name).read_bytes(), name
+        assert (tmp_path / name).read_bytes() == (builder.parent.parent / name).read_bytes(), name
 
 
 # Words from the example data that must never appear in the reusable files.
-EXAMPLE_WORDS = re.compile(r'simpson|springfield|homer|bart|marge|lisa|maggie|burns|flanders|bouvier',
-                           re.IGNORECASE)
+EXAMPLE_WORDS = re.compile(r'simpson|springfield|homer|bart|marge|lisa|maggie|burns|flanders|bouvier'
+                           r'|valjean|cosette|javert|thenardier|medici|strozzi|padgett'
+                           r'|tudor|boleyn|seymour|cleves|aragon', re.IGNORECASE)
 
 
 @pytest.mark.parametrize('name', ['d3_force_network_graph.py', 'run_local.py',
@@ -114,12 +137,13 @@ GENDERED = re.compile(r'\b(girlfriend|boyfriend|husband|wife|wives|widow|widower
                       r'|nephew|niece|mistress)\b|(?<!/)\buncle\b|\baunt\b(?!/)', re.IGNORECASE)
 
 
-def test_labels_and_roles_are_gender_neutral():
+@pytest.mark.parametrize('name', sorted(EXPECTED))
+def test_labels_and_roles_are_gender_neutral(name):
     import csv
     hits = []
-    with open(EXAMPLE / 'edges.csv', encoding='utf-8') as f:
+    with open(EXAMPLES / name / 'edges.csv', encoding='utf-8') as f:
         for r in csv.DictReader(f):
             for col in ('label', 'role'):
-                if GENDERED.search(r[col]):
+                if GENDERED.search(r.get(col) or ''):
                     hits.append('%s -> %s %s=%r' % (r['from_id'], r['to_id'], col, r[col]))
     assert not hits, hits

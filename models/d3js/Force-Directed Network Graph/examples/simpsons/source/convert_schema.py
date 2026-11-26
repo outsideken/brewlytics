@@ -4,8 +4,8 @@ DRAFT FOR REVIEW: node types are guessed by rule, and labels are mapped to a
 small set of relationships by hand (LABELS below). Both output files carry
 review columns (`type_rule`, `original_labels`) to drop once checked.
 
-    python example/source/convert_schema.py            # rewrites example/nodes.csv + edges.csv
-    python example/source/convert_schema.py OUT_DIR    # writes them somewhere else (tests use this)
+    python examples/simpsons/source/convert_schema.py            # rewrites the example CSVs
+    python examples/simpsons/source/convert_schema.py OUT_DIR    # writes them somewhere else (tests use this)
 
 Schema
 ------

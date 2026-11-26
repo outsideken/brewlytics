@@ -1,0 +1,8 @@
+{
+  "Network Graphic Title": "Henry VIII, His Wives and Lineage: A d3.js Force-Directed Network Graph",
+  "Network Graphic Filename": "Henry VIII Network",
+  "Data Sources": {
+    "Wikipedia: Wives of Henry VIII": "https://en.wikipedia.org/wiki/Wives_of_Henry_VIII",
+    "Coat of arms: Sodacan, CC BY-SA 3.0, rendered as PNG (Wikimedia Commons)": "https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_Henry_VIII_of_England_(1509-1547).svg"
+  }
+}

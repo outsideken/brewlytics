@@ -1,6 +1,6 @@
 # Worked example: The Simpsons
 
-Example data for the [d3.js Force-Directed Network Graph](../README.md). It
+Example data for the [d3.js Force-Directed Network Graph](../../README.md). It
 comes from the original 2019 brewlytics model *The Simpsons: A Network Graph Example*,
 which drew a networkx/matplotlib PNG for the now-retired Mission Presenter.
 
@@ -14,13 +14,15 @@ which drew a networkx/matplotlib PNG for the now-retired Mission Presenter.
 
 Result: 14 Louvain communities (modularity 0.709). The highest undirected
 PageRank is Springfield Elementary School. Those figures hold at the versions
-in `../requirements-reference.txt`; see *Reproducibility* in the main README.
+in `../../requirements-reference.txt`; see *Reproducibility* in the main README.
 
 ## Rebuilding the data
 
+From the workflow folder:
+
 ```bash
-python source/convert_schema.py     # rewrites nodes.csv + edges.csv
-python ../run_local.py              # rewrites The_Simpsons_Network.html
+python examples/simpsons/source/convert_schema.py   # rewrites nodes.csv + edges.csv
+python run_local.py examples/simpsons               # rewrites The_Simpsons_Network.html
 ```
 
 `convert_schema.py` is specific to this dataset. It holds:

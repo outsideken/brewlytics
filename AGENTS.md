@@ -53,7 +53,7 @@ New workflows follow the shape of
   docstring (Inputs / Outputs / Raises / Notes).
 - `run_local.py`: runs the script locally.
 - `template/`: minimal starter data.
-- `example/`: one worked dataset.
+- `examples/<name>/`: worked datasets, one folder each.
 - `tests/`.
 - `README.md`: the lesson.
 
@@ -62,9 +62,9 @@ New workflows follow the shape of
 
 - The script, `run_local.py` and `template/` stay dataset-agnostic: no
   example names in code, comments, defaults or docstrings.
-- Anything dataset-specific lives in `example/`: data, `params.json`, images,
+- Anything dataset-specific lives in `examples/<name>/`: data, `params.json`, images,
   converters, notes.
-- `tests/test_example.py` checks this by listing the example's names that
+- `tests/test_example.py` checks this by listing the examples' names that
   must not appear in the reusable files.
 - **No gender column in the network schema (K, 2026-11-26).** `label` text is
   gender-neutral; adding gender would make the schema less abstract.
@@ -110,6 +110,10 @@ source; keep these bullets in step with it.
   `requirements-floor.txt` (networkx 2.8.8, the first release with
   `louvain_communities`). Skips the `reference` tests, because Louvain output
   changes between networkx releases.
-- **Changing the example data, the script or the reference pins:** rerun
-  `run_local.py`, `example/source/convert_schema.py` if the data changed, and
-  the tests. Commit the regenerated `example/` files in the same PR.
+- **Changing example data, the script or the reference pins:** rerun
+  `run_local.py examples/<name>` for every example, the example's
+  `source/*.py` builder if its data changed, and the tests. Commit the
+  regenerated files in the same PR.
+- **Adding an example:** add its folder to `EXPECTED` in
+  `tests/test_example.py`. A test fails until you do. Also add its distinctive
+  names to `EXAMPLE_WORDS`.

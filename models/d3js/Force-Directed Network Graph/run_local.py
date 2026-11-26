@@ -11,8 +11,8 @@ The stand-in plays the brew model around the Python Script functional:
 
 The page is written into the data folder unless ``--out`` says otherwise.
 
-    python run_local.py                    # the worked example in example/
-    python run_local.py template           # the minimal starter data
+    python run_local.py                    # the minimal starter data in template/
+    python run_local.py examples/<name>    # one of the worked examples
     python run_local.py my_data --out web  # your own nodes/edges/params
 """
 
@@ -73,8 +73,8 @@ def run_folder(folder, out_dir=None):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument('folder', nargs='?', default=str(HERE / 'example'),
-                    help='folder with nodes.csv, edges.csv, params.json (default: example/)')
+    ap.add_argument('folder', nargs='?', default=str(HERE / 'template'),
+                    help='folder with nodes.csv, edges.csv, params.json (default: template/)')
     ap.add_argument('--out', help='where to write the page (default: the data folder)')
     args = ap.parse_args()
     out = run_folder(args.folder, args.out)

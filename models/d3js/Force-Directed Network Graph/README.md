@@ -6,11 +6,16 @@ The script computes the graph statistics with networkx (PageRank, degree,
 Louvain communities). It writes one self-contained `.html` page that people
 can download from `outputs.resource` and open in any browser.
 
-The method is the lesson; the data is interchangeable. [`example/`](example/)
-works it through with The Simpsons (336 characters, places and organisations;
-536 relationships): open
-[`example/The_Simpsons_Network.html`](example/The_Simpsons_Network.html) to
-see the result.
+The method is the lesson; the data is interchangeable. Four worked examples
+use the same unchanged script. Open any example's `.html` page to see the
+result:
+
+| example | nodes | relationships | what it shows |
+|---|---|---|---|
+| [The Simpsons](examples/simpsons/) | 336 | 536 | A large, mixed graph: characters, places and organisations, 29 relationship types. |
+| [Les Misérables](examples/les_miserables/) | 77 | 254 | Knuth's chapter co-appearance network, the data behind D3's own force-graph example. One relationship type, so the communities come from structure alone. The **weighted** example: shared chapters set link width, PageRank and Louvain. |
+| [Florentine families](examples/florentine_families/) | 16 | 35 | Padgett's marriage and business ties. A small classic for centrality: see where the Medici land. Shows two relationships on one pair, and an isolated node. |
+| [Henry VIII](examples/henry_viii/) | 47 | 80 | Henry VIII's six wives, their families, the Tudor succession and the popes. A family tree as a network, with every fact linked to its Wikipedia source. |
 
 ## What a force-directed graph is
 
@@ -30,7 +35,7 @@ is the minimal version of what this page does.
 | `d3_force_network_graph.py` | **Paste into the brew Python Script functional.** Dataset-agnostic. |
 | `run_local.py` | Runs that script unchanged on your machine, with a stand-in `brewlytics` module. |
 | `template/` | Minimal `nodes.csv`, `edges.csv` and `params.json` showing every column. Start your own data here. |
-| `example/` | The Simpsons worked example: data, logo, sample page, and how the data was built ([README](example/README.md)). |
+| `examples/` | Worked examples, one folder each: data, `params.json`, sample page, README, and the `source/` used to build the data where there is one. |
 | `tests/` | pytest suite; CI runs it on every pull request. |
 | `requirements*.txt` | What the script needs; the exact `reference` pins and the oldest supported `floor`. |
 
@@ -38,8 +43,8 @@ is the minimal version of what this page does.
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt pytest
-.venv/bin/python run_local.py              # example/  -> example/The_Simpsons_Network.html
-.venv/bin/python run_local.py template     # template/ -> template/network_graph.html
+.venv/bin/python run_local.py                        # template/ -> template/network_graph.html
+.venv/bin/python run_local.py examples/henry_viii    # -> examples/henry_viii/Henry_VIII_Network.html
 .venv/bin/python -m pytest tests
 ```
 
@@ -56,7 +61,7 @@ parameters) and, optionally, one image to use as the header logo.
 * `aliases`, `notes`: `; `-separated. Search matches aliases too.
 * `deceased`: `Y` or blank; drawn as a ring.
 
-**edges**: `from_id, to_id, relationship, category, directed, status, role, detail, source` (+ optional `label`)
+**edges**: `from_id, to_id, relationship, category, directed, status, role, detail, source` (+ optional `label`, `weight`)
 
 * One row per fact, read from → to.
 * `relationship`: the abstract type (`parent_of`, `works_at`). It is used for
@@ -69,6 +74,17 @@ parameters) and, optionally, one image to use as the header logo.
 * `status`, `role`: qualifiers (former, step, founder…). `detail`: free text
   shown in the tooltip and table.
 * `source`: a URL per fact, shown as a link.
+* `weight` (optional): a positive number for how strong the relationship is
+  (shared chapters, number of transactions, hours together…). Blank cells
+  count as 1. Without the column, every relationship counts once and the
+  results are exactly as before. With it:
+  * PageRank and Louvain use the weights;
+  * several relationships between one pair add up;
+  * link width scales with the pair's total;
+  * the tooltip and table show each weight.
+
+  Degree stays a count of neighbours. A weight that isn't a positive number
+  stops the run and names the edge.
 
 Extra columns are ignored, so working columns can stay in the CSVs.
 
@@ -96,7 +112,7 @@ image resource (opt.) ─┘                                            ─► N
 
 | brew output | from | contents |
 |---|---|---|
-| Network Stats | `outputs.string` | `Overall Stats` (density, counts, highest PageRank and degree, # of communities, modularity) + the `Parameters` used |
+| Network Stats | `outputs.string` | `Overall Stats` (density, counts, highest PageRank and degree, whether weights were used, # of communities, modularity) + the `Parameters` used |
 | Network Table | `outputs.table` | one row per node: Node, Type, Aliases, Deceased, Community, Community Hub, Pagerank (Undirected), Pagerank, Degree, In Degree, Out Degree |
 | Network Graph | `outputs.resource` | the downloadable d3 page |
 
@@ -122,6 +138,12 @@ image resource (opt.) ─┘                                            ─► N
 * **Safe links**: URLs from the data become links only if they are absolute
   `http://` or `https://`. `javascript:`, `data:` and relative URLs are shown
   as text or dropped, so a shared page can't run script hidden in a link.
+* **Fit to view**: once the layout settles, the view zooms to fit the whole
+  graph, unless the viewer has already zoomed or panned. *Reset view* fits it
+  again.
+* **Pairs with several relationships** share one link. The tooltip and table
+  list each relationship, and the category chips hide a link only when all of
+  its relationships are hidden.
 * d3 7.9.0 is loaded from cdn.jsdelivr.net, and light/dark mode follows the
   viewer's system setting.
 
