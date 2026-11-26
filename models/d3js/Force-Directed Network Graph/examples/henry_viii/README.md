@@ -10,6 +10,7 @@ to James VI and I, and the three popes who shaped his marriages.
 | `nodes.csv`, `edges.csv` | 47 people, 80 relationships, written by hand. These CSVs are the source; there is no build script. |
 | `params.json` | The model parameters used. |
 | `Henry_VIII_Network.html` | The page `run_local.py` produces from this folder. |
+| `Coat_of_Arms_of_Henry_VIII_of_England_(1509-1547).png` | Header image: Henry VIII's coat of arms, by Sodacan, from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_Henry_VIII_of_England_(1509-1547).svg). Licensed **CC BY-SA 3.0** ([licence](https://creativecommons.org/licenses/by-sa/3.0/)) or GFDL 1.2+, and so is this copy; it is *not* covered by this repo's CC0. **Changed:** rendered from the 1.9 MB SVG to a 168 × 168 px PNG (3× its on-page size), so the page stays small. The page credits it in the Data Sources line. Coats of arms are insignia, and their use is restricted in some countries independently of copyright. |
 
 **What it teaches.**
 * **A family tree drawn as a network:** parents, siblings and spouses, plus
