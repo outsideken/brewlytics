@@ -69,7 +69,6 @@ from brewlytics import *
 ################################################################################
 ##
 ## D3.JS FORCE-DIRECTED NETWORK GRAPH
-## AUTHOR: K. CHADWICK/NASK
 ##
 ################################################################################
 ## CHANGE LOG
@@ -467,7 +466,8 @@ def graph_stats(g, u, name):
         In Degree and Out Degree.
     node_stats : dict
         ``{node id: {measure: value}}`` for the same five measures
-        (degree measures are networkx centralities, 0-1). PageRank uses
+        (networkx centralities: In Degree and Out Degree run 0-1; Degree is
+        their sum on this directed graph, so it runs 0-2). PageRank uses
         the edge weights when there are any; degree counts neighbours.
     """
     pagerank = nx.pagerank(g)

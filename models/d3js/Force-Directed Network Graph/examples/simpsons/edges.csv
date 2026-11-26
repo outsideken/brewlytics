@@ -24,7 +24,7 @@ nelson-muntz,reilly-muntz,cousin_of,cousin of,family,False,,,,,Cousin of | Cousi
 abraham-jebediah-abe-simpson-ii,bart,grandparent_of,grandparent of,family,True,,,,,Grandpa
 abraham-jebediah-abe-simpson-ii,lisa,grandparent_of,grandparent of,family,True,,,,,Grandpa
 abraham-jebediah-abe-simpson-ii,maggie,grandparent_of,grandparent of,family,True,,,,,Grandpa
-judge-muntz,nelson-muntz,grandparent_of,paternal grandparent of,family,True,,paternal,,,Paternal Grandfather
+judge-muntz,nelson-muntz,grandparent_of,grandparent of,family,True,,,,,Paternal Grandfather
 police-superintendent-chalmers,rosemary-chalmers,in_law_of,in-law of,family,False,,,,,Deceased Sister-in-Law | Brother-in-Law
 abraham-jebediah-abe-simpson-ii,abbie,parent_of,parent of,family,True,,,,,Father of
 abraham-jebediah-abe-simpson-ii,herb-powell,parent_of,parent of,family,True,,,,,Father of
@@ -331,7 +331,7 @@ lindsey-naegle,ned-flanders,romantic_with,dated,romance,False,ended,dated,,,Once
 lindsey-naegle,rainier-luftwaffe-wolfcastle,romantic_with,slept with,romance,False,,slept with,,,Slept with
 lindsey-naegle,sea-captian,romantic_with,slept with,romance,False,,slept with,,,Slept with
 milhouse-mussolini-van-houten,paris-texan,romantic_with,made out with,romance,False,,made out,,,Made out with
-milhouse-mussolini-van-houten,samantha-stanky,romantic_with,first girlfriend of,romance,False,ended,first girlfriend,,,First Girlfriend
+milhouse-mussolini-van-houten,samantha-stanky,romantic_with,first partner of,romance,False,ended,first partner,,,First Girlfriend
 milhouse-mussolini-van-houten,taffy,romantic_with,dated,romance,False,,dated,,,Dated
 ned-flanders,rachel-jordan,romantic_with,brief romance with,romance,False,ended,brief,,,Briefly Romantically Connected With
 ned-flanders,sara-sloane,romantic_with,brief romance with,romance,False,ended,brief,,,Briefly Romantically Connected With

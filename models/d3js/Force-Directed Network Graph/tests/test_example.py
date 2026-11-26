@@ -127,3 +127,23 @@ EXAMPLE_WORDS = re.compile(r'simpson|springfield|homer|bart|marge|lisa|maggie|bu
 def test_reusable_files_are_dataset_agnostic(name):
     hits = sorted({m.group(0).lower() for m in EXAMPLE_WORDS.finditer((HERE / name).read_text())})
     assert not hits, 'example-specific words in %s: %s' % (name, hits)
+
+
+# Relationship wording must be gender-neutral (AGENTS.md). Titles of office
+# ("Lord Protector") are names, not relationship wording, so they're not listed.
+# "aunt/uncle of" is the accepted paired form; a bare "aunt" or "uncle" is not.
+GENDERED = re.compile(r'\b(girlfriend|boyfriend|husband|wife|wives|widow|widower|mother|father|son|daughter'
+                      r'|brother|sister|grandfather|grandmother|grandson|granddaughter|paternal|maternal'
+                      r'|nephew|niece|mistress)\b|(?<!/)\buncle\b|\baunt\b(?!/)', re.IGNORECASE)
+
+
+@pytest.mark.parametrize('name', sorted(EXPECTED))
+def test_labels_and_roles_are_gender_neutral(name):
+    import csv
+    hits = []
+    with open(EXAMPLES / name / 'edges.csv', encoding='utf-8') as f:
+        for r in csv.DictReader(f):
+            for col in ('label', 'role'):
+                if GENDERED.search(r.get(col) or ''):
+                    hits.append('%s -> %s %s=%r' % (r['from_id'], r['to_id'], col, r[col]))
+    assert not hits, hits
