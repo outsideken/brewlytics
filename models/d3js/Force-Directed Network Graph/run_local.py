@@ -4,8 +4,8 @@ The stand-in plays the brew model around the Python Script functional:
 
 * ``inputs.tables``: ``nodes.csv`` and ``edges.csv`` from the data folder, as
   two CSV to Table functionals would supply them.
-* ``inputs.list``: one JSON string per entry in the folder's ``params.json``,
-  as String to JSON v3 would supply the model parameters.
+* ``inputs.list``: the folder's ``params.json`` as one JSON string, the
+  whole model configuration in one parameter.
 * ``inputs.resources``: every image file in the folder (the script uses the
   first one as the header logo). No image means no logo.
 
@@ -33,7 +33,7 @@ IMAGES = {'.svg', '.png', '.jpg', '.jpeg', '.webp', '.gif'}
 def fake_brewlytics(tables, params, resources=()):
     """Return a module with brew's ``inputs`` / ``outputs`` shape."""
     mod = types.ModuleType('brewlytics')
-    mod.inputs = types.SimpleNamespace(list=[json.dumps({k: v}) for k, v in params.items()],
+    mod.inputs = types.SimpleNamespace(list=[json.dumps(params)],
                                        tables=list(tables), resources=list(resources))
     mod.outputs = types.SimpleNamespace()
     mod.__all__ = ['inputs', 'outputs']
@@ -41,10 +41,9 @@ def fake_brewlytics(tables, params, resources=()):
 
 
 def read_params(folder):
-    """Read ``params.json``; dict values (e.g. Data Sources) become JSON strings, as in brew."""
+    """Read the folder's ``params.json`` (the model configuration); ``{}`` if there is none."""
     path = Path(folder) / 'params.json'
-    params = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
-    return {k: json.dumps(v) if isinstance(v, dict) else v for k, v in params.items()}
+    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
 
 
 def run(tables, params, resources=(), out_dir='.'):

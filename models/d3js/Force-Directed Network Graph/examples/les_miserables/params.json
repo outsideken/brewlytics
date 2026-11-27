@@ -4,5 +4,6 @@
   "Data Sources": {
     "Knuth, The Stanford GraphBase (1993)": "https://www-cs-faculty.stanford.edu/~knuth/sgb.html",
     "networkx les_miserables_graph": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.social.les_miserables_graph.html"
-  }
+  },
+  "Schema": {"nodes": {"ring": "deceased"}, "ring_label": "deceased"}
 }

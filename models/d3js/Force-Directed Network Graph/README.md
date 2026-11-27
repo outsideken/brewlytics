@@ -51,28 +51,36 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt pytest
 ```
 
 A data folder holds `nodes.csv`, `edges.csv`, `params.json` (the model
-parameters) and, optionally, one image to use as the header logo.
+configuration) and, optionally, one image to use as the header logo.
 
 ## Data model
 
-**nodes**: `id, name, type, aliases, deceased, notes`
+These are the default column names. Your data can use its own names: see
+[Schema](#schema-your-own-column-names). Only `id`, `from_id` and `to_id` are
+required; every other column is optional.
+
+**nodes**: `id, name, type, aliases, ring, notes`
 
 * `id`: a stable slug that edges refer to (`alex`, `acme`). Names can be
   edited freely; ids keep misspellings from splitting one node into two.
+* `name`: shown on the page. Defaults to `id`.
 * `type`: free text (Person, Organisation, Place…).
 * `aliases`, `notes`: `; `-separated. Search matches aliases too.
-* `deceased`: `Y` or blank; drawn as a ring.
+* `ring`: `Y` or blank; drawn as an outline. What it means is up to the data
+  (deceased, mission ended, closed…). The Schema's `ring_label` names it in
+  the legend, tooltip and Network Table; the default is "flagged".
 
-**edges**: `from_id, to_id, relationship, category, directed, status, role, detail, source` (+ optional `label`, `weight`)
+**edges**: `from_id, to_id, relationship, label, category, directed, status, role, detail, source, weight`
 
 * One row per fact, read from → to.
 * `relationship`: the abstract type (`parent_of`, `works_at`). It is used for
   statistics and filtering. `category` groups relationships for the
-  show/hide chips.
+  show/hide chips. It defaults to `relationship`, or `all` when that is blank.
 * `label`: the short text drawn on the link ("former analyst at"). If the
   column is missing, the page shows `relationship`.
 * `directed`: `False` for symmetric relationships (`sibling_of`,
-  `friend_of`). Arrows are drawn only on directed links.
+  `friend_of`). Arrows are drawn only on directed links. Without the column,
+  every edge is undirected.
 * `status`, `role`: qualifiers (former, step, founder…). `detail`: free text
   shown in the tooltip and table.
 * `source`: a URL per fact, shown as a link.
@@ -88,34 +96,74 @@ parameters) and, optionally, one image to use as the header logo.
   Degree stays a count of neighbours. A weight that isn't a positive number
   stops the run and names the edge.
 
-Extra columns are ignored, so working columns can stay in the CSVs.
+Extra columns are ignored, so working columns can stay in the CSVs. The
+Schema's `tooltip` can show some of them.
+
+### Schema: your own column names
+
+The optional **Schema** parameter says which of your columns fills each
+field, so your data keeps its own headers:
+
+```json
+"Schema": {
+  "nodes": {"id": "body_id", "name": "Name", "type": "Class", "ring": "mission_ended"},
+  "edges": {"from_id": "src", "to_id": "dst", "relationship": "rel_type",
+            "directed": true, "category": {"value": "orbit"}},
+  "ring_label": "mission ended",
+  "tooltip": ["radius_km", "orbital_period_days"]
+}
+```
+
+* In `nodes` and `edges`, the keys are the field names above.
+  * A **string** names one of your columns.
+  * Any other value is a **constant** for every row: `true`/`false`, a
+    number, or `{"value": "text"}` for text.
+* A field the Schema leaves out uses its default column name if the table has
+  one; otherwise it takes the default value given above.
+* `id`, `from_id` and `to_id` must name columns. They are also how the
+  script tells the two tables apart: the edges table has `from_id` and
+  `to_id`, and the nodes table is the other one with `id`.
+* `ring_label`: what a ringed node means.
+* `tooltip`: extra nodes-table columns shown in each node's tooltip, as
+  `column: value`.
+* Mistakes stop the run with a message: an unknown key or field, or a
+  column the table doesn't have.
+
+Without a Schema, the default names apply. The worked examples keep their
+`deceased` column and map it with
+`"Schema": {"nodes": {"ring": "deceased"}, "ring_label": "deceased"}`.
 
 ## Brew model wiring
 
 ```
 CSV to Table (nodes) ─┐
 CSV to Table (edges) ─┼─► Python Script (d3_force_network_graph.py) ─► Network Stats (JSON)
-String to JSON (params) ┤                                            ─► Network Table
+model configuration ───┤                                            ─► Network Table
 image resource (opt.) ─┘                                            ─► Network Graph (.html)
 ```
 
 * **`inputs.tables`**: nodes and edges, in either order. Each is found by its
   columns.
-* **`inputs.list`**: one JSON string per parameter:
+* **`inputs.list`**: the model configuration as JSON. It can be one string
+  holding the whole configuration (as in each `params.json`), or one string
+  per parameter; the script merges them in order. The parameters:
   * **Network Graphic Title**
   * **Network Graphic Filename**: spaces become `_`, and the extension is
     forced to `.html`.
   * **Data Sources** (optional): `{"label": "url", …}`, shown as links under
     the title.
+  * **Schema** (optional): your column names; see
+    [Schema](#schema-your-own-column-names).
 * **`inputs.resources`** (optional): the first `.svg/.png/.jpg/.webp/.gif` is
   embedded beside the title as a data URI, so the page stays one file.
-* **Bad data stops the run.** An edge id missing from the nodes table, or a
-  duplicated node id, raises a `ValueError` that names the ids.
+* **Bad data stops the run.** An edge id missing from the nodes table, a
+  duplicated node id, or a Schema that names a missing column raises a
+  `ValueError` that names the problem.
 
 | brew output | from | contents |
 |---|---|---|
 | Network Stats | `outputs.string` | `Overall Stats` (density, counts, highest PageRank and degree, whether weights were used, # of communities, modularity) + the `Parameters` used |
-| Network Table | `outputs.table` | one row per node: Node, Type, Aliases, Deceased, Community, Community Hub, Pagerank (Undirected), Pagerank, Degree, In Degree, Out Degree |
+| Network Table | `outputs.table` | one row per node: Node, Type, Aliases, the ring column (named by `ring_label`, e.g. Deceased), Community, Community Hub, Pagerank (Undirected), Pagerank, Degree, In Degree, Out Degree |
 | Network Graph | `outputs.resource` | the downloadable d3 page |
 
 ## The page

@@ -1,5 +1,6 @@
 {
   "Network Graphic Title": "The Simpsons: A d3.js Force-Directed Network Graph",
   "Network Graphic Filename": "The Simpsons Network.png",
-  "Data Sources": {"The Simpsons Wiki": "https://simpsons.fandom.com/wiki/Simpsons_Wiki"}
+  "Data Sources": {"The Simpsons Wiki": "https://simpsons.fandom.com/wiki/Simpsons_Wiki"},
+  "Schema": {"nodes": {"ring": "deceased"}, "ring_label": "deceased"}
 }
