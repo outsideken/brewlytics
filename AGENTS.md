@@ -106,8 +106,15 @@ K (the owner) decides; assistants propose.
 - **Reply after changes.** Head it `## Reply → <reviewer>: changes made,
   please re-review`. Give the new commit SHA, what changed for each point
   (with numbers where they apply), and how to re-check it.
-- **New commits after an approval need a re-check.** That includes merges
-  from a base branch, before the PR merges. The re-review names the new SHA.
+- **New commits after an approval need a re-check** before the PR merges.
+  The re-check is scoped:
+  - it covers what the new commits changed, plus whatever the reply says to
+    re-check;
+  - it says which earlier results still hold without re-running them;
+  - a merge from a base branch is re-checked for what that merge brought in.
+
+  For example, a colour fix needs the colours measured again, not the whole
+  suite reread. The re-review names the new SHA.
 - **Merging is K's call.** K merges, or tells an assistant to.
   - Use a merge commit, not squash, so stacked branches keep their history.
   - Before deleting a merged branch, confirm on GitHub that the PR shows as
@@ -130,8 +137,8 @@ card per example. `site/publish.txt` lists the pages to publish, as
 `<source in the repo> -> <path on the site>`. `site/build.sh` assembles
 `_site/`. It fails if a listed source is missing or a relative link on the
 landing page has no page behind it. `.github/workflows/pages.yml` runs the
-build on every PR and deploys to https://outsideken.github.io/brewlytics/ on
-pushes to `main`.
+build on every PR and deploys to https://outsideken.github.io/brewlytics/
+from `main` only: on a push to `main` or a manual run on `main`.
 
 **To publish a new example:** add its line to `publish.txt`, add a card to
 `index.html`, run `site/build.sh`, and open `_site/index.html` to check it.
