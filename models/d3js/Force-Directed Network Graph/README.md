@@ -8,7 +8,7 @@ can download from `outputs.resource` and open in any browser.
 
 The method is the lesson; the data is interchangeable. Five worked examples
 use the same unchanged script. Open any example's `.html` page to see the
-result:
+result, or try [The Simpsons graph live](https://outsideken.github.io/brewlytics/network-graph/the-simpsons.html):
 
 | example | nodes | relationships | what it shows |
 |---|---|---|---|
