@@ -57,11 +57,11 @@ haumea,kuiper-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Hau
 makemake,kuiper-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Makemake
 arrokoth,kuiper-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/486958_Arrokoth
 eris,scattered-disc,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Eris_(dwarf_planet)
-europa,io,resonance_with,2:1 resonance with,resonance,False,,2:1,"Io orbits twice for each Europa orbit. Laplace resonance: Io, Europa and Ganymede orbit in a 1:2:4 period ratio",https://en.wikipedia.org/wiki/Orbital_resonance
+io,europa,resonance_with,2:1 resonance with,resonance,False,,2:1,"Io orbits twice for each Europa orbit. Laplace resonance: Io, Europa and Ganymede orbit in a 1:2:4 period ratio",https://en.wikipedia.org/wiki/Orbital_resonance
 europa,ganymede,resonance_with,2:1 resonance with,resonance,False,,2:1,"Europa orbits twice for each Ganymede orbit. Laplace resonance: Io, Europa and Ganymede orbit in a 1:2:4 period ratio",https://en.wikipedia.org/wiki/Orbital_resonance
-hyperion,titan,resonance_with,4:3 resonance with,resonance,False,,4:3,Titan orbits four times for every three Hyperion orbits,https://en.wikipedia.org/wiki/Hyperion_(moon)
+titan,hyperion,resonance_with,4:3 resonance with,resonance,False,,4:3,Titan orbits four times for every three Hyperion orbits,https://en.wikipedia.org/wiki/Hyperion_(moon)
 mimas,tethys,resonance_with,4:2 resonance with,resonance,False,,4:2,"Mimas orbits twice for each Tethys orbit; written 4:2, not 2:1, because of how the orbits librate",https://en.wikipedia.org/wiki/Orbital_resonance
-dione,enceladus,resonance_with,2:1 resonance with,resonance,False,,2:1,Enceladus orbits twice for each Dione orbit,https://en.wikipedia.org/wiki/Orbital_resonance
+enceladus,dione,resonance_with,2:1 resonance with,resonance,False,,2:1,Enceladus orbits twice for each Dione orbit,https://en.wikipedia.org/wiki/Orbital_resonance
 neptune,pluto,resonance_with,3:2 resonance with,resonance,False,,3:2,"Neptune orbits three times for every two Pluto orbits, so the two never pass near each other",https://en.wikipedia.org/wiki/Pluto
 epimetheus,janus,co_orbital_with,shares an orbit with,resonance,False,,,The two swap orbits about every four years,https://en.wikipedia.org/wiki/Janus_(moon)
 charon,pluto,tidally_locked_with,tidally locked with,resonance,False,,,Each always shows the other the same face,https://en.wikipedia.org/wiki/Charon_(moon)
