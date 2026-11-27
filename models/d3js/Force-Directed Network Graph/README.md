@@ -6,7 +6,7 @@ The script computes the graph statistics with networkx (PageRank, degree,
 Louvain communities). It writes one self-contained `.html` page that people
 can download from `outputs.resource` and open in any browser.
 
-The method is the lesson; the data is interchangeable. Five worked examples
+The method is the lesson; the data is interchangeable. Six worked examples
 use the same unchanged script. Open any example's `.html` page to see the
 result, or try [The Simpsons graph live](https://outsideken.github.io/brewlytics/network-graph/the-simpsons.html):
 
@@ -17,6 +17,7 @@ result, or try [The Simpsons graph live](https://outsideken.github.io/brewlytics
 | [Florentine families](examples/florentine_families/) | 16 | 35 | Padgett's marriage and business ties. A small classic for centrality: see where the Medici land. Shows two relationships on one pair, and an isolated node. |
 | [Star Trek crews](examples/star_trek/) | 56 | 124 | Four series' main crews, their ships, and the characters who cross over. Louvain recovers the four series on its own; crossover characters (Quark, Sulu, Q) are the bridges. |
 | [Henry VIII](examples/henry_viii/) | 47 | 80 | Henry VIII's six wives, their families, the Tudor succession and the popes. A family tree as a network, with every fact linked to its Wikipedia source. |
+| [The Solar System](examples/solar_system/) | 89 | 159 | Planets, moons, the spacecraft that explored them and the astronomers who found them. Orbits alone make a tree; missions and discoveries decide where Louvain draws the borders. |
 
 ## What a force-directed graph is
 

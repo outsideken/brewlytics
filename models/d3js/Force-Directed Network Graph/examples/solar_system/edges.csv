@@ -1,0 +1,160 @@
+from_id,to_id,relationship,label,category,directed,status,role,detail,source
+mercury,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Mercury_(planet)
+venus,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Venus
+earth,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Earth
+mars,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Mars
+jupiter,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Jupiter
+saturn,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Saturn
+uranus,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Uranus
+neptune,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Neptune
+ceres,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)
+pluto,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Pluto
+eris,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Eris_(dwarf_planet)
+haumea,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Haumea
+makemake,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Makemake
+vesta,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/4_Vesta
+bennu,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/101955_Bennu
+arrokoth,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/486958_Arrokoth
+67p,sun,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/67P/Churyumov%E2%80%93Gerasimenko
+moon,earth,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Moon
+phobos,mars,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Phobos_(moon)
+deimos,mars,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Deimos_(moon)
+io,jupiter,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Io_(moon)
+europa,jupiter,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Europa_(moon)
+ganymede,jupiter,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Ganymede_(moon)
+callisto,jupiter,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Callisto_(moon)
+amalthea,jupiter,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Amalthea_(moon)
+mimas,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Mimas_(moon)
+enceladus,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Enceladus
+tethys,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Tethys_(moon)
+dione,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Dione_(moon)
+rhea,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Rhea_(moon)
+titan,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Titan_(moon)
+hyperion,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Hyperion_(moon)
+iapetus,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Iapetus_(moon)
+phoebe,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Phoebe_(moon)
+janus,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Janus_(moon)
+epimetheus,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Epimetheus_(moon)
+prometheus,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Prometheus_(moon)
+pandora,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Pandora_(moon)
+f-ring,saturn,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Rings_of_Saturn
+miranda,uranus,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Miranda_(moon)
+ariel,uranus,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Ariel_(moon)
+umbriel,uranus,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Umbriel
+titania,uranus,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Titania_(moon)
+oberon,uranus,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Oberon_(moon)
+triton,neptune,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Triton_(moon)
+nereid,neptune,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Nereid_(moon)
+proteus,neptune,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Proteus_(moon)
+charon,pluto,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Charon_(moon)
+nix,pluto,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Nix_(moon)
+hydra,pluto,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Hydra_(moon)
+dysnomia,eris,orbits,orbits,orbit,True,,,,https://en.wikipedia.org/wiki/Dysnomia_(moon)
+ceres,asteroid-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)
+vesta,asteroid-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/4_Vesta
+pluto,kuiper-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Pluto
+haumea,kuiper-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Haumea
+makemake,kuiper-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Makemake
+arrokoth,kuiper-belt,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/486958_Arrokoth
+eris,scattered-disc,member_of,in,region,True,,,,https://en.wikipedia.org/wiki/Eris_(dwarf_planet)
+europa,io,resonance_with,2:1 resonance with,resonance,False,,2:1,"Io orbits twice for each Europa orbit. Laplace resonance: Io, Europa and Ganymede orbit in a 1:2:4 period ratio",https://en.wikipedia.org/wiki/Orbital_resonance
+europa,ganymede,resonance_with,2:1 resonance with,resonance,False,,2:1,"Europa orbits twice for each Ganymede orbit. Laplace resonance: Io, Europa and Ganymede orbit in a 1:2:4 period ratio",https://en.wikipedia.org/wiki/Orbital_resonance
+hyperion,titan,resonance_with,4:3 resonance with,resonance,False,,4:3,Titan orbits four times for every three Hyperion orbits,https://en.wikipedia.org/wiki/Hyperion_(moon)
+mimas,tethys,resonance_with,4:2 resonance with,resonance,False,,4:2,"Mimas orbits twice for each Tethys orbit; written 4:2, not 2:1, because of how the orbits librate",https://en.wikipedia.org/wiki/Orbital_resonance
+dione,enceladus,resonance_with,2:1 resonance with,resonance,False,,2:1,Enceladus orbits twice for each Dione orbit,https://en.wikipedia.org/wiki/Orbital_resonance
+neptune,pluto,resonance_with,3:2 resonance with,resonance,False,,3:2,"Neptune orbits three times for every two Pluto orbits, so the two never pass near each other",https://en.wikipedia.org/wiki/Pluto
+epimetheus,janus,co_orbital_with,shares an orbit with,resonance,False,,,The two swap orbits about every four years,https://en.wikipedia.org/wiki/Janus_(moon)
+charon,pluto,tidally_locked_with,tidally locked with,resonance,False,,,Each always shows the other the same face,https://en.wikipedia.org/wiki/Charon_(moon)
+prometheus,f-ring,shepherd_of,shepherds,resonance,True,,,Shepherds the ring's inner edge,https://en.wikipedia.org/wiki/Prometheus_(moon)
+pioneer-10,jupiter,flew_by,flew past,exploration,True,,flyby,1973; first spacecraft to fly past Jupiter,https://en.wikipedia.org/wiki/Pioneer_10
+pioneer-11,jupiter,flew_by,flew past,exploration,True,,flyby,1974,https://en.wikipedia.org/wiki/Pioneer_11
+pioneer-11,saturn,flew_by,flew past,exploration,True,,flyby,1979; first spacecraft to fly past Saturn,https://en.wikipedia.org/wiki/Pioneer_11
+voyager-1,jupiter,flew_by,flew past,exploration,True,,flyby,1979,https://en.wikipedia.org/wiki/Voyager_1
+voyager-1,saturn,flew_by,flew past,exploration,True,,flyby,1980,https://en.wikipedia.org/wiki/Voyager_1
+voyager-1,titan,flew_by,flew past,exploration,True,,flyby,1980,https://en.wikipedia.org/wiki/Voyager_1
+voyager-2,jupiter,flew_by,flew past,exploration,True,,flyby,1979,https://en.wikipedia.org/wiki/Voyager_2
+voyager-2,saturn,flew_by,flew past,exploration,True,,flyby,1981,https://en.wikipedia.org/wiki/Voyager_2
+voyager-2,uranus,flew_by,flew past,exploration,True,,flyby,1986; the only spacecraft to visit Uranus,https://en.wikipedia.org/wiki/Voyager_2
+voyager-2,neptune,flew_by,flew past,exploration,True,,flyby,1989; the only spacecraft to visit Neptune,https://en.wikipedia.org/wiki/Voyager_2
+voyager-2,triton,flew_by,flew past,exploration,True,,flyby,1989,https://en.wikipedia.org/wiki/Voyager_2
+galileo-spacecraft,venus,flew_by,flew past,exploration,True,,flyby,Gravity assist on the way to Jupiter,https://en.wikipedia.org/wiki/Galileo_(spacecraft)
+galileo-spacecraft,earth,flew_by,flew past,exploration,True,,flyby,Gravity assists on the way to Jupiter,https://en.wikipedia.org/wiki/Galileo_(spacecraft)
+galileo-spacecraft,jupiter,orbited,orbited,exploration,True,,orbiter,1995–2003; the first spacecraft to orbit an outer planet,https://en.wikipedia.org/wiki/Galileo_(spacecraft)
+juno,earth,flew_by,flew past,exploration,True,,flyby,2013,https://en.wikipedia.org/wiki/Juno_(spacecraft)
+juno,jupiter,orbited,orbited,exploration,True,,orbiter,Since 2016,https://en.wikipedia.org/wiki/Juno_(spacecraft)
+juno,ganymede,flew_by,flew past,exploration,True,,flyby,2021,https://en.wikipedia.org/wiki/Juno_(spacecraft)
+juno,europa,flew_by,flew past,exploration,True,,flyby,2022,https://en.wikipedia.org/wiki/Juno_(spacecraft)
+juno,io,flew_by,flew past,exploration,True,,flyby,2023 and 2024,https://en.wikipedia.org/wiki/Juno_(spacecraft)
+cassini-huygens,venus,flew_by,flew past,exploration,True,,flyby,1998 and 1999,https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+cassini-huygens,earth,flew_by,flew past,exploration,True,,flyby,1999,https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+cassini-huygens,jupiter,flew_by,flew past,exploration,True,,flyby,2000,https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+cassini-huygens,saturn,orbited,orbited,exploration,True,,orbiter,2004–2017,https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+cassini-huygens,titan,landed_on,landed on,exploration,True,,Huygens probe,The Huygens probe landed on Titan in 2005,https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+cassini-huygens,enceladus,flew_by,flew past,exploration,True,,flyby,"Many close flybys from 2005, sampling its jets",https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+new-horizons,jupiter,flew_by,flew past,exploration,True,,flyby,2007,https://en.wikipedia.org/wiki/New_Horizons
+new-horizons,pluto,flew_by,flew past,exploration,True,,flyby,2015; the first spacecraft to visit Pluto,https://en.wikipedia.org/wiki/New_Horizons
+new-horizons,charon,flew_by,flew past,exploration,True,,flyby,2015,https://en.wikipedia.org/wiki/New_Horizons
+new-horizons,arrokoth,flew_by,flew past,exploration,True,,flyby,2019,https://en.wikipedia.org/wiki/New_Horizons
+dawn,mars,flew_by,flew past,exploration,True,,flyby,2009,https://en.wikipedia.org/wiki/Dawn_(spacecraft)
+dawn,vesta,orbited,orbited,exploration,True,,orbiter,2011–2012,https://en.wikipedia.org/wiki/Dawn_(spacecraft)
+dawn,ceres,orbited,orbited,exploration,True,,orbiter,2015–2018,https://en.wikipedia.org/wiki/Dawn_(spacecraft)
+messenger,earth,flew_by,flew past,exploration,True,,flyby,2005,https://en.wikipedia.org/wiki/MESSENGER
+messenger,venus,flew_by,flew past,exploration,True,,flyby,2006 and 2007,https://en.wikipedia.org/wiki/MESSENGER
+messenger,mercury,orbited,orbited,exploration,True,,orbiter,2011–2015; the first spacecraft to orbit Mercury,https://en.wikipedia.org/wiki/MESSENGER
+magellan,venus,orbited,orbited,exploration,True,,orbiter,1990–1994; mapped the surface by radar,https://en.wikipedia.org/wiki/Magellan_(spacecraft)
+rosetta,earth,flew_by,flew past,exploration,True,,flyby,"2005, 2007 and 2009",https://en.wikipedia.org/wiki/Rosetta_(spacecraft)
+rosetta,mars,flew_by,flew past,exploration,True,,flyby,2007,https://en.wikipedia.org/wiki/Rosetta_(spacecraft)
+rosetta,67p,orbited,orbited,exploration,True,,orbiter,2014–2016,https://en.wikipedia.org/wiki/Rosetta_(spacecraft)
+rosetta,67p,landed_on,landed on,exploration,True,,Philae lander,The Philae lander touched down in 2014,https://en.wikipedia.org/wiki/Rosetta_(spacecraft)
+osiris-rex,earth,flew_by,flew past,exploration,True,,flyby,2017,https://en.wikipedia.org/wiki/OSIRIS-REx
+osiris-rex,bennu,orbited,orbited,exploration,True,,orbiter,2018–2021,https://en.wikipedia.org/wiki/OSIRIS-REx
+osiris-rex,bennu,sampled,sampled,exploration,True,,sample return,Collected a sample in 2020 and returned it to Earth in 2023,https://en.wikipedia.org/wiki/OSIRIS-REx
+apollo-11,moon,landed_on,landed on,exploration,True,,crewed landing,1969; the first crewed landing,https://en.wikipedia.org/wiki/Apollo_11
+curiosity,mars,landed_on,landed on,exploration,True,,rover,"2012, in Gale crater",https://en.wikipedia.org/wiki/Curiosity_(rover)
+hubble-space-telescope,earth,orbits,orbits,orbit,True,,,Since 1990,https://en.wikipedia.org/wiki/Hubble_Space_Telescope
+galileo-galilei,io,discovered,discovered,discovery,True,,,1610,https://en.wikipedia.org/wiki/Galilean_moons
+galileo-galilei,europa,discovered,discovered,discovery,True,,,1610,https://en.wikipedia.org/wiki/Galilean_moons
+galileo-galilei,ganymede,discovered,discovered,discovery,True,,,1610,https://en.wikipedia.org/wiki/Galilean_moons
+galileo-galilei,callisto,discovered,discovered,discovery,True,,,1610,https://en.wikipedia.org/wiki/Galilean_moons
+christiaan-huygens,titan,discovered,discovered,discovery,True,,,1655,https://en.wikipedia.org/wiki/Titan_(moon)
+giovanni-domenico-cassini,iapetus,discovered,discovered,discovery,True,,,1671,https://en.wikipedia.org/wiki/Iapetus_(moon)
+giovanni-domenico-cassini,rhea,discovered,discovered,discovery,True,,,1672,https://en.wikipedia.org/wiki/Rhea_(moon)
+giovanni-domenico-cassini,tethys,discovered,discovered,discovery,True,,,1684,https://en.wikipedia.org/wiki/Tethys_(moon)
+giovanni-domenico-cassini,dione,discovered,discovered,discovery,True,,,1684,https://en.wikipedia.org/wiki/Dione_(moon)
+william-herschel,uranus,discovered,discovered,discovery,True,,,1781; the first planet found with a telescope,https://en.wikipedia.org/wiki/Uranus
+william-herschel,titania,discovered,discovered,discovery,True,,,1787,https://en.wikipedia.org/wiki/Titania_(moon)
+william-herschel,oberon,discovered,discovered,discovery,True,,,1787,https://en.wikipedia.org/wiki/Oberon_(moon)
+william-herschel,mimas,discovered,discovered,discovery,True,,,1789,https://en.wikipedia.org/wiki/Mimas_(moon)
+william-herschel,enceladus,discovered,discovered,discovery,True,,,1789,https://en.wikipedia.org/wiki/Enceladus
+william-lassell,triton,discovered,discovered,discovery,True,,,1846; 17 days after Neptune was found,https://en.wikipedia.org/wiki/Triton_(moon)
+william-lassell,ariel,discovered,discovered,discovery,True,,,1851,https://en.wikipedia.org/wiki/Ariel_(moon)
+william-lassell,umbriel,discovered,discovered,discovery,True,,,1851,https://en.wikipedia.org/wiki/Umbriel
+william-lassell,hyperion,discovered,discovered,discovery,True,,,1848; independently of the Bonds,https://en.wikipedia.org/wiki/Hyperion_(moon)
+william-cranch-bond,hyperion,discovered,discovered,discovery,True,,,1848,https://en.wikipedia.org/wiki/Hyperion_(moon)
+george-phillips-bond,hyperion,discovered,discovered,discovery,True,,,1848,https://en.wikipedia.org/wiki/Hyperion_(moon)
+william-cranch-bond,george-phillips-bond,parent_of,parent of,family,True,,,,https://en.wikipedia.org/wiki/George_Phillips_Bond
+asaph-hall,phobos,discovered,discovered,discovery,True,,,1877,https://en.wikipedia.org/wiki/Phobos_(moon)
+asaph-hall,deimos,discovered,discovered,discovery,True,,,1877,https://en.wikipedia.org/wiki/Deimos_(moon)
+urbain-le-verrier,neptune,predicted,predicted,discovery,True,,,1846; calculated its position from irregularities in Uranus's orbit,https://en.wikipedia.org/wiki/Discovery_of_Neptune
+johann-gottfried-galle,neptune,discovered,discovered,discovery,True,,,1846; found within a degree of Le Verrier's predicted position,https://en.wikipedia.org/wiki/Discovery_of_Neptune
+giuseppe-piazzi,ceres,discovered,discovered,discovery,True,,,1801,https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)
+heinrich-wilhelm-olbers,vesta,discovered,discovered,discovery,True,,,1807,https://en.wikipedia.org/wiki/4_Vesta
+e-e-barnard,amalthea,discovered,discovered,discovery,True,,,1892,https://en.wikipedia.org/wiki/Amalthea_(moon)
+william-henry-pickering,phoebe,discovered,discovered,discovery,True,,,1899; the first moon found in a photograph,https://en.wikipedia.org/wiki/Phoebe_(moon)
+gerard-kuiper,miranda,discovered,discovered,discovery,True,,,1948,https://en.wikipedia.org/wiki/Miranda_(moon)
+gerard-kuiper,nereid,discovered,discovered,discovery,True,,,1949,https://en.wikipedia.org/wiki/Nereid_(moon)
+clyde-tombaugh,pluto,discovered,discovered,discovery,True,,,1930,https://en.wikipedia.org/wiki/Pluto
+james-christy,charon,discovered,discovered,discovery,True,,,1978,https://en.wikipedia.org/wiki/Charon_(moon)
+mike-brown,eris,discovered,discovered,discovery,True,,,2005; with Chad Trujillo and David Rabinowitz,https://en.wikipedia.org/wiki/Eris_(dwarf_planet)
+mike-brown,makemake,discovered,discovered,discovery,True,,,2005; with Chad Trujillo and David Rabinowitz,https://en.wikipedia.org/wiki/Makemake
+mike-brown,dysnomia,discovered,discovered,discovery,True,,,2005,https://en.wikipedia.org/wiki/Dysnomia_(moon)
+voyager-1,prometheus,discovered,discovered,discovery,True,,,1980; in Voyager 1 images,https://en.wikipedia.org/wiki/Prometheus_(moon)
+voyager-1,pandora,discovered,discovered,discovery,True,,,1980; in Voyager 1 images,https://en.wikipedia.org/wiki/Pandora_(moon)
+voyager-2,proteus,discovered,discovered,discovery,True,,,1989; in Voyager 2 images,https://en.wikipedia.org/wiki/Proteus_(moon)
+hubble-space-telescope,nix,discovered,discovered,discovery,True,,,2005; in Hubble images,https://en.wikipedia.org/wiki/Nix_(moon)
+hubble-space-telescope,hydra,discovered,discovered,discovery,True,,,2005; in Hubble images,https://en.wikipedia.org/wiki/Hydra_(moon)
+hubble-space-telescope,arrokoth,discovered,discovered,discovery,True,,,2014; in a Hubble search for a New Horizons target,https://en.wikipedia.org/wiki/486958_Arrokoth
+galileo-spacecraft,galileo-galilei,named_after,named after,naming,True,,,,https://en.wikipedia.org/wiki/Galileo_(spacecraft)
+cassini-huygens,giovanni-domenico-cassini,named_after,named after,naming,True,,,,https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+cassini-huygens,christiaan-huygens,named_after,named after,naming,True,,,,https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
+kuiper-belt,gerard-kuiper,named_after,named after,naming,True,,,,https://en.wikipedia.org/wiki/Kuiper_belt
