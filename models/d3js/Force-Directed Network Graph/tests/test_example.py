@@ -23,6 +23,8 @@ EXPECTED = {
                       page='Star_Trek_Network.html', communities=4, modularity=0.549070),
     'henry_viii': dict(nodes=47, relationships=80, top='Henry VIII',
                        page='Henry_VIII_Network.html', communities=6, modularity=0.561899),
+    'solar_system': dict(nodes=89, relationships=159, top='Saturn',
+                         page='Solar_System_Network.html', communities=6, modularity=0.614768),
 }
 
 
@@ -122,7 +124,8 @@ def test_builder_rebuilds_committed_csvs(builder, tmp_path):
 EXAMPLE_WORDS = re.compile(r'simpson|springfield|homer|bart|marge|lisa|maggie|burns|flanders|bouvier'
                            r'|valjean|cosette|javert|thenardier|medici|strozzi|padgett'
                            r'|tudor|boleyn|seymour|cleves|aragon'
-                           r'|trek|picard|janeway|sisko|enterprise|klingon', re.IGNORECASE)
+                           r'|trek|picard|janeway|sisko|enterprise|klingon'
+                           r'|jupiter|saturn|pluto|voyager|cassini|galileo', re.IGNORECASE)
 
 
 @pytest.mark.parametrize('name', ['d3_force_network_graph.py', 'run_local.py',
