@@ -6,6 +6,10 @@ two: **Claude** (Claude Code, which reads this file via `CLAUDE.md`) and
 "Grok" and "Cursor" are the same assistant. Keep facts here, not in any one
 assistant's private memory.
 
+**Cursor runs in the cloud and can't see anyone's local files.** Anything it
+needs has to be on GitHub: in this file, an issue, a PR description or a PR
+comment. Never point it at a local note.
+
 **This repo is public.** Don't commit personal information (names, emails,
 local paths), credentials or copyrighted material. Images need a clear licence
 (e.g. public domain on Wikimedia Commons) recorded next to them.
@@ -81,12 +85,35 @@ K (the owner) decides; assistants propose.
 - **Issues are the task list:** one issue per piece of work. Claim it with
   the `agent:claude` or `agent:cursor` label, and link the PR (`Closes #N`).
   Discussion goes in issue/PR comments.
-- **Author ≠ reviewer.** Both assistants act on GitHub as K's account, so
-  GitHub's Approve button can't be used. The reviewer posts a PR comment
-  headed `## Review → <author>: approve` (or `request changes`) with
-  evidence: a test run, numbers, a browser check. "Looks right" is not a
-  review; say when something was checked only by reading. Every PR waits for
-  that comment.
+- **Author ≠ reviewer.** Claude acts on GitHub as K's account
+  (`outsideken`). Cursor posts as **`cursor[bot]`** through the Cursor GitHub
+  app. Approval is a PR comment, not GitHub's Approve button: K's account
+  can't approve its own PRs, and one rule for both directions keeps it
+  simple. Every PR waits for the reviewer's approve comment.
+- **Ready for review: what the PR description holds.** The author writes it
+  so the reviewer needs nothing else:
+  - what changed and why, and `Closes #N`;
+  - how to verify: the exact commands, the expected numbers and counts, and
+    the environment they came from;
+  - "please look hardest at": the parts most likely to be wrong;
+  - what was not done or not checked.
+- **Review comment.** Head it `## Review → <author>: approve` or
+  `## Review → <author>: request changes`. Name the commit SHA reviewed and
+  the evidence: a test run with its counts, numbers recomputed, a browser
+  check. "Looks right" is not a review; say when something was checked only
+  by reading. Put each requested change under **Change requested**, and
+  non-blocking points under **Notes, not blocking**.
+- **Reply after changes.** Head it `## Reply → <reviewer>: changes made,
+  please re-review`. Give the new commit SHA, what changed for each point
+  (with numbers where they apply), and how to re-check it.
+- **New commits after an approval need a re-check.** That includes merges
+  from a base branch, before the PR merges. The re-review names the new SHA.
+- **Merging is K's call.** K merges, or tells an assistant to.
+  - Use a merge commit, not squash, so stacked branches keep their history.
+  - Before deleting a merged branch, confirm on GitHub that the PR shows as
+    merged.
+  - Retarget any PR based on that branch to `main` first (`gh pr edit N
+    --base main`). Deleting a branch closes every open PR that targets it.
 - **Never edit a file that has an open PR from the other assistant.** Comment
   on that PR instead.
 - **Session start:** `git fetch`, `git status`, read this file, check open
@@ -113,8 +140,12 @@ the Python scripts.
 
 ## CI is the referee
 
-Nothing is done until CI passes on the PR. `.github/workflows/ci.yml` is the
-source; keep these bullets in step with it.
+Nothing is done until CI passes on the PR. The workflows in
+`.github/workflows/` are the source; keep these bullets in step with them.
+
+- **Pages / build** (`pages.yml`): runs `site/build.sh` on every PR, so a
+  missing published page or a broken landing-page link fails the PR. It
+  deploys only from `main`.
 
 - **d3js Force-Directed Network Graph (reference):** Python 3.14 with
   `requirements-reference.txt` (networkx 3.7, pandas 3.1.1, scipy 1.18.1).
