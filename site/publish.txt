@@ -1,0 +1,3 @@
+# Pages published to GitHub Pages, one per line:  <source in the repo> -> <path on the site>
+# The landing page (site/index.html) is always published. Add a card there for each line here.
+models/d3js/Force-Directed Network Graph/examples/simpsons/The_Simpsons_Network.html -> network-graph/the-simpsons.html

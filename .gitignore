@@ -117,8 +117,7 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/site
+# site/ is the GitHub Pages source (see AGENTS.md); _site/ is its build output
 
 # mypy
 .mypy_cache/
@@ -127,3 +126,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+_site/

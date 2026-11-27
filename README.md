@@ -13,6 +13,8 @@ The use of Github with brewlytics allows users to do the following:
 
 This repository is a work in progress.
 
+**Live examples:** [outsideken.github.io/brewlytics](https://outsideken.github.io/brewlytics/). Open the interactive pages in your browser, no install needed.
+
 <hr>
 
 * Analytic Workflows

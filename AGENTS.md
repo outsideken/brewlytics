@@ -96,6 +96,21 @@ K (the owner) decides; assistants propose.
 - **Ask K first** before you pull, force-push, rebase shared branches, or
   delete branches or files.
 
+## Live examples (GitHub Pages)
+
+`site/index.html` is the landing page for every brewlytics example, with one
+card per example. `site/publish.txt` lists the pages to publish, as
+`<source in the repo> -> <path on the site>`. `site/build.sh` assembles
+`_site/`. It fails if a listed source is missing or a relative link on the
+landing page has no page behind it. `.github/workflows/pages.yml` runs the
+build on every PR and deploys to https://outsideken.github.io/brewlytics/ on
+pushes to `main`.
+
+**To publish a new example:** add its line to `publish.txt`, add a card to
+`index.html`, run `site/build.sh`, and open `_site/index.html` to check it.
+Only pages that are already committed get published; the build never runs
+the Python scripts.
+
 ## CI is the referee
 
 Nothing is done until CI passes on the PR. `.github/workflows/ci.yml` is the
