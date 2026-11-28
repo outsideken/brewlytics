@@ -158,6 +158,9 @@ EDGE_FIELDS = ['from_id', 'to_id', 'relationship', 'label', 'category', 'directe
                'status', 'role', 'detail', 'source', 'weight']
 SCHEMA_KEYS = ['nodes', 'edges', 'ring_label', 'tooltip']
 RING_LABEL = 'flagged'  # what a ringed node means, unless the Schema says
+## Network Table columns besides the ring column; ring_label must not take one of these names
+TABLE_COLUMNS = ['Node', 'Type', 'Aliases', 'Community', 'Community Hub', 'Pagerank (Undirected)',
+                 'Pagerank', 'Degree', 'In Degree', 'Out Degree']
 
 ################################################################################
 ## FUNCTIONS
@@ -302,6 +305,11 @@ def strip_cv_types(df):
     return out.astype(object).fillna('').astype(str).apply(lambda c: c.str.strip())
 
 
+def ring_header(ring_label):
+    """Network Table header of the ring column: ``ring_label`` capitalised (``deceased`` -> ``Deceased``)."""
+    return ring_label[:1].upper() + ring_label[1:]
+
+
 def read_schema(value):
     """
     Read and check the Schema parameter.
@@ -320,8 +328,9 @@ def read_schema(value):
     Raises
     ------
     ValueError
-        Naming unknown keys, or ``id`` / ``from_id`` / ``to_id`` mapped to
-        something other than a column name.
+        Naming unknown keys, ``id`` / ``from_id`` / ``to_id`` mapped to
+        something other than a column name, or a ``ring_label`` whose
+        column header would replace another Network Table column.
     """
     schema = as_dict(value)
     nodes, edges = as_dict(schema.get('nodes')), as_dict(schema.get('edges'))
@@ -333,12 +342,15 @@ def read_schema(value):
                                                  if not isinstance(m.get(f, f), str)])
     problems.append('constants need a "value": %s' % sorted(f for m in (nodes, edges) for f, v in m.items()
                                                              if isinstance(v, dict) and 'value' not in v))
+    ring_label = str(schema.get('ring_label') or RING_LABEL)
+    problems.append('ring_label would replace Network Table columns: %s'
+                    % [c for c in TABLE_COLUMNS if c == ring_header(ring_label)])
     problems = [p for p in problems if not p.endswith('[]')]
     if problems:
         raise ValueError('Schema: ' + '; '.join(problems) + '. Fields are nodes %s, edges %s.'
                          % (NODE_FIELDS, EDGE_FIELDS))
     return {'nodes': nodes, 'edges': edges,
-            'ring_label': str(schema.get('ring_label') or RING_LABEL),
+            'ring_label': ring_label,
             'tooltip': [tooltip] if isinstance(tooltip, str) else list(tooltip)}
 
 
@@ -772,7 +784,7 @@ def node_table(nodes, node_stats, group, ring_label=RING_LABEL):
     rows = [{'Node': n.name,
              'Type': n.type,
              'Aliases': n.aliases,
-             ring_label[:1].upper() + ring_label[1:]: n.ring,
+             ring_header(ring_label): n.ring,
              'Community': group[n.id][0] + 1,
              'Community Hub': group[n.id][1],
              **node_stats[n.id]} for n in nodes.itertuples(index=False)]

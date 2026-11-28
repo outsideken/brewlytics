@@ -123,7 +123,9 @@ field, so your data keeps its own headers:
 * `id`, `from_id` and `to_id` must name columns. They are also how the
   script tells the two tables apart: the edges table has `from_id` and
   `to_id`, and the nodes table is the other one with `id`.
-* `ring_label`: what a ringed node means.
+* `ring_label`: what a ringed node means. Capitalised, it becomes the
+  Network Table column header, so it can't be the name of another column
+  there (`community`, `pagerank`…); the run stops if it is.
 * `tooltip`: extra nodes-table columns shown in each node's tooltip, as
   `column: value`.
 * Mistakes stop the run with a message: an unknown key or field, or a

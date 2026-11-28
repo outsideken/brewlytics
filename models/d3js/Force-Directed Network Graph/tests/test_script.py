@@ -253,11 +253,22 @@ def test_schema_missing_column_is_named(template_tables, run):
     ({'nodes': {'size': 'radius'}}, r"unknown nodes fields: \['size'\]"),
     ({'edges': {'from_id': True}}, r"must name a column: \['from_id'\]"),
     ({'edges': {'category': {'text': 'x'}}}, r'constants need a "value": \[.category.\]'),
+    ({'ring_label': 'community'}, r"ring_label would replace Network Table columns: \['Community'\]"),
+    ({'ring_label': 'pagerank'}, r"ring_label would replace Network Table columns: \['Pagerank'\]"),
 ])
 def test_bad_schema_is_named(template_tables, run, schema, message):
     nodes, edges = template_tables
     with pytest.raises(ValueError, match=message):
         run(nodes, edges, with_schema(**schema))
+
+
+def test_table_columns_match_the_reserved_names(template_tables, run):
+    """TABLE_COLUMNS, which ring_label may not take, lists every other Network Table column."""
+    text = (HERE / 'd3_force_network_graph.py').read_text(encoding='utf-8')
+    reserved = re.search(r"TABLE_COLUMNS = (\[.*?\])", text, re.S).group(1)
+    nodes, edges = template_tables
+    out, _, _ = run(nodes, edges)
+    assert [c for c in out.table.columns if c != 'Flagged'] == eval(reserved)
 
 
 def test_ring_label_names_the_ring(template_tables, run):
