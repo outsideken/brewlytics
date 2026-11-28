@@ -163,6 +163,14 @@ Nothing is done until CI passes on the PR. The workflows in
   `requirements-floor.txt` (networkx 2.8.8, the first release with
   `louvain_communities`). Skips the `reference` tests, because Louvain output
   changes between networkx releases.
+- **d3js Timeline (reference / floor):** Python 3.14 with pandas 3.1.1, and
+  Python 3.11 with pandas 2.1.4. Both run every test; the timeline has no
+  version-dependent numbers.
+- **Cross-workflow data:** the Timeline's `solar_system_discoveries` builder
+  reads the network graph's `examples/solar_system/` CSVs. After changing
+  those, rerun `Timeline/examples/solar_system_discoveries/source/build_data.py`
+  and `Timeline/run_local.py examples/solar_system_discoveries`; the Timeline's
+  builder test fails until you do.
 - **Changing example data, the script or the reference pins:** rerun
   `run_local.py examples/<name>` for every example, the example's
   `source/*.py` builder if its data changed, and the tests. Commit the
