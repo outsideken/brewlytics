@@ -201,3 +201,120 @@ def test_equal_weights_match_unweighted(template_tables, run):
     a, b = plain['Overall Stats'], ones['Overall Stats']
     assert a.pop('Weighted') is False and b.pop('Weighted') is True
     assert a == b
+
+
+## --- Schema: your own column names --------------------------------------
+
+PARAMS = {'Network Graphic Title': 't', 'Network Graphic Filename': 'g'}
+RENAMES_N = {'id': 'key', 'name': 'Label', 'ring': 'flag'}
+RENAMES_E = {'from_id': 'src', 'to_id': 'dst', 'relationship': 'rel', 'directed': 'one_way'}
+
+
+def with_schema(**schema):
+    return {**PARAMS, 'Schema': schema}
+
+
+def test_schema_maps_renamed_columns(template_tables, run):
+    """Renamed columns plus a Schema give exactly the stats of the default names."""
+    nodes, edges = template_tables
+    _, plain, _ = run(nodes, edges, PARAMS)
+    _, mapped, _ = run(nodes.rename(columns=RENAMES_N), edges.rename(columns=RENAMES_E),
+                       with_schema(nodes=RENAMES_N, edges=RENAMES_E))
+    assert mapped['Overall Stats'] == plain['Overall Stats']
+
+
+def test_only_ids_and_ends_are_required(run):
+    nodes = pd.DataFrame({'id': ['a', 'b', 'c']})
+    edges = pd.DataFrame({'from_id': ['a', 'b'], 'to_id': ['b', 'c']})
+    out, stats, page = run(nodes, edges)
+    data = page_data(page)
+    assert stats['Overall Stats']['# of Edges'] == 4                # undirected by default: both ways
+    assert [n['name'] for n in data['nodes']] == ['a', 'b', 'c']    # name defaults to id
+    assert {r['category'] for l in data['links'] for r in l['rels']} == {'all'}
+    assert data['ring_label'] is None and 'Flagged' in out.table.columns
+
+
+def test_schema_constant_fills_every_row(template_tables, run):
+    nodes, edges = template_tables
+    _, stats, page = run(nodes, edges.drop(columns='directed'), with_schema(edges={'directed': True}))
+    assert stats['Overall Stats']['# of Edges'] == len(edges)      # every edge one way
+    _, _, page = run(nodes, edges, with_schema(edges={'category': {'value': 'tie'}}))
+    assert {r['category'] for l in page_data(page)['links'] for r in l['rels']} == {'tie'}
+
+
+def test_schema_missing_column_is_named(template_tables, run):
+    nodes, edges = template_tables
+    with pytest.raises(ValueError, match=r"does not have: \['strength'\]"):
+        run(nodes, edges, with_schema(edges={'weight': 'strength'}))
+
+
+@pytest.mark.parametrize('schema, message', [
+    ({'colours': {}}, r"unknown Schema keys: \['colours'\]"),
+    ({'nodes': {'size': 'radius'}}, r"unknown nodes fields: \['size'\]"),
+    ({'edges': {'from_id': True}}, r"must name a column: \['from_id'\]"),
+    ({'edges': {'category': {'text': 'x'}}}, r'constants need a "value": \[.category.\]'),
+    ({'ring_label': 'community'}, r"ring_label would replace Network Table columns: \['Community'\]"),
+    ({'ring_label': 'pagerank'}, r"ring_label would replace Network Table columns: \['Pagerank'\]"),
+])
+def test_bad_schema_is_named(template_tables, run, schema, message):
+    nodes, edges = template_tables
+    with pytest.raises(ValueError, match=message):
+        run(nodes, edges, with_schema(**schema))
+
+
+def test_table_columns_match_the_reserved_names(template_tables, run):
+    """TABLE_COLUMNS, which ring_label may not take, lists every other Network Table column."""
+    text = (HERE / 'd3_force_network_graph.py').read_text(encoding='utf-8')
+    reserved = re.search(r"TABLE_COLUMNS = (\[.*?\])", text, re.S).group(1)
+    nodes, edges = template_tables
+    out, _, _ = run(nodes, edges)
+    assert [c for c in out.table.columns if c != 'Flagged'] == eval(reserved)
+
+
+def test_ring_label_names_the_ring(template_tables, run):
+    nodes, edges = template_tables
+    out, _, page = run(nodes, edges, with_schema(ring_label='mission ended'))
+    assert 'Mission ended' in out.table.columns
+    data = page_data(page)
+    assert data['ring_label'] == 'mission ended'
+    assert [n['id'] for n in data['nodes'] if n['ring']] == ['casey']
+
+
+def test_tooltip_shows_extra_columns(template_tables, run):
+    nodes, edges = template_tables
+    nodes['founded'] = ['', '', '', '', '1999', '']
+    _, _, page = run(nodes, edges, with_schema(tooltip=['founded']))
+    extra = {n['id']: n['extra'] for n in page_data(page)['nodes']}
+    assert extra['acme'] == [['founded', '1999']] and extra['alex'] == []
+    with pytest.raises(ValueError, match=r"tooltip columns not in the nodes table: \['size'\]"):
+        run(nodes, edges, with_schema(tooltip=['size']))
+
+
+def test_one_config_string_matches_one_per_parameter(template_tables, tmp_path, monkeypatch):
+    """brew may pass the whole configuration as one JSON string, or one string per parameter."""
+    import json
+    import run_local
+    nodes, edges = template_tables
+    config = {**PARAMS, 'Data Sources': {'Example': 'https://example.org/'}, 'Schema': {'ring_label': 'x'}}
+    real = run_local.fake_brewlytics
+    outs = []
+    for strings in ([json.dumps(config)], [json.dumps({k: v}) for k, v in config.items()]):
+        def fake(tables, params, resources=(), strings=strings):
+            mod = real(tables, params, resources)
+            mod.inputs.list = strings
+            return mod
+        monkeypatch.setattr(run_local, 'fake_brewlytics', fake)
+        outs.append(run_local.run([nodes, edges], {}, (), tmp_path / str(len(outs))).string)
+    assert outs[0] == outs[1]
+    assert json.loads(outs[0])['Parameters'] == config
+
+
+def test_all_blank_column_is_read_as_text(template_tables, run):
+    """A column pandas reads as all-NaN floats is filled as text, without a pandas warning."""
+    import warnings
+    nodes, edges = template_tables
+    nodes['aliases'] = float('nan')
+    with warnings.catch_warnings():
+        warnings.filterwarnings('error', message='.*fill value.*')
+        out, _, _ = run(nodes, edges)
+    assert set(out.table['Aliases']) == {''}

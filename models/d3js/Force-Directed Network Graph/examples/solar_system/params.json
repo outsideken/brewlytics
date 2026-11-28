@@ -1,5 +1,6 @@
 {
   "Network Graphic Title": "The Solar System: A d3.js Force-Directed Network Graph",
   "Network Graphic Filename": "Solar System Network",
-  "Data Sources": {"Wikipedia: Solar System": "https://en.wikipedia.org/wiki/Solar_System"}
+  "Data Sources": {"Wikipedia: Solar System": "https://en.wikipedia.org/wiki/Solar_System"},
+  "Schema": {"nodes": {"ring": "deceased"}, "ring_label": "deceased"}
 }

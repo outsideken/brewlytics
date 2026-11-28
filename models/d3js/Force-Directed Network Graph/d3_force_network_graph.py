@@ -10,21 +10,31 @@ inline; only d3 is loaded from a CDN.
 Inputs
 ------
 inputs.tables : list of pandas.DataFrame
-    The nodes table and the edges table, in either order; each is found by
-    its columns. Extra columns (e.g. review columns) are ignored.
+    The nodes table and the edges table, in either order. The edges table
+    is the one with the ``from_id`` and ``to_id`` columns; the nodes table
+    is the other one with an ``id`` column. Other columns are ignored
+    unless the Schema lists them in ``tooltip``.
 
-    nodes : ``id, name, type, aliases, deceased, notes``
-        ``aliases`` and ``notes`` are ``"; "``-separated; ``deceased`` is
-        ``Y`` or blank.
-    edges : ``from_id, to_id, relationship, category, directed, status,
-    role, detail, source`` (+ optional ``label``, ``weight``)
+    The column names below are the defaults; the Schema parameter maps
+    them to other names. Only ``id``, ``from_id`` and ``to_id`` are
+    required.
+
+    nodes : ``id`` (+ optional ``name, type, aliases, ring, notes``)
+        ``name`` defaults to ``id``. ``aliases`` and ``notes`` are
+        ``"; "``-separated. ``ring`` is ``Y`` or blank; ringed nodes are
+        drawn with an outline, and ``ring_label`` says what it means.
+    edges : ``from_id, to_id`` (+ optional ``relationship, label, category,
+    directed, status, role, detail, source, weight``)
         One row per fact. ``label`` is the short text drawn on the link
-        (defaults to ``relationship``). ``weight`` is a positive number
-        (blank = 1); with it, PageRank and Louvain are weighted and link
-        width shows the weight. Without it, every relationship counts once. ``directed`` is True/False; symmetric
-        relationships (A relates to B the same way B relates to A) are False.
+        (defaults to ``relationship``). ``category`` defaults to
+        ``relationship``. ``directed`` is True/False (default False);
+        symmetric relationships (A relates to B the same way B relates to
+        A) are False. ``weight`` is a positive number (blank = 1); with
+        it, PageRank and Louvain are weighted and link width shows the
+        weight. Without it, every relationship counts once.
 inputs.list : list of str
-    One JSON string per model parameter:
+    JSON objects, merged in order. One string holding the whole
+    configuration works, and so does one string per parameter.
 
     Network Graphic Title : str
         Page title.
@@ -33,6 +43,20 @@ inputs.list : list of str
         to ``.html``.
     Data Sources : str or dict, optional
         JSON ``{"label": "url", ...}``, shown as links under the title.
+    Schema : str or dict, optional
+        Which of your columns fills each field::
+
+            {"nodes": {"id": "body_id", "ring": "deceased"},
+             "edges": {"from_id": "src", "to_id": "dst", "directed": true},
+             "ring_label": "deceased",
+             "tooltip": ["radius_km"]}
+
+        In ``nodes`` and ``edges``, a string names a column; any other
+        value (``true``, a number, or ``{"value": "text"}``) is a constant
+        for every row. Unmapped fields use the default column name if the
+        table has it. ``ring_label`` (default ``"flagged"``) names the
+        ring in the legend, tooltip and Network Table. ``tooltip`` lists
+        extra nodes-table columns shown in the tooltip.
 inputs.resources : list of str, optional
     The first image (``.svg .png .jpg .jpeg .webp .gif``) is embedded beside
     the title. No image means no logo.
@@ -50,9 +74,10 @@ outputs.resource : str
 Raises
 ------
 ValueError
-    If the nodes or edges table can't be identified, node ids are
-    duplicated, an edge refers to an id that is not in the nodes table, or
-    a weight is not a positive number.
+    If the Schema has an unknown key or names a column a table lacks, the
+    nodes or edges table can't be identified, node ids are duplicated, an
+    edge refers to an id that is not in the nodes table, or a weight is not
+    a positive number.
 
 Notes
 -----
@@ -95,6 +120,11 @@ from brewlytics import *
 ##              official force-directed graph example
 ##            - Links from data (source, Data Sources) only if absolute http(s);
 ##              blocks javascript:/data: URLs in a shared page
+## 2026-11-27 - Optional Schema parameter maps fields to your own column
+##              names (or constants); only id, from_id and to_id required
+##            - `deceased` is now the generic `ring` field + ring_label
+##            - Schema tooltip: extra node columns shown in the tooltip
+##            - inputs.list may hold the whole configuration as one string
 ##
 ################################################################################
 ################################################################################
@@ -123,9 +153,14 @@ SEED = 7  # Louvain is randomised; a fixed seed gives the same communities every
 IMAGE_TYPES = {'.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg',
                '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif'}
 
-NODE_COLUMNS = ['id', 'name', 'type', 'aliases', 'deceased', 'notes']
-EDGE_COLUMNS = ['from_id', 'to_id', 'relationship', 'category', 'directed',
-                'status', 'role', 'detail', 'source']
+NODE_FIELDS = ['id', 'name', 'type', 'aliases', 'ring', 'notes']
+EDGE_FIELDS = ['from_id', 'to_id', 'relationship', 'label', 'category', 'directed',
+               'status', 'role', 'detail', 'source', 'weight']
+SCHEMA_KEYS = ['nodes', 'edges', 'ring_label', 'tooltip']
+RING_LABEL = 'flagged'  # what a ringed node means, unless the Schema says
+## Network Table columns besides the ring column; ring_label must not take one of these names
+TABLE_COLUMNS = ['Node', 'Type', 'Aliases', 'Community', 'Community Hub', 'Pagerank (Undirected)',
+                 'Pagerank', 'Degree', 'In Degree', 'Out Degree']
 
 ################################################################################
 ## FUNCTIONS
@@ -266,35 +301,196 @@ def strip_cv_types(df):
     """
     out = df.copy()
     out.columns = [column_name.split('{')[0] for column_name in out.columns]
-    return out.fillna('').astype(str).apply(lambda c: c.str.strip())
+    ## object first: filling '' into an all-blank (float) column is an error in later pandas
+    return out.astype(object).fillna('').astype(str).apply(lambda c: c.str.strip())
 
 
-def pick_table(tables, required):
+def ring_header(ring_label):
+    """Network Table header of the ring column: ``ring_label`` capitalised (``deceased`` -> ``Deceased``)."""
+    return ring_label[:1].upper() + ring_label[1:]
+
+
+def read_schema(value):
     """
-    Select the one input table that has all the required columns.
+    Read and check the Schema parameter.
 
     Parameters
     ----------
-    tables : list of pandas.DataFrame
-        Candidate tables (``inputs.tables`` after ``strip_cv_types``).
-    required : list of str
-        Column names the table must have, e.g. ``NODE_COLUMNS``.
+    value : dict, str or None
+        The Schema parameter; None or blank means the default column names.
 
     Returns
     -------
-    pandas.DataFrame
-        The matching table.
+    dict
+        ``nodes`` and ``edges`` (``{field: column name or constant}``),
+        ``ring_label`` (str) and ``tooltip`` (list of column names).
 
     Raises
     ------
     ValueError
-        If no table, or more than one, has all the required columns.
+        Naming unknown keys, ``id`` / ``from_id`` / ``to_id`` mapped to
+        something other than a column name, or a ``ring_label`` whose
+        column header would replace another Network Table column.
     """
-    found = [t for t in tables if set(required) <= set(t.columns)]
-    if len(found) != 1:
-        raise ValueError('Expected exactly one input table with columns %s; found %d. Tables have: %s'
-                         % (required, len(found), [list(t.columns) for t in tables]))
-    return found[0]
+    schema = as_dict(value)
+    nodes, edges = as_dict(schema.get('nodes')), as_dict(schema.get('edges'))
+    tooltip = schema.get('tooltip') or []
+    problems = ['unknown Schema keys: %s' % sorted(set(schema) - set(SCHEMA_KEYS))]
+    problems.append('unknown nodes fields: %s' % sorted(set(nodes) - set(NODE_FIELDS)))
+    problems.append('unknown edges fields: %s' % sorted(set(edges) - set(EDGE_FIELDS)))
+    problems.append('must name a column: %s' % [f for m, f in [(nodes, 'id'), (edges, 'from_id'), (edges, 'to_id')]
+                                                 if not isinstance(m.get(f, f), str)])
+    problems.append('constants need a "value": %s' % sorted(f for m in (nodes, edges) for f, v in m.items()
+                                                             if isinstance(v, dict) and 'value' not in v))
+    ring_label = str(schema.get('ring_label') or RING_LABEL)
+    problems.append('ring_label would replace Network Table columns: %s'
+                    % [c for c in TABLE_COLUMNS if c == ring_header(ring_label)])
+    problems = [p for p in problems if not p.endswith('[]')]
+    if problems:
+        raise ValueError('Schema: ' + '; '.join(problems) + '. Fields are nodes %s, edges %s.'
+                         % (NODE_FIELDS, EDGE_FIELDS))
+    return {'nodes': nodes, 'edges': edges,
+            'ring_label': ring_label,
+            'tooltip': [tooltip] if isinstance(tooltip, str) else list(tooltip)}
+
+
+def pick_tables(tables, schema):
+    """
+    Find the nodes table and the edges table.
+
+    Parameters
+    ----------
+    tables : list of pandas.DataFrame
+        ``inputs.tables`` after ``strip_cv_types``, in any order.
+    schema : dict
+        From ``read_schema``.
+
+    Returns
+    -------
+    nodes, edges : pandas.DataFrame
+        The edges table is the one with the ``from_id`` and ``to_id``
+        columns; the nodes table is the other one with the ``id`` column
+        (each under its Schema name).
+
+    Raises
+    ------
+    ValueError
+        If either table is missing or ambiguous; names the columns looked
+        for and the columns each table has.
+    """
+    ends = [schema['edges'].get('from_id', 'from_id'), schema['edges'].get('to_id', 'to_id')]
+    node_id = schema['nodes'].get('id', 'id')
+    edge_tables = [t for t in tables if set(ends) <= set(t.columns)]
+    node_tables = [t for t in tables if node_id in t.columns and not any(t is e for e in edge_tables)]
+    for found, what, cols in [(edge_tables, 'edges', ends), (node_tables, 'nodes', [node_id])]:
+        if len(found) != 1:
+            raise ValueError('Expected exactly one %s table with columns %s; found %d. Tables have: %s'
+                             % (what, cols, len(found), [list(t.columns) for t in tables]))
+    return node_tables[0], edge_tables[0]
+
+
+def select_columns(table, mapping, fields):
+    """
+    Rename a table's columns to the script's field names.
+
+    Parameters
+    ----------
+    table : pandas.DataFrame
+        The nodes or edges table.
+    mapping : dict
+        ``{field: column name or constant}`` from the Schema. A string is a
+        column name; ``{"value": x}``, a bool or a number is a constant.
+    fields : list of str
+        ``NODE_FIELDS`` or ``EDGE_FIELDS``.
+
+    Returns
+    -------
+    pandas.DataFrame
+        One text column per field that is mapped, or that the table has
+        under its default name. Fields with neither are left out.
+
+    Raises
+    ------
+    ValueError
+        Naming the mapped columns the table doesn't have.
+    """
+    out = pd.DataFrame(index=table.index)
+    missing = []
+    for field in fields:
+        spec = mapping.get(field, field)
+        if isinstance(spec, str):
+            if spec in table.columns:
+                out[field] = table[spec]
+            elif field in mapping:
+                missing.append(spec)
+        else:
+            value = spec['value'] if isinstance(spec, dict) else spec
+            out[field] = '' if value is None else str(value)
+    if missing:
+        raise ValueError('Schema names columns the table does not have: %s. It has: %s'
+                         % (missing, list(table.columns)))
+    return out
+
+
+def add_defaults(nodes, edges):
+    """
+    Fill in the optional fields a table doesn't have.
+
+    Parameters
+    ----------
+    nodes, edges : pandas.DataFrame
+        From ``select_columns``.
+
+    Returns
+    -------
+    nodes, edges : pandas.DataFrame
+        Copies with every field except ``weight``: ``name`` = ``id``,
+        ``category`` = ``relationship`` (or ``all`` when that is blank),
+        ``directed`` = False, the rest blank. ``weight`` stays absent when
+        not given, so the graph is unweighted.
+    """
+    nodes, edges = nodes.copy(), edges.copy()
+    if 'name' not in nodes.columns:
+        nodes['name'] = nodes['id']
+    for field in NODE_FIELDS:
+        if field not in nodes.columns:
+            nodes[field] = ''
+    if 'directed' not in edges.columns:
+        edges['directed'] = 'False'
+    for field in EDGE_FIELDS:
+        if field not in edges.columns and field not in ('category', 'weight'):
+            edges[field] = ''
+    if 'category' not in edges.columns:
+        edges['category'] = edges['relationship'].where(edges['relationship'] != '', 'all')
+    return nodes[NODE_FIELDS], edges[[f for f in EDGE_FIELDS if f in edges.columns]]
+
+
+def tooltip_values(table, columns):
+    """
+    Read the extra columns shown in each node's tooltip.
+
+    Parameters
+    ----------
+    table : pandas.DataFrame
+        The nodes table as given (before ``select_columns``).
+    columns : list of str
+        Column names from the Schema's ``tooltip``.
+
+    Returns
+    -------
+    list of list
+        One list per row of ``[column, value]`` pairs, blank values left out.
+
+    Raises
+    ------
+    ValueError
+        Naming tooltip columns the table doesn't have.
+    """
+    missing = [c for c in columns if c not in table.columns]
+    if missing:
+        raise ValueError('Schema tooltip columns not in the nodes table: %s. It has: %s'
+                         % (missing, list(table.columns)))
+    return [[[c, v] for c, v in zip(columns, row) if v != ''] for row in table[columns].itertuples(index=False)]
 
 
 def split_list(text):
@@ -563,7 +759,7 @@ def community_lookup(u, comms, name):
     return group
 
 
-def node_table(nodes, node_stats, group):
+def node_table(nodes, node_stats, group, ring_label=RING_LABEL):
     """
     Build the Network Table output.
 
@@ -575,18 +771,20 @@ def node_table(nodes, node_stats, group):
         From ``graph_stats``.
     group : dict
         From ``community_lookup``.
+    ring_label : str, default RING_LABEL
+        Header of the ring column, capitalised (``deceased`` -> ``Deceased``).
 
     Returns
     -------
     pandas.DataFrame
-        One row per node: Node, Type, Aliases, Deceased, Community (1 =
-        largest), Community Hub, then the five statistics; highest
+        One row per node: Node, Type, Aliases, the ring column, Community
+        (1 = largest), Community Hub, then the five statistics; highest
         undirected PageRank first.
     """
     rows = [{'Node': n.name,
              'Type': n.type,
              'Aliases': n.aliases,
-             'Deceased': n.deceased,
+             ring_header(ring_label): n.ring,
              'Community': group[n.id][0] + 1,
              'Community Hub': group[n.id][1],
              **node_stats[n.id]} for n in nodes.itertuples(index=False)]
@@ -600,7 +798,7 @@ def number(x):
     return int(x) if float(x).is_integer() else float(x)
 
 
-def graph_payload(nodes, edges, overall_stats, node_stats, group, sources):
+def graph_payload(nodes, edges, overall_stats, node_stats, group, sources, ring_label=RING_LABEL, extras=None):
     """
     Assemble the data embedded in the page.
 
@@ -616,12 +814,16 @@ def graph_payload(nodes, edges, overall_stats, node_stats, group, sources):
         From ``community_lookup``; used for node colour and legend.
     sources : dict
         ``{label: url}`` from the Data Sources parameter.
+    ring_label : str, default RING_LABEL
+        What a ringed node means; shown in the legend and tooltip.
+    extras : list of list, optional
+        From ``tooltip_values``, one entry per nodes row.
 
     Returns
     -------
     dict
-        ``overall``, ``sources`` (list of ``{label, url}``), ``nodes`` and
-        ``links``. There is one link per connected pair, holding every edge
+        ``overall``, ``sources`` (list of ``{label, url}``), ``ring_label``
+        (None when no node is ringed), ``nodes`` and ``links``. There is one link per connected pair, holding every edge
         between the two nodes in ``rels``; with weights, the link's
         ``weight`` is their total.
     """
@@ -645,12 +847,14 @@ def graph_payload(nodes, edges, overall_stats, node_stats, group, sources):
         link_count[b] += 1
 
     node_rows = [{'id': n.id, 'name': n.name, 'type': n.type,
-                  'aliases': split_list(n.aliases), 'deceased': as_bool(n.deceased),
-                  'notes': split_list(n.notes),
+                  'aliases': split_list(n.aliases), 'ring': as_bool(n.ring),
+                  'notes': split_list(n.notes), 'extra': extra,
                   'group': group[n.id][0], 'hub': group[n.id][1],
                   'links': link_count[n.id], 'stats': node_stats[n.id]}
-                 for n in nodes.itertuples(index=False)]
+                 for n, extra in zip(nodes.itertuples(index=False), extras or [[]] * len(nodes))]
+    ringed = any(row['ring'] for row in node_rows)
     return {'overall': overall_stats, 'sources': [{'label': k, 'url': v} for k, v in sources.items()],
+            'ring_label': ring_label if ringed else None,
             'nodes': node_rows, 'links': list(links.values())}
 
 
@@ -718,7 +922,7 @@ PAGE = '''<!doctype html>
 <div class="legend" id="legend"></div>
 <div id="chart"><div id="tip" class="tip" hidden></div></div>
 <p class="hint">Node size = PageRank, ignoring link direction; colour = Louvain community, named after its best-connected member;
-ringed node = deceased; arrows show one-way relationships; link labels show for the focused node, or everywhere once zoomed in.
+<span id="ring-hint"></span>arrows show one-way relationships; link labels show for the focused node, or everywhere once zoomed in.
 Drag a node to move it &middot; scroll or pinch to zoom &middot; hover a node, or click to pin it &middot; click a category to hide or show it.</p>
 <details id="table-wrap">
   <summary>Table view <span id="table-count"></span></summary>
@@ -789,7 +993,7 @@ button {
 #table.unweighted .w { display: none; }
 .arrow { fill: var(--link); }
 .node circle { stroke: var(--bg); stroke-width: 1.2; cursor: pointer; }
-.node.deceased circle { stroke: var(--ink-2); stroke-width: 1.5; }
+.node.ring circle { stroke: var(--ink-2); stroke-width: 1.5; }
 .link-label { fill: var(--ink-2); text-anchor: middle; pointer-events: none;
               paint-order: stroke; stroke: var(--bg); stroke-linejoin: round; }  /* size + halo set in JS */
 .node text { fill: var(--ink-2); pointer-events: none; paint-order: stroke; stroke: var(--bg); }  /* size + halo set in JS */
@@ -840,6 +1044,9 @@ const o = data.overall;
 d3.select("#stats").text(
   `${o["# of Nodes"]} nodes \\u00b7 ${data.links.reduce((s, l) => s + l.rels.length, 0)} relationships \\u00b7 density ${f3(o.Density)} \\u00b7 ` +
   `${o["# of Communities"]} communities (modularity ${f3(o.Modularity)}) \\u00b7 highest PageRank: ${o["Highest Pagerank (Undirected)"]}`);
+
+// ring meaning in the hint line, only when some node is ringed
+d3.select("#ring-hint").text(data.ring_label ? `ringed node = ${data.ring_label}; ` : "");
 
 // data sources under the title
 d3.select("#sources").html(data.sources.length
@@ -902,7 +1109,7 @@ if (weighted) {
 }
 d3.select("#table").classed("unweighted", !weighted);
 const node = g.append("g").selectAll("g").data(nodes, (d) => d.id).join("g")
-  .attr("class", (d) => "node" + (d.deceased ? " deceased" : ""));
+  .attr("class", (d) => "node" + (d.ring ? " ring" : ""));
 node.append("circle").attr("r", rad).attr("fill", (d) => colour(d.group));
 node.append("text").attr("x", (d) => rad(d) + 3).attr("y", 4).text((d) => d.name);
 
@@ -1050,8 +1257,9 @@ function focus(d) {
   const s = d.stats;
   tip.attr("hidden", null).html(
     `<b>${esc(d.name)}</b>` +
-    `<div class="meta">${esc(d.type)}${d.deceased ? " \\u00b7 deceased" : ""} \\u00b7 ${d.links} connections \\u00b7 community: ${esc(d.hub)}</div>` +
+    `<div class="meta">${esc(d.type)}${d.ring ? " \\u00b7 " + esc(data.ring_label) : ""} \\u00b7 ${d.links} connections \\u00b7 community: ${esc(d.hub)}</div>` +
     (d.aliases.length ? `<div class="meta">Also known as: ${d.aliases.map(esc).join(", ")}</div>` : "") +
+    (d.extra.length ? `<div class="meta">${d.extra.map(([k, v]) => esc(k) + ": " + esc(v)).join(" \\u00b7 ")}</div>` : "") +
     `<div class="meta">PageRank ${f3(s["Pagerank (Undirected)"])} (directed ${f3(s.Pagerank)}) \\u00b7 degree ${f3(s.Degree)} \\u00b7 in ${f3(s["In Degree"])} \\u00b7 out ${f3(s["Out Degree"])}</div>` +
     (d.notes.length ? `<div class="notes">${d.notes.map(esc).join("<br>")}</div>` : "") +
     `<ul>${rels.map(relLine).join("")}</ul>`);
@@ -1106,18 +1314,20 @@ md = read_model_data(inputs.list)
 network_graphic_title = md['Network Graphic Title']
 network_graphic_filename = html_filename(md['Network Graphic Filename'])
 data_sources = as_dict(md.get('Data Sources'))  # {"Source name": "https://...", ...}
+schema = read_schema(md.get('Schema'))  # your column names; none = the default names
 header_image = find_image(getattr(inputs, 'resources', None) or [])  # no resources wired = no image
 
 ################################################################################
 ## BODY
 ################################################################################
 
-## Find the nodes and edges tables by their columns (wiring order doesn't matter)
+## Find the nodes and edges tables by their columns (wiring order doesn't matter),
+## then rename your columns to the field names and fill in the optional fields
 tables = [strip_cv_types(t) for t in inputs.tables]
-nodes = pick_table(tables, NODE_COLUMNS)
-edges = pick_table(tables, EDGE_COLUMNS)
-if 'label' not in edges.columns:  # optional display text; falls back to relationship
-    edges['label'] = ''
+nodes_in, edges_in = pick_tables(tables, schema)
+nodes, edges = add_defaults(select_columns(nodes_in, schema['nodes'], NODE_FIELDS),
+                            select_columns(edges_in, schema['edges'], EDGE_FIELDS))
+extras = tooltip_values(nodes_in, schema['tooltip'])
 check_ids(nodes, edges)
 weighted = 'weight' in edges.columns  # optional; without it every relationship counts once
 if weighted:
@@ -1135,8 +1345,9 @@ overall_stats.update({'Weighted': weighted,
                       '# of Communities': len(comms),
                       'Modularity': modularity(u, comms)})
 
-node_stats_table = node_table(nodes, node_stats, group)
-payload = graph_payload(nodes, edges, overall_stats, node_stats, group, data_sources)
+node_stats_table = node_table(nodes, node_stats, group, schema['ring_label'])
+payload = graph_payload(nodes, edges, overall_stats, node_stats, group, data_sources,
+                        schema['ring_label'], extras)
 
 with open(network_graphic_filename, 'w', encoding='utf-8') as f:
     f.write(render_html(payload, network_graphic_title,
