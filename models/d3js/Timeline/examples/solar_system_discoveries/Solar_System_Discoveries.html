@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When Did We Find Them? Solar System Discoveries: A d3.js Timeline</title>
+<style>
+:root {
+  --bg: #fcfcfb; --ink: #1f1f1e; --ink-2: #55554f; --ink-3: #6e6e68;
+  --rule: #e4e4df; --band: #f1f1ec; --tip-bg: #ffffff;
+  /* ColorBrewer Dark2 */
+  --k-0: #1b9e77; --k-1: #d95f02; --k-2: #7570b3; --k-3: #e7298a;
+  --k-4: #66a61e; --k-5: #e6ab02; --k-6: #a6761d; --k-other: #8a8a83;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a1a19; --ink: #ecece8; --ink-2: #b4b4ad; --ink-3: #9a9a93;
+    --rule: #33332f; --band: #242422; --tip-bg: #262624; --k-other: #7d7d77; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a1a19; --ink: #ecece8; --ink-2: #b4b4ad; --ink-3: #9a9a93;
+  --rule: #33332f; --band: #242422; --tip-bg: #262624; --k-other: #7d7d77; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto; padding: 24px 16px; max-width: 1400px; background: var(--bg); color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+header { display: flex; align-items: center; gap: 16px; }
+.logo { height: 56px; width: auto; flex: none; }
+@media (max-width: 600px) { header { flex-direction: column; align-items: flex-start; gap: 8px; } .logo { height: 44px; } }
+h1 { font-size: 20px; margin: 0 0 4px; font-weight: 600; }
+.sub { margin: 0; color: var(--ink-2); }
+.sources { margin: 0 0 4px; font-size: 13px; color: var(--ink-2); }
+.sources a { color: inherit; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0 8px; }
+button {
+  font: inherit; font-size: 13px; color: var(--ink-2); background: none;
+  border: 1px solid var(--rule); border-radius: 999px; padding: 3px 10px; cursor: pointer;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips button svg { vertical-align: -1px; margin-right: 5px; }
+.chips button.on { color: var(--ink); border-color: var(--ink-3); }
+.chips button:not(.on) { text-decoration: line-through; opacity: 0.55; }
+#chart { position: relative; width: 100%; }
+#chart svg { width: 100%; display: block; cursor: grab; touch-action: none; }
+.row-label { fill: var(--ink-2); font-size: 12px; text-anchor: end; }
+.row-line { stroke: var(--rule); }
+.era rect { fill: var(--band); }
+.era text { fill: var(--ink-3); font-size: 11px; }
+.axis text { fill: var(--ink-3); font-size: 11px; }
+.axis path, .axis line { stroke: var(--rule); }
+.mark { stroke: var(--bg); stroke-width: 1.5; cursor: pointer; }
+.mark.pinned { stroke: var(--ink); }
+.mark-label { fill: var(--ink); font-size: 11px; pointer-events: none;
+              paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.hint { font-size: 12px; color: var(--ink-3); margin: 8px 0 0; }
+.tip {
+  position: absolute; top: 8px; right: 8px; width: min(340px, calc(100% - 16px));
+  background: var(--tip-bg); color: var(--ink); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 8px 12px; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.tip b { font-weight: 600; font-size: 13px; }
+.tip .meta { color: var(--ink-2); margin-top: 2px; }
+.tip a { color: inherit; }
+details { margin-top: 16px; border-top: 1px solid var(--rule); padding-top: 8px; }
+summary { cursor: pointer; font-weight: 600; }
+summary span { font-weight: normal; color: var(--ink-3); }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 12px; margin-top: 8px; }
+th, td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { cursor: pointer; color: var(--ink-2); font-weight: 600; white-space: nowrap; }
+td a { color: inherit; }
+</style>
+</head>
+<body>
+<header>
+  
+  <div>
+    <h1>When Did We Find Them? Solar System Discoveries: A d3.js Timeline</h1>
+    <p class="sources" id="sources"></p>
+    <p class="sources">Built with <a href="https://d3js.org/" target="_blank" rel="noopener">d3.js</a> v7.9.0 &middot;
+      scale: <a href="https://d3js.org/d3-scale/time" target="_blank" rel="noopener">d3-scale (time)</a> &middot;
+      zoom: <a href="https://d3js.org/d3-zoom" target="_blank" rel="noopener">d3-zoom</a></p>
+    <p class="sub" id="stats"></p>
+  </div>
+</header>
+<div class="controls">
+  <div class="chips" id="kinds" aria-label="Kinds"></div>
+  <button id="reset">Reset view</button>
+</div>
+<div id="chart"><div id="tip" class="tip" hidden></div></div>
+<p class="hint">One row per group; one mark per event, coloured and shaped by kind; larger, labelled marks are emphasised events.
+Scroll or pinch to zoom in time &middot; drag to pan &middot; hover a mark, or click to pin it &middot; click a kind to hide or show it.</p>
+<details id="table-wrap">
+  <summary>Table view <span id="table-count"></span></summary>
+  <div class="table-scroll"><table id="table">
+    <thead><tr>
+      <th data-key="time">When</th><th data-key="item">Item</th><th data-key="group">Group</th>
+      <th data-key="kind">Kind</th><th data-key="detail">Detail</th><th data-key="source">Source</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table></div>
+</details>
+<script id="timeline-data" type="application/json">{"overall": {"# of Events": 38, "# of Groups": 7, "First": "1610", "Last": "2014", "# of Emphasised": 6, "Events by Kind": {"Ground-based telescope": 32, "Space telescope": 3, "Spacecraft": 3}}, "sources": [{"label": "Wikipedia: Timeline of discovery of Solar System planets and their moons", "url": "https://en.wikipedia.org/wiki/Timeline_of_discovery_of_Solar_System_planets_and_their_moons"}], "groups": ["Mars", "Asteroid belt", "Jupiter", "Saturn", "Uranus", "Neptune", "Beyond Neptune"], "kinds": ["Ground-based telescope", "Space telescope", "Spacecraft"], "eras": [{"label": "Space age", "start": "1957-10-04", "end": null}], "events": [{"item": "Callisto", "time": "1610-01-01", "precision": "year", "group": "Jupiter", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Galilean_moons", "extra": [["discovered_by", "Galileo Galilei"]]}, {"item": "Europa", "time": "1610-01-01", "precision": "year", "group": "Jupiter", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Galilean_moons", "extra": [["discovered_by", "Galileo Galilei"]]}, {"item": "Ganymede", "time": "1610-01-01", "precision": "year", "group": "Jupiter", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Galilean_moons", "extra": [["discovered_by", "Galileo Galilei"]]}, {"item": "Io", "time": "1610-01-01", "precision": "year", "group": "Jupiter", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Galilean_moons", "extra": [["discovered_by", "Galileo Galilei"]]}, {"item": "Titan", "time": "1655-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Titan_(moon)", "extra": [["discovered_by", "Christiaan Huygens"]]}, {"item": "Iapetus", "time": "1671-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Iapetus_(moon)", "extra": [["discovered_by", "Giovanni Domenico Cassini"]]}, {"item": "Rhea", "time": "1672-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Rhea_(moon)", "extra": [["discovered_by", "Giovanni Domenico Cassini"]]}, {"item": "Dione", "time": "1684-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Dione_(moon)", "extra": [["discovered_by", "Giovanni Domenico Cassini"]]}, {"item": "Tethys", "time": "1684-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Tethys_(moon)", "extra": [["discovered_by", "Giovanni Domenico Cassini"]]}, {"item": "Uranus", "time": "1781-01-01", "precision": "year", "group": "Uranus", "kind": "Ground-based telescope", "emphasis": true, "detail": "The first planet found with a telescope", "source": "https://en.wikipedia.org/wiki/Uranus", "extra": [["discovered_by", "William Herschel"]]}, {"item": "Oberon", "time": "1787-01-01", "precision": "year", "group": "Uranus", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Oberon_(moon)", "extra": [["discovered_by", "William Herschel"]]}, {"item": "Titania", "time": "1787-01-01", "precision": "year", "group": "Uranus", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Titania_(moon)", "extra": [["discovered_by", "William Herschel"]]}, {"item": "Enceladus", "time": "1789-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Enceladus", "extra": [["discovered_by", "William Herschel"]]}, {"item": "Mimas", "time": "1789-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Mimas_(moon)", "extra": [["discovered_by", "William Herschel"]]}, {"item": "Ceres", "time": "1801-01-01", "precision": "year", "group": "Asteroid belt", "kind": "Ground-based telescope", "emphasis": true, "detail": "", "source": "https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)", "extra": [["discovered_by", "Giuseppe Piazzi"]]}, {"item": "Vesta", "time": "1807-01-01", "precision": "year", "group": "Asteroid belt", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/4_Vesta", "extra": [["discovered_by", "Heinrich Wilhelm Olbers"]]}, {"item": "Neptune", "time": "1846-01-01", "precision": "year", "group": "Neptune", "kind": "Ground-based telescope", "emphasis": true, "detail": "Found within a degree of Le Verrier's predicted position", "source": "https://en.wikipedia.org/wiki/Discovery_of_Neptune", "extra": [["discovered_by", "Johann Gottfried Galle"]]}, {"item": "Triton", "time": "1846-01-01", "precision": "year", "group": "Neptune", "kind": "Ground-based telescope", "emphasis": false, "detail": "17 days after Neptune was found", "source": "https://en.wikipedia.org/wiki/Triton_(moon)", "extra": [["discovered_by", "William Lassell"]]}, {"item": "Hyperion", "time": "1848-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "Independently of the Bonds", "source": "https://en.wikipedia.org/wiki/Hyperion_(moon)", "extra": [["discovered_by", "William Lassell, William Cranch Bond and George Phillips Bond"]]}, {"item": "Ariel", "time": "1851-01-01", "precision": "year", "group": "Uranus", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Ariel_(moon)", "extra": [["discovered_by", "William Lassell"]]}, {"item": "Umbriel", "time": "1851-01-01", "precision": "year", "group": "Uranus", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Umbriel", "extra": [["discovered_by", "William Lassell"]]}, {"item": "Deimos", "time": "1877-01-01", "precision": "year", "group": "Mars", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Deimos_(moon)", "extra": [["discovered_by", "Asaph Hall"]]}, {"item": "Phobos", "time": "1877-01-01", "precision": "year", "group": "Mars", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Phobos_(moon)", "extra": [["discovered_by", "Asaph Hall"]]}, {"item": "Amalthea", "time": "1892-01-01", "precision": "year", "group": "Jupiter", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Amalthea_(moon)", "extra": [["discovered_by", "E. E. Barnard"]]}, {"item": "Phoebe", "time": "1899-01-01", "precision": "year", "group": "Saturn", "kind": "Ground-based telescope", "emphasis": false, "detail": "The first moon found in a photograph", "source": "https://en.wikipedia.org/wiki/Phoebe_(moon)", "extra": [["discovered_by", "William Henry Pickering"]]}, {"item": "Pluto", "time": "1930-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Ground-based telescope", "emphasis": true, "detail": "", "source": "https://en.wikipedia.org/wiki/Pluto", "extra": [["discovered_by", "Clyde Tombaugh"]]}, {"item": "Miranda", "time": "1948-01-01", "precision": "year", "group": "Uranus", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Miranda_(moon)", "extra": [["discovered_by", "Gerard Kuiper"]]}, {"item": "Nereid", "time": "1949-01-01", "precision": "year", "group": "Neptune", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Nereid_(moon)", "extra": [["discovered_by", "Gerard Kuiper"]]}, {"item": "Charon", "time": "1978-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Charon_(moon)", "extra": [["discovered_by", "James Christy"]]}, {"item": "Pandora", "time": "1980-01-01", "precision": "year", "group": "Saturn", "kind": "Spacecraft", "emphasis": false, "detail": "In Voyager 1 images", "source": "https://en.wikipedia.org/wiki/Pandora_(moon)", "extra": [["discovered_by", "Voyager 1"]]}, {"item": "Prometheus", "time": "1980-01-01", "precision": "year", "group": "Saturn", "kind": "Spacecraft", "emphasis": false, "detail": "In Voyager 1 images", "source": "https://en.wikipedia.org/wiki/Prometheus_(moon)", "extra": [["discovered_by", "Voyager 1"]]}, {"item": "Proteus", "time": "1989-01-01", "precision": "year", "group": "Neptune", "kind": "Spacecraft", "emphasis": false, "detail": "In Voyager 2 images", "source": "https://en.wikipedia.org/wiki/Proteus_(moon)", "extra": [["discovered_by", "Voyager 2"]]}, {"item": "Dysnomia", "time": "2005-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Ground-based telescope", "emphasis": false, "detail": "", "source": "https://en.wikipedia.org/wiki/Dysnomia_(moon)", "extra": [["discovered_by", "Mike Brown"]]}, {"item": "Eris", "time": "2005-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Ground-based telescope", "emphasis": true, "detail": "With Chad Trujillo and David Rabinowitz", "source": "https://en.wikipedia.org/wiki/Eris_(dwarf_planet)", "extra": [["discovered_by", "Mike Brown"]]}, {"item": "Hydra", "time": "2005-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Space telescope", "emphasis": false, "detail": "In Hubble images", "source": "https://en.wikipedia.org/wiki/Hydra_(moon)", "extra": [["discovered_by", "Hubble Space Telescope"]]}, {"item": "Makemake", "time": "2005-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Ground-based telescope", "emphasis": true, "detail": "With Chad Trujillo and David Rabinowitz", "source": "https://en.wikipedia.org/wiki/Makemake", "extra": [["discovered_by", "Mike Brown"]]}, {"item": "Nix", "time": "2005-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Space telescope", "emphasis": false, "detail": "In Hubble images", "source": "https://en.wikipedia.org/wiki/Nix_(moon)", "extra": [["discovered_by", "Hubble Space Telescope"]]}, {"item": "Arrokoth", "time": "2014-01-01", "precision": "year", "group": "Beyond Neptune", "kind": "Space telescope", "emphasis": false, "detail": "In a Hubble search for a New Horizons target", "source": "https://en.wikipedia.org/wiki/486958_Arrokoth", "extra": [["discovered_by", "Hubble Space Telescope"]]}]}</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+const data = JSON.parse(document.getElementById("timeline-data").textContent);
+const N_KINDS = 7; // the most common kinds get Dark2 and their own shape; the rest share grey circles
+const SHAPES = [d3.symbolCircle, d3.symbolTriangle, d3.symbolSquare, d3.symbolDiamond,
+                d3.symbolCross, d3.symbolStar, d3.symbolWye];
+const kindIndex = new Map(data.kinds.map((k, i) => [k, i]));
+const colour = (k) => { const i = kindIndex.get(k); return i === undefined || i >= N_KINDS ? "var(--k-other)" : `var(--k-${i})`; };
+const shape = (k) => { const i = kindIndex.get(k); return i === undefined || i >= N_KINDS ? d3.symbolCircle : SHAPES[i]; };
+const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+// URLs from the data become links only if they are absolute http(s); anything else
+// (javascript:, data:, relative paths) is shown as plain text or dropped.
+const safeUrl = (u) => {
+  try { const p = new URL(String(u)); return p.protocol === "http:" || p.protocol === "https:" ? p.href : null; }
+  catch (err) { return null; }
+};
+const safeLink = (u, text) => { const s = safeUrl(u); return s ? `<a href="${esc(s)}" target="_blank" rel="noopener">${esc(text)}</a>` : ""; };
+
+// ISO text -> Date in UTC; setUTCFullYear keeps years below 100 as written
+function toDate(iso) {
+  const [day, clock] = iso.split("T");
+  const [y, m, d] = day.split("-").map(Number);
+  const [hh, mm, ss] = (clock || "0:0:0").split(":").map(Number);
+  const t = new Date(0);
+  t.setUTCFullYear(y, m - 1, d);
+  t.setUTCHours(hh, mm, ss, 0);
+  return t;
+}
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function when(e) {
+  const t = toDate(e.time), y = t.getUTCFullYear();
+  if (e.precision === "year") return String(y);
+  if (e.precision === "month") return `${MONTHS[t.getUTCMonth()]} ${y}`;
+  if (e.precision === "day") return `${t.getUTCDate()} ${MONTHS[t.getUTCMonth()]} ${y}`;
+  return e.time.replace("T", " ").slice(0, 16) + " UTC";
+}
+
+const events = data.events.map((e) => ({ ...e, date: toDate(e.time) }));
+const o = data.overall;
+const yearOf = (t) => t.split("-")[0];
+const span = yearOf(o.First) === yearOf(o.Last) ? yearOf(o.First) : `${yearOf(o.First)}\u2013${yearOf(o.Last)}`;
+d3.select("#stats").text(`${o["# of Events"]} events \u00b7 ${o["# of Groups"]} groups \u00b7 ${span}` +
+  (data.kinds.length ? ` \u00b7 ${data.kinds.length} kinds` : ""));
+d3.select("#sources").html(data.sources.length
+  ? "Data: " + data.sources.map((s) => safeLink(s.url, s.label) || esc(s.label)).join(" \u00b7 ")
+  : null);
+
+// kind chips
+const active = new Set(data.kinds.concat([""]));
+const counts = d3.rollup(events, (v) => v.length, (e) => e.kind);
+d3.select("#kinds").selectAll("button").data(data.kinds).join("button").attr("class", "on")
+  .html((k) => `<svg width="10" height="10" viewBox="-5 -5 10 10"><path d="${d3.symbol(shape(k), 40)()}" fill="${colour(k)}"/></svg>${esc(k)} (${counts.get(k)})`)
+  .on("click", function (ev, k) {
+    if (active.has(k)) active.delete(k); else active.add(k);
+    d3.select(this).classed("on", active.has(k));
+    draw(); table();
+  });
+
+// layout
+const ROW = 46, M = { top: 22, right: 20, bottom: 28 };
+const chart = d3.select("#chart");
+const svg = chart.append("svg");
+const rowOf = new Map(data.groups.map((g, i) => [g, i]));
+const height = M.top + M.bottom + ROW * data.groups.length;
+svg.attr("height", height);
+const labelWidth = Math.min(200, 12 + d3.max(data.groups, (g) => g.length) * 7);
+const extent = d3.extent(events, (e) => e.date);
+const DAY = 864e5;
+const pad = extent[1] - extent[0] ? Math.max((extent[1] - extent[0]) * 0.03, DAY) : 365 * DAY;   // 3% each side; a year if all at once
+const x0 = d3.scaleUtc().domain([new Date(+extent[0] - pad), new Date(+extent[1] + pad)]);
+let x = x0.copy();
+
+const gEras = svg.append("g");
+const gRows = svg.append("g");
+const gAxis = svg.append("g").attr("class", "axis");
+const gMarks = svg.append("g");
+const gLabels = svg.append("g");
+const clip = svg.append("defs").append("clipPath").attr("id", "plot").append("rect");
+[gEras, gMarks, gLabels].forEach((g) => g.attr("clip-path", "url(#plot)"));
+
+const rowY = (g) => M.top + ROW * rowOf.get(g) + ROW / 2;
+const size = (e) => (e.emphasis ? 120 : 52);
+
+// place marks on their row, nudged up or down so neighbours don't overlap
+function dodge(list) {
+  const R = 4.5, STEP = 2 * R, placed = new Map();   // R: radius of a plain mark
+  for (const e of list) {
+    const px = x(e.date), row = placed.get(e.group) || [];
+    let off = 0;
+    for (const k of [0, -1, 1, -2, 2]) {          // slots up and down the row, nearest first
+      const tryOff = k * STEP;
+      if (Math.abs(tryOff) > ROW / 2 - R) continue;
+      if (!row.some((p) => Math.abs(p.x - px) < STEP && Math.abs(p.off - tryOff) < STEP)) { off = tryOff; break; }
+    }
+    row.push({ x: px, off });
+    placed.set(e.group, row);
+    e.y = rowY(e.group) + off;
+  }
+}
+
+let width = 0, pinned = null;
+const tip = d3.select("#tip");
+function show(e) {
+  const src = e.source && safeUrl(e.source) ? `<div class="meta">${safeLink(e.source, "source")}</div>` : "";
+  const extra = e.extra.length ? `<div class="meta">${e.extra.map(([k, v]) => esc(k) + ": " + esc(v)).join(" \u00b7 ")}</div>` : "";
+  tip.attr("hidden", null).html(
+    `<b>${esc(e.item)}</b><div class="meta">${esc(when(e))} \u00b7 ${esc(e.group)}${e.kind ? " \u00b7 " + esc(e.kind) : ""}</div>` +
+    extra + (e.detail ? `<div class="meta">${esc(e.detail)}</div>` : "") + src);
+}
+function hide() { if (!pinned) tip.attr("hidden", true); }
+
+function draw() {
+  width = chart.node().clientWidth;
+  const left = labelWidth;
+  x.range([left, width - M.right]);
+  x0.range([left, width - M.right]);
+  svg.attr("viewBox", `0 0 ${width} ${height}`);
+  clip.attr("x", left).attr("y", 0).attr("width", width - M.right - left).attr("height", height);
+
+  const top = M.top, bottom = height - M.bottom;
+  const eras = gEras.selectAll("g").data(data.eras).join((en) => { const g = en.append("g").attr("class", "era"); g.append("rect"); g.append("text"); return g; });
+  eras.select("rect").attr("x", (d) => x(toDate(d.start))).attr("y", top - 16)
+    .attr("width", (d) => Math.max(0, (d.end ? x(toDate(d.end)) : width) - x(toDate(d.start)))).attr("height", bottom - top + 16);
+  // era labels start at the band's left edge, kept inside the plot
+  eras.select("text").attr("x", (d) => Math.max(left, x(toDate(d.start))) + 4).attr("y", top - 5).text((d) => d.label);
+
+  gRows.selectAll("g").data(data.groups).join((en) => { const g = en.append("g"); g.append("line").attr("class", "row-line"); g.append("text").attr("class", "row-label"); return g; })
+    .call((g) => g.select("line").attr("x1", left).attr("x2", width - M.right).attr("y1", rowY).attr("y2", rowY))
+    .call((g) => g.select("text").attr("x", left - 10).attr("y", (d) => rowY(d) + 4).text((d) => d));
+
+  gAxis.attr("transform", `translate(0,${bottom})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor((width - left) / 90))).tickSizeOuter(0));
+
+  const shown = events.filter((e) => active.has(e.kind));
+  dodge(shown);
+  gMarks.selectAll("path").data(shown, (e) => e.item + e.time).join("path")
+    .attr("class", (e) => "mark" + (e === pinned ? " pinned" : ""))
+    .attr("d", (e) => d3.symbol(shape(e.kind), size(e))())
+    .attr("fill", (e) => colour(e.kind))
+    .attr("transform", (e) => `translate(${x(e.date)},${e.y})`)
+    .on("mouseenter", (ev, e) => { if (!pinned) show(e); })
+    .on("mouseleave", hide)
+    .on("click", (ev, e) => { ev.stopPropagation(); pinned = pinned === e ? null : e; if (pinned) show(e); else hide(); draw(); });
+  // labels sit to the right of their mark, or to the left near the right edge
+  const flip = (e) => x(e.date) > width - M.right - 110;
+  const inView = (e) => x(e.date) >= left && x(e.date) <= width - M.right;
+  gLabels.selectAll("text").data(shown.filter((e) => e.emphasis && inView(e)), (e) => e.item + e.time).join("text")
+    .attr("class", "mark-label").attr("x", (e) => x(e.date) + (flip(e) ? -9 : 9)).attr("y", (e) => e.y - 7)
+    .attr("text-anchor", (e) => (flip(e) ? "end" : "start"))
+    .text((e) => `${e.item} ${when(e)}`);
+}
+
+// zoom and pan along time only
+const zoom = d3.zoom().scaleExtent([1, 5000])
+  .filter((ev) => !ev.button && ev.type !== "dblclick")
+  .on("zoom", (ev) => { x = ev.transform.rescaleX(x0); draw(); });
+svg.call(zoom);
+svg.on("click", () => { if (pinned) { pinned = null; hide(); draw(); } });
+d3.select("#reset").on("click", () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity));
+window.addEventListener("resize", () => { zoom.translateExtent([[labelWidth, 0], [chart.node().clientWidth - M.right, height]]); draw(); });
+zoom.extent([[labelWidth, 0], [chart.node().clientWidth - M.right, height]]).translateExtent([[labelWidth, 0], [chart.node().clientWidth - M.right, height]]);
+
+// table view: the events currently shown
+let sortKey = "time", sortDir = 1;
+d3.selectAll("#table th").on("click", function () {
+  const k = this.dataset.key;
+  sortDir = k === sortKey ? -sortDir : 1; sortKey = k; table();
+});
+function table() {
+  const rows = events.filter((e) => active.has(e.kind))
+    .sort((a, b) => sortDir * d3.ascending(String(a[sortKey]), String(b[sortKey])) || d3.ascending(a.time, b.time));
+  d3.select("#table-count").text(`(${rows.length})`);
+  d3.select("#table tbody").selectAll("tr").data(rows).join("tr").html((e) =>
+    `<td>${esc(when(e))}</td><td>${esc(e.item)}</td><td>${esc(e.group)}</td><td>${esc(e.kind)}</td>` +
+    `<td>${esc(e.detail)}</td><td>${safeLink(e.source, "link")}</td>`);
+}
+
+draw();
+table();
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+# What the brew script needs (brew provides it; listed for local runs and CI).
+pandas

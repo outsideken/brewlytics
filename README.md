@@ -19,7 +19,8 @@ This repository is a work in progress.
 
 * Analytic Workflows
     * [Model - SpaceX Starlink Constellation Dataset](https://demo.brewlytics.com/app/#/build/64ab057a-2477-4309-b6fe-bfae7403c185)
-    * [d3.js Force-Directed Network Graph](https://github.com/outsideken/brewlytics/tree/main/models/d3js/Force-Directed%20Network%20Graph): nodes + edges tables → interactive d3 page (examples: The Simpsons, Les Misérables, Florentine families, Henry VIII, Star Trek)
+    * [d3.js Force-Directed Network Graph](https://github.com/outsideken/brewlytics/tree/main/models/d3js/Force-Directed%20Network%20Graph): nodes + edges tables → interactive d3 page (examples: The Simpsons, Les Misérables, Florentine families, Henry VIII, Star Trek, the Solar System)
+    * [d3.js Timeline](https://github.com/outsideken/brewlytics/tree/main/models/d3js/Timeline): events table → interactive, zoomable d3 timeline page (example: Solar System discoveries)
     
 * brewlytics Machine Learning
     * [Classify Ellipse Dataset Using a Trained 6-Class DecisionTreeClassifier](https://demo.brewlytics.com/app/#/build/cb916f8a-b83a-44b4-cbbc-499a3a3b6a27)

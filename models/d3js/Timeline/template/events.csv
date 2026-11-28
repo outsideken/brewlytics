@@ -1,0 +1,10 @@
+item,time,group,kind,emphasis,detail,source
+Project started,2024-01-08,Planning,Milestone,Y,Kick-off meeting,https://example.org/kickoff
+Requirements agreed,2024-02,Planning,Decision,,,
+First prototype,2024-03-15,Build,Release,,Internal only,
+Design review,2024-03-20,Planning,Decision,,,
+Beta,2024-06-01,Build,Release,Y,Opened to ten users,https://example.org/beta
+Bug bash,2024-06-12T14:00:00Z,Build,Meeting,,Two hours,
+Launch,2024-09-02,Launch,Milestone,Y,,https://example.org/launch
+Retrospective,2024-09-20,Launch,Meeting,,,
+Next plan,2025,Planning,Decision,,Year only,

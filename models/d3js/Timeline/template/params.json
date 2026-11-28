@@ -1,0 +1,7 @@
+{
+  "Timeline Title": "A d3.js Timeline",
+  "Timeline Filename": "timeline.html",
+  "Data Sources": {"Example source": "https://example.org/"},
+  "Group Order": ["Planning", "Build", "Launch"],
+  "Eras": [{"label": "Beta period", "start": "2024-06-01", "end": "2024-09-02"}]
+}

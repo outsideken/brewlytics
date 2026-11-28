@@ -1,0 +1,12 @@
+{
+  "Timeline Title": "When Did We Find Them? Solar System Discoveries: A d3.js Timeline",
+  "Timeline Filename": "Solar System Discoveries",
+  "Data Sources": {"Wikipedia: Timeline of discovery of Solar System planets and their moons": "https://en.wikipedia.org/wiki/Timeline_of_discovery_of_Solar_System_planets_and_their_moons"},
+  "Schema": {
+    "events": {"item": "body", "time": "discovered", "group": "system", "kind": "method",
+               "emphasis": "major", "detail": "note"},
+    "tooltip": ["discovered_by"]
+  },
+  "Group Order": ["Mars", "Asteroid belt", "Jupiter", "Saturn", "Uranus", "Neptune", "Beyond Neptune"],
+  "Eras": [{"label": "Space age", "start": "1957-10-04"}]
+}

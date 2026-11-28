@@ -7,6 +7,7 @@ anyone can download and open in a browser.
 | workflow | what it shows | example |
 |---|---|---|
 | [Force-Directed Network Graph](Force-Directed%20Network%20Graph/) | Entities and their relationships, laid out by d3-force, sized by PageRank, coloured by Louvain community | The Simpsons, Les Misérables, Florentine families, Henry VIII, Star Trek, the Solar System |
+| [Timeline](Timeline/) | Dated events, one row per group, coloured and shaped by kind, zoomable in time | When the Solar System's planets and moons were discovered |
 
 Each workflow folder has the same shape:
 

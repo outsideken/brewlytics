@@ -45,3 +45,36 @@ jobs:
         run: python -c "import sys, networkx, pandas, scipy; print('python', sys.version.split()[0], '| networkx', networkx.__version__, '| pandas', pandas.__version__, '| scipy', scipy.__version__)"
       - name: Test
         run: python -m pytest -v ${{ matrix.pytest_args }} tests
+
+  d3js-timeline:
+    name: d3js Timeline (${{ matrix.name }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # The pins that produced the committed example.
+          - name: reference
+            python: '3.14'
+            requirements: requirements-reference.txt
+          # Oldest supported versions.
+          - name: floor
+            python: '3.11'
+            requirements: requirements-floor.txt
+    defaults:
+      run:
+        working-directory: models/d3js/Timeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4   # runs the page's own safeUrl and date JavaScript
+        with:
+          node-version: '22'
+      - name: Install
+        run: python -m pip install -r ${{ matrix.requirements }} pytest
+      - name: Versions
+        run: python -c "import sys, pandas; print('python', sys.version.split()[0], '| pandas', pandas.__version__)"
+      - name: Test
+        run: python -m pytest -v tests
